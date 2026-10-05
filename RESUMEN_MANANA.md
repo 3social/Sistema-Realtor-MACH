@@ -40,3 +40,9 @@
 - La clasificación (texto/flyers) ahora usa OpenAI (`gpt-4o-mini` con visión) en vez de Claude.
   Ya NO se necesita `ANTHROPIC_API_KEY`; solo `OPENAI_API_KEY` (clasificación + embeddings).
 - Pendiente: probar con mensajes reales y ajustar el modelo (`CLASSIFY_MODEL` en `lib/parser.ts`) si la extracción no es buena.
+
+## Grupos con Evolution API (puente no oficial)
+- Nuevo endpoint `POST /api/ingest` (header `x-ingest-secret`), probado en local.
+- `INGEST_SECRET` creada en Vercel (Production). Guía paso a paso: `EVOLUTION_SETUP.md`.
+- Evolution ya corre en Easypanel (`personaldev/evolution-api`, v2.3.7). Pendiente tuyo:
+  bypass/SSO en Vercel, crear instancia+webhook, escanear QR con el número dedicado.

@@ -78,6 +78,12 @@ REGLAS:
 export async function parseAndStoreMessage(payload: WebhookPayload): Promise<void> {
   console.log(`[parser] Procesando ${payload.source} de ${payload.from} en grupo ${payload.groupId}`)
 
+  // Evitar duplicados: Meta y Evolution reintentan webhooks
+  if (await isDuplicate(payload.messageId)) {
+    console.log(`[parser] Mensaje ${payload.messageId} ya procesado, ignorando`)
+    return
+  }
+
   // ── PASO 1: Clasificar con OpenAI (texto o visión) ─────────
   let parsed: ParsedProperty
 
@@ -127,6 +133,7 @@ export async function parseAndStoreMessage(payload: WebhookPayload): Promise<voi
       extras: {
         summary:   parsed.summary,
         source:    payload.source,
+        messageId: payload.messageId,
         mediaId:   payload.imageMediaId ?? null
       },
       embedding
@@ -200,6 +207,17 @@ async function classifyWithOpenAI(payload: WebhookPayload): Promise<ParsedProper
 // ============================================================
 // Helpers
 // ============================================================
+
+/** ¿Ya existe una propiedad guardada desde este mensaje? (ignora errores) */
+async function isDuplicate(messageId?: string): Promise<boolean> {
+  if (!messageId) return false
+  const { data } = await supabaseAdmin
+    .from('properties')
+    .select('id')
+    .eq('extras->>messageId', messageId)
+    .limit(1)
+  return (data?.length ?? 0) > 0
+}
 
 /** Construye el texto a guardar en raw_message */
 function buildRawMessage(payload: WebhookPayload): string {
