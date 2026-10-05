@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "supabase/schema.sql": {
-    "mtime": 1791180876.5234241,
-    "seen": 1791181505.0396242,
-    "ast_hash": "",
+    "mtime": 1791182363.4855304,
+    "seen": 1791214232.4777017,
+    "ast_hash": "c4d272b834d88b45d9cadba9980a1790",
     "semantic_hash": ""
   },
   "RESUMEN_MANANA.md": {
-    "mtime": 1791182420.0988321,
-    "seen": 1791182420.8609247,
-    "ast_hash": "6bdc33a90abdb4f3d4ab65106b17b55b",
+    "mtime": 1791214230.2229939,
+    "seen": 1791214232.4777157,
+    "ast_hash": "5090939f16fe6a4d18ec92166f0bf1b5",
     "semantic_hash": ""
   }
 }
