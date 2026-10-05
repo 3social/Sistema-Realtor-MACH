@@ -1,5 +1,10 @@
 @AGENTS.md
 
+## Proyecto
+PropertyMatch: grupos de WhatsApp → Evolution API → `/api/ingest` → OpenAI → Supabase → matches → dashboard.
+Estado y confirmaciones en `CHECKLIST.md`; infraestructura en `DEPLOY.md`; número/Evolution en `EVOLUTION_SETUP.md`.
+Convenciones obligatorias en `AGENTS.md` (solo OpenAI, clientes perezosos, RLS cerrada, sin secretos en el repo).
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PropertyMatch — Sistema Realtor MACH
 
-## Getting Started
+Lee los mensajes y flyers de **grupos de WhatsApp de realtors**, los clasifica como
+**oferta** o **demanda** con IA y detecta automáticamente los pares compatibles
+(matches) para mostrarlos en un dashboard.
 
-First, run the development server:
+## Cómo funciona
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Grupos de WhatsApp
+      │
+      ▼
+Número dedicado vinculado a Evolution API (Baileys, Easypanel)
+      │  webhook MESSAGES_UPSERT
+      ▼
+POST /api/ingest  (Vercel) ──►  lib/parser.ts
+                                 1. OpenAI (gpt-4o-mini, visión): oferta / demanda / ignorar + campos
+                                 2. OpenAI embeddings (text-embedding-3-small)
+                                 3. Supabase `properties` (pgvector)
+                                 4. lib/matcher.ts → función SQL `match_properties` → `matches`
+                                        │
+                                        ▼
+                           /dashboard  (GET/PATCH /api/matches)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+También existe `POST /api/webhook`, el webhook de la **API oficial de Meta** (solo chats
+directos; la Cloud API no entrega mensajes de grupos). Comparte el mismo pipeline.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
+Next.js 16 (App Router, Turbopack) · React 19 · Tailwind 4 · Supabase (Postgres + pgvector) ·
+OpenAI · Evolution API v2 · Vercel.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> Este Next.js tiene cambios incompatibles con versiones anteriores. Lee `AGENTS.md` y la
+> documentación en `node_modules/next/dist/docs/` antes de modificar rutas o convenciones.
 
-## Learn More
+## Estructura
+| Ruta | Función |
+|---|---|
+| `app/api/ingest/route.ts` | Entrada de grupos desde Evolution API (auth: `INGEST_SECRET`) |
+| `app/api/webhook/route.ts` | Webhook de Meta (verificación + mensajes; firma si hay `WHATSAPP_APP_SECRET`) |
+| `app/api/matches/route.ts` | Lista y actualiza el estado de los matches |
+| `app/api/properties/route.ts` | Consulta del pool de propiedades |
+| `app/dashboard/page.tsx` | Dashboard de matches |
+| `lib/parser.ts` | Clasificación y extracción con OpenAI, guardado y dedupe por `messageId` |
+| `lib/embeddings.ts`, `lib/openai.ts` | Embeddings y cliente OpenAI (creación perezosa) |
+| `lib/matcher.ts` | Búsqueda vectorial de contrapartes |
+| `lib/supabase.ts`, `lib/whatsapp.ts` | Clientes Supabase y descarga de media de Meta |
+| `supabase/schema.sql` | Esquema, función `match_properties` y RLS cerrada |
 
-To learn more about Next.js, take a look at the following resources:
+## Variables de entorno
+| Variable | Uso | Requerida |
+|---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | URL del proyecto Supabase | Sí |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Clave anon | Sí |
+| `SUPABASE_SERVICE_ROLE_KEY` | Clave service role (solo servidor) | Sí |
+| `OPENAI_API_KEY` | Clasificación y embeddings | Sí |
+| `INGEST_SECRET` | Secreto de `/api/ingest` (header `x-ingest-secret` o `?secret=`) | Sí (para grupos) |
+| `WHATSAPP_VERIFY_TOKEN`, `WHATSAPP_ACCESS_TOKEN`, `WHATSAPP_APP_SECRET` | API oficial de Meta | Solo si usas `/api/webhook` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Nunca se suben al repositorio (`.env*` está en `.gitignore`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Desarrollo local
+```bash
+npm install
+# crea .env.local con las variables de arriba
+npm run dev        # http://localhost:3000 → /dashboard
+npm run lint
+npx tsc --noEmit
+npm run build
+```
 
-## Deploy on Vercel
+## Documentación
+- [`DEPLOY.md`](DEPLOY.md): infraestructura y despliegue.
+- [`EVOLUTION_SETUP.md`](EVOLUTION_SETUP.md): conectar el número con Evolution API.
+- [`CHECKLIST.md`](CHECKLIST.md): confirmación de estado del sistema.
+- [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md): mapa del código (`graphify update .` lo regenera).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Avisos
+- Evolution/Baileys es un cliente **no oficial** de WhatsApp: usa un número dedicado, no envíes mensajes
+  desde él y entra a los grupos gradualmente. Hay riesgo de bloqueo del número.
+- El dashboard y `/api/matches`/`/api/properties` **no tienen login propio**; hoy los protege la
+  Vercel Authentication del proyecto. No la desactives sin agregar autenticación.

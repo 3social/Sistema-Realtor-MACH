@@ -1,99 +1,44 @@
-# 🚀 Guía de Deploy — WhatsApp Property Matcher
+# Despliegue — PropertyMatch
 
-## PASO 1 — Crear proyecto en Supabase
+## Infraestructura actual
+| Pieza | Dónde | Detalle |
+|---|---|---|
+| App | Vercel, proyecto `sistema-realtor-mach` (equipo "Michael's projects") | Deploy automático desde `main` |
+| Dominio | `https://sistema-realtor-mach-michael-proyectos.vercel.app` | Protegido por Vercel Authentication |
+| Base de datos | Supabase, proyecto `property-matcher-mach` (`lleotnonyipedqmyxbmm`, us-east-1) | Esquema de `supabase/schema.sql`, RLS cerrada |
+| Puente WhatsApp | Easypanel, proyecto `personaldev`, servicio `evolution-api` (v2.3.7) + `evolution-manager` | Instancia `propertymatch` (canal Baileys) |
+| IA | OpenAI | `gpt-4o-mini` (clasificación) y `text-embedding-3-small` (embeddings) |
 
-1. Ir a [supabase.com](https://supabase.com) → **New Project**
-2. Anotar la **Project URL** y las **API Keys** (Settings → API):
-   - `URL` → `NEXT_PUBLIC_SUPABASE_URL`
-   - `anon/public` key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `service_role` key → `SUPABASE_SERVICE_ROLE_KEY`
+## 1. Supabase
+1. Crea el proyecto y ejecuta `supabase/schema.sql` en el SQL Editor (habilita `vector`).
+2. Verifica que existan `properties` y `matches` con RLS activa y **sin** políticas para anon:
+   todo el acceso va por las rutas API con la service role.
+3. Copia URL, anon key y service role key (Project Settings → API).
 
----
+## 2. Vercel
+1. Importa el repo `3social/Sistema-Realtor-MACH` (rama `main`).
+2. Variables (Production), ver tabla de `README.md`. `SUPABASE_SERVICE_ROLE_KEY`, `OPENAI_API_KEY` e
+   `INGEST_SECRET` como *sensitive*.
+3. Tras cambiar variables hay que **redesplegar** (se aplican solo a despliegues nuevos).
+4. Deployment Protection: la Vercel Authentication sigue activa. Para que Evolution pueda llamar a
+   `/api/ingest`, crea un *Protection Bypass for Automation* y úsalo como `x-vercel-protection-bypass`
+   (header o parámetro de URL). No desactives la protección mientras el dashboard no tenga login.
 
-## PASO 2 — Ejecutar el Schema SQL
+## 3. Evolution API (grupos)
+Sigue [`EVOLUTION_SETUP.md`](EVOLUTION_SETUP.md): instancia Baileys `propertymatch`, webhook a
+`/api/ingest` con `MESSAGES_UPSERT` y Base64 activos, y escaneo del QR con el número dedicado.
 
-1. En tu proyecto Supabase → **SQL Editor** → **New Query**
-2. Copiar y pegar el contenido completo de `supabase/schema.sql`
-3. Click **Run** → verificar que no hay errores
-4. Confirmar en **Table Editor** que existen las tablas `properties` y `matches`
-
----
-
-## PASO 3 — Completar `.env.local`
-
-Abrir `.env.local` y completar los valores reales:
-
-```env
-WHATSAPP_VERIFY_TOKEN=    # un string secreto que tú inventas
-WHATSAPP_ACCESS_TOKEN=    # del portal de Meta
-WHATSAPP_APP_SECRET=      # Meta → App settings → Basic → App secret (valida la firma del webhook)
-WHATSAPP_PHONE_NUMBER_ID= # del portal de Meta
-OPENAI_API_KEY=           # de platform.openai.com (clasificación + embeddings)
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-```
-
----
-
-## PASO 4 — Probar en local
-
-```bash
-npm run dev
-```
-
-Abrir http://localhost:3000 → debe redirigir al dashboard.
-
----
-
-## PASO 5 — Deploy en Vercel
-
-```bash
-# Opción A: CLI de Vercel
-npx vercel --prod
-
-# Opción B: conectar el repo en vercel.com → Import Project
-```
-
-En Vercel → **Settings → Environment Variables**, agregar todas las variables del `.env.local`.
-
-> **Importante:** `SUPABASE_SERVICE_ROLE_KEY` debe marcarse como **Server-only**.
-
----
-
-## PASO 6 — Configurar Webhook en Meta
-
-1. Ir a [developers.facebook.com](https://developers.facebook.com)
-2. Tu App → **WhatsApp** → **Configuration** → **Webhook**
-3. Completar:
-   - **Callback URL:** `https://tu-dominio.vercel.app/api/webhook`
-   - **Verify Token:** el mismo valor de `WHATSAPP_VERIFY_TOKEN`
-4. Click **Verify and Save** → debe aparecer ✅
-5. En **Webhook Fields**, suscribirse a: `messages`
-
----
-
-## PASO 7 — Verificación final
-
-Enviar un mensaje de prueba al número de WhatsApp Business desde un grupo configurado:
-
-```
-Vendo casa en Escazú, 3 habitaciones, 2 baños, jardín, $180,000
-```
-
-Verificar en el dashboard que:
-- [ ] Aparece clasificado como **oferta**
-- [ ] Los campos se extrajeron correctamente
-- [ ] Si hay demandas compatibles en la BD, aparece un match
-
----
+## 4. API oficial de Meta (opcional, solo chats directos)
+Requiere `WHATSAPP_VERIFY_TOKEN`, `WHATSAPP_ACCESS_TOKEN` (token permanente de un System User) y
+`WHATSAPP_APP_SECRET`. En Meta → WhatsApp → Configuration: callback `…/api/webhook`, mismo verify
+token, suscripción al campo `messages`. La Cloud API **no entrega mensajes de grupos**.
 
 ## Troubleshooting
-
 | Problema | Solución |
-|----------|----------|
-| Webhook no verifica | Verificar `WHATSAPP_VERIFY_TOKEN` coincide exactamente |
-| Error 500 en webhook | Ver logs en Vercel → Functions |
-| Sin embeddings | Verificar `OPENAI_API_KEY` válida y con créditos |
-| Sin matches | Verificar función SQL `match_properties` ejecutada en Supabase |
-| Dashboard vacío | Verificar que `NEXT_PUBLIC_SUPABASE_*` variables están en Vercel |
+|---|---|
+| Build falla por credenciales | Los clientes de OpenAI se crean al usarse; revisa las variables de Supabase |
+| `/api/ingest` responde 401 (HTML de Vercel) | Falta o es incorrecto el bypass de protección |
+| `/api/ingest` responde 401 (texto "Unauthorized") | `INGEST_SECRET` distinto al de la URL/header |
+| Llega el webhook pero no hay propiedades | Revisa Logs de Vercel: clasificación `ignore`, `OPENAI_API_KEY` o Supabase |
+| Sin matches | Comprueba que existan oferta y demanda compatibles y que `match_properties` exista |
+| La sesión de WhatsApp se cae | Vuelve a escanear el QR en Evolution Manager |
