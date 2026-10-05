@@ -3,14 +3,7 @@
 // Generación de embeddings vectoriales con OpenAI
 // Modelo: text-embedding-3-small (1536 dims, $0.02/1M tokens)
 // ============================================================
-import OpenAI from 'openai'
-
-// Cliente perezoso: no se crea al importar el módulo, así `next build`
-// no falla si OPENAI_API_KEY aún no está configurada (se exige en runtime).
-let openai: OpenAI | undefined
-function getOpenAI(): OpenAI {
-  return (openai ??= new OpenAI({ apiKey: process.env.OPENAI_API_KEY! }))
-}
+import { getOpenAI } from './openai'
 
 /**
  * Genera un embedding vectorial de 1536 dimensiones para un texto dado.

@@ -1,25 +1,23 @@
 // ============================================================
 // lib/parser.ts
-// Clasificación y extracción de propiedades con Claude
+// Clasificación y extracción de propiedades con OpenAI
 //
 // Soporta 3 modos de entrada:
-//   'text'       → Claude recibe solo el texto del mensaje
-//   'image'      → Claude Vision analiza la imagen (flyer, foto, captura)
-//   'image+text' → Claude Vision analiza imagen + caption del realtor
+//   'text'       → el modelo recibe solo el texto del mensaje
+//   'image'      → visión de OpenAI analiza la imagen (flyer, foto, captura)
+//   'image+text' → visión de OpenAI analiza imagen + caption del realtor
 //
-// Flujo: payload → Claude (text o vision) → JSON → embed → Supabase → matcher
+// Flujo: payload → OpenAI (text o vision) → JSON → embed → Supabase → matcher
 // ============================================================
-import Anthropic from '@anthropic-ai/sdk'
+import type { ChatCompletionContentPart } from 'openai/resources/chat/completions'
+import { getOpenAI } from './openai'
 import { supabaseAdmin } from './supabase'
 import { generateEmbedding, buildEmbeddingText } from './embeddings'
 import { findMatches } from './matcher'
 import type { WebhookPayload, ParsedProperty } from '@/types'
 
-// Cliente perezoso (ver lib/embeddings.ts): evita fallos en build sin claves.
-let claude: Anthropic | undefined
-function getClaude(): Anthropic {
-  return (claude ??= new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! }))
-}
+/** Modelo con visión usado para clasificar texto, flyers e imágenes */
+const CLASSIFY_MODEL = 'gpt-4o-mini'
 
 // ============================================================
 // System prompt — especializado en Costa Rica / LATAM
@@ -72,7 +70,7 @@ REGLAS:
 
 /**
  * Procesa un mensaje de WhatsApp (texto, imagen o imagen+caption):
- * 1. Clasifica y extrae datos con Claude (texto o visión)
+ * 1. Clasifica y extrae datos con OpenAI (texto o visión)
  * 2. Genera embedding semántico con OpenAI
  * 3. Guarda en Supabase
  * 4. Busca matches automáticamente
@@ -80,13 +78,13 @@ REGLAS:
 export async function parseAndStoreMessage(payload: WebhookPayload): Promise<void> {
   console.log(`[parser] Procesando ${payload.source} de ${payload.from} en grupo ${payload.groupId}`)
 
-  // ── PASO 1: Clasificar con Claude (texto o visión) ─────────
+  // ── PASO 1: Clasificar con OpenAI (texto o visión) ─────────
   let parsed: ParsedProperty
 
   try {
-    parsed = await classifyWithClaude(payload)
+    parsed = await classifyWithOpenAI(payload)
   } catch (error) {
-    console.error('[parser] Error al clasificar con Claude:', error)
+    console.error('[parser] Error al clasificar con OpenAI:', error)
     return
   }
 
@@ -148,71 +146,50 @@ export async function parseAndStoreMessage(payload: WebhookPayload): Promise<voi
 }
 
 // ============================================================
-// Clasificación con Claude — modo texto o visión
+// Clasificación con OpenAI — modo texto o visión
 // ============================================================
 
-async function classifyWithClaude(payload: WebhookPayload): Promise<ParsedProperty> {
-  let messageContent: Anthropic.MessageParam['content']
+async function classifyWithOpenAI(payload: WebhookPayload): Promise<ParsedProperty> {
+  let userContent: string | ChatCompletionContentPart[]
 
   if (payload.source === 'text') {
     // ── Solo texto ─────────────────────────────────────────────
-    messageContent = payload.text ?? ''
+    userContent = payload.text ?? ''
 
-  } else if (payload.source === 'image') {
-    // ── Solo imagen (flyer sin caption) ───────────────────────
+  } else {
+    // ── Imagen (flyer) con o sin caption ───────────────────────
     if (!payload.imageBase64 || !payload.imageMimeType) {
       throw new Error('Imagen sin datos base64')
     }
 
-    messageContent = [
-      {
-        type: 'image',
-        source: {
-          type:       'base64',
-          media_type: payload.imageMimeType,
-          data:       payload.imageBase64
-        }
-      },
-      {
-        type: 'text',
-        text: 'Analiza esta imagen inmobiliaria de WhatsApp y extrae toda la información de la propiedad que puedas ver.'
-      }
-    ]
+    const instruction = payload.source === 'image'
+      ? 'Analiza esta imagen inmobiliaria de WhatsApp y extrae toda la información de la propiedad que puedas ver.'
+      : `El realtor adjuntó esta imagen junto con el siguiente mensaje:\n\n"${payload.text}"\n\nAnaliza tanto la imagen como el texto para extraer toda la información de la propiedad.`
 
-  } else {
-    // ── Imagen + caption ───────────────────────────────────────
-    if (!payload.imageBase64 || !payload.imageMimeType) {
-      throw new Error('Imagen+texto sin datos base64')
-    }
-
-    messageContent = [
+    userContent = [
       {
-        type: 'image',
-        source: {
-          type:       'base64',
-          media_type: payload.imageMimeType,
-          data:       payload.imageBase64
-        }
+        type: 'image_url',
+        image_url: { url: `data:${payload.imageMimeType};base64,${payload.imageBase64}` }
       },
-      {
-        type: 'text',
-        text: `El realtor adjuntó esta imagen junto con el siguiente mensaje:\n\n"${payload.text}"\n\nAnaliza tanto la imagen como el texto para extraer toda la información de la propiedad.`
-      }
+      { type: 'text', text: instruction }
     ]
   }
 
-  const response = await getClaude().messages.create({
-    model:      'claude-sonnet-4-6',
-    max_tokens: 700,
-    system:     SYSTEM_PROMPT,
-    messages:   [{ role: 'user', content: messageContent }]
+  const response = await getOpenAI().chat.completions.create({
+    model:           CLASSIFY_MODEL,
+    max_tokens:      700,
+    response_format: { type: 'json_object' },
+    messages: [
+      { role: 'system', content: SYSTEM_PROMPT },
+      { role: 'user',   content: userContent }
+    ]
   })
 
-  const content = response.content[0]
-  if (content.type !== 'text') throw new Error('Claude no retornó texto')
+  const content = response.choices[0]?.message?.content
+  if (!content) throw new Error('OpenAI no retornó contenido')
 
   // Limpiar posibles bloques markdown
-  const cleanJson = content.text
+  const cleanJson = content
     .replace(/```json\n?/g, '')
     .replace(/```\n?/g, '')
     .trim()

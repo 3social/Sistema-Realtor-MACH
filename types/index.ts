@@ -21,7 +21,7 @@ export interface WebhookPayload {
   imageMediaId?: string          // ID de media en Meta (para debugging)
 }
 
-/** Resultado que devuelve Claude al clasificar un mensaje */
+/** Resultado que devuelve el modelo al clasificar un mensaje */
 export interface ParsedProperty {
   type: 'offer' | 'demand' | 'ignore'
   property_type: 'casa' | 'apartamento' | 'local' | 'terreno' | 'oficina' | null

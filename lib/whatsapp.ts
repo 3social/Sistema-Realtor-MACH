@@ -3,10 +3,10 @@
 // Helpers para interactuar con la Meta WhatsApp Business API
 //
 // Responsabilidad: descargar media (imágenes) usando el media ID
-// que llega en el webhook y convertirla a base64 para Claude Vision
+// que llega en el webhook y convertirla a base64 para visión de OpenAI
 // ============================================================
 
-/** Tipos MIME soportados por Claude Vision */
+/** Tipos MIME soportados por visión de OpenAI */
 type SupportedMime = 'image/jpeg' | 'image/png' | 'image/webp' | 'image/gif'
 
 const SUPPORTED_MIMES: SupportedMime[] = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']

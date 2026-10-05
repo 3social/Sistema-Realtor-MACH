@@ -110,7 +110,7 @@ export async function POST(req: NextRequest) {
           continue
         }
 
-        // Descargar imagen de Meta → base64 para Claude Vision
+        // Descargar imagen de Meta → base64 para visión de OpenAI
         const media = await downloadWhatsAppMedia(mediaId)
         if (!media) {
           console.warn(`[webhook] No se pudo descargar imagen ${mediaId}, ignorando`)

@@ -10,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Property Matcher — WhatsApp Inmobiliario',
-  description: 'Sistema inteligente de matching automático entre ofertas y demandas de propiedades desde grupos de WhatsApp. Powered by Claude AI.',
+  description: 'Sistema inteligente de matching automático entre ofertas y demandas de propiedades desde grupos de WhatsApp. Powered by AI.',
   keywords: ['inmobiliario', 'whatsapp', 'matching', 'propiedades', 'costa rica', 'realtor'],
   authors: [{ name: 'MACH Realtor' }],
   openGraph: {

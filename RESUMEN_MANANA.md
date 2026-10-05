@@ -35,3 +35,8 @@
 - Validar con un schema (zod) el JSON que devuelve Claude.
 - README genérico: reescribir.
 - Aviso de Next 16: `middleware` ahora se llama `proxy` (ver docs en `node_modules/next/dist/docs/`).
+
+## Actualización: solo OpenAI
+- La clasificación (texto/flyers) ahora usa OpenAI (`gpt-4o-mini` con visión) en vez de Claude.
+  Ya NO se necesita `ANTHROPIC_API_KEY`; solo `OPENAI_API_KEY` (clasificación + embeddings).
+- Pendiente: probar con mensajes reales y ajustar el modelo (`CLASSIFY_MODEL` en `lib/parser.ts`) si la extracción no es buena.
