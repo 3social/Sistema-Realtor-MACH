@@ -14,13 +14,14 @@
 ## Estado de la infraestructura (revisado por MCP)
 - **Vercel** (equipo "Michael's projects"): NO hay proyecto de este repo
   (solo barber-book, lalogiabarberia, portafolio-michael, juntiva-nextjs). Falta importarlo.
-- **Supabase**: NO hay proyecto para Property Matcher (existen flamia-control, labcontrol,
-  mono-agency-memory, barberbook, Agente_APA7). Falta crearlo y correr `supabase/schema.sql`.
+- **Supabase**: proyecto `property-matcher-mach` creado (ref `lleotnonyipedqmyxbmm`, us-east-1,
+  `3social's Org`) con el schema aplicado. URL: https://lleotnonyipedqmyxbmm.supabase.co
+  La service role key se copia a mano desde Project Settings → API (nunca al repo/chat).
 - **Meta**: existe la app **"Property Matcher MACH"** (id 2056667298268873, eres admin).
   No pude inspeccionar webhook/permisos con las herramientas disponibles: revísalo a mano.
 
 ## Para salir a producción (orden)
-1. Crear proyecto Supabase → ejecutar `supabase/schema.sql` (habilita pgvector).
+1. ~~Supabase~~ ya creado y con schema (ver arriba).
 2. Importar el repo en Vercel; variables: ver `DEPLOY.md` (incluye `WHATSAPP_APP_SECRET`;
    `SUPABASE_SERVICE_ROLE_KEY` server-only).
 3. Meta → WhatsApp → Configuration: callback `https://<dominio>/api/webhook`, mismo
