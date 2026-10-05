@@ -30,58 +30,6 @@
       "source_location": "L19"
     },
     {
-      "id": "lib_whatsapp_mediadownloadresult",
-      "label": "MediaDownloadResult",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "mediadownloadresult",
-      "source_file": "lib/whatsapp.ts",
-      "source_location": "L17"
-    },
-    {
-      "id": "lib_whatsapp_supportedmime",
-      "label": "SupportedMime",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "supportedmime",
-      "source_file": "lib/whatsapp.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "types_index_messagesource",
-      "label": "MessageSource",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "messagesource",
-      "source_file": "types/index.ts",
-      "source_location": "L7"
-    },
-    {
-      "id": "types_index_webhookpayload",
-      "label": "WebhookPayload",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "webhookpayload",
-      "source_file": "types/index.ts",
-      "source_location": "L10"
-    },
-    {
       "id": "app_dashboard_page_matchcardprops",
       "label": "MatchCardProps",
       "_callable": true,
@@ -147,6 +95,19 @@
       "source_location": "L78"
     },
     {
+      "id": "types_index_messagesource",
+      "label": "MessageSource",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "dashboard/page.tsx",
+      "file_type": "code",
+      "norm_label": "messagesource",
+      "source_file": "types/index.ts",
+      "source_location": "L7"
+    },
+    {
       "id": "types_index_parsedproperty",
       "label": "ParsedProperty",
       "_callable": true,
@@ -160,13 +121,52 @@
       "source_location": "L25"
     },
     {
-      "id": "types_index_property",
-      "label": "Property",
+      "id": "types_index_webhookpayload",
+      "label": "WebhookPayload",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 2,
       "community_name": "dashboard/page.tsx",
+      "file_type": "code",
+      "norm_label": "webhookpayload",
+      "source_file": "types/index.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "lib_whatsapp_mediadownloadresult",
+      "label": "MediaDownloadResult",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "mediadownloadresult",
+      "source_file": "lib/whatsapp.ts",
+      "source_location": "L17"
+    },
+    {
+      "id": "lib_whatsapp_supportedmime",
+      "label": "SupportedMime",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "supportedmime",
+      "source_file": "lib/whatsapp.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "types_index_property",
+      "label": "Property",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "matches/route.ts",
       "file_type": "code",
       "norm_label": "property",
       "source_file": "types/index.ts",
@@ -207,78 +207,6 @@
       "norm_label": "secretmatches()",
       "source_file": "app/api/ingest/route.ts",
       "source_location": "L45"
-    },
-    {
-      "id": "app_api_webhook_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "app/api/webhook/route.ts",
-      "source_location": "L32"
-    },
-    {
-      "id": "app_api_webhook_route_hasvalidsignature",
-      "label": "hasValidSignature()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "hasvalidsignature()",
-      "source_file": "app/api/webhook/route.ts",
-      "source_location": "L18"
-    },
-    {
-      "id": "app_api_webhook_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "app/api/webhook/route.ts",
-      "source_location": "L48"
-    },
-    {
-      "id": "lib_whatsapp_downloadwhatsappmedia",
-      "label": "downloadWhatsAppMedia()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "downloadwhatsappmedia()",
-      "source_file": "lib/whatsapp.ts",
-      "source_location": "L32"
-    },
-    {
-      "id": "app_api_matches_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "dashboard/page.tsx",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "app/api/matches/route.ts",
-      "source_location": "L13"
-    },
-    {
-      "id": "app_api_matches_route_patch",
-      "label": "PATCH()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "dashboard/page.tsx",
-      "file_type": "code",
-      "norm_label": "patch()",
-      "source_file": "app/api/matches/route.ts",
-      "source_location": "L52"
     },
     {
       "id": "app_dashboard_page_dashboard",
@@ -377,7 +305,7 @@
       "source_location": "L37"
     },
     {
-      "id": "app_api_properties_route_get",
+      "id": "app_api_webhook_route_get",
       "label": "GET()",
       "_callable": true,
       "_origin": "ast",
@@ -385,8 +313,32 @@
       "community_name": "parser.ts",
       "file_type": "code",
       "norm_label": "get()",
-      "source_file": "app/api/properties/route.ts",
-      "source_location": "L10"
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "app_api_webhook_route_hasvalidsignature",
+      "label": "hasValidSignature()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "hasvalidsignature()",
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "app_api_webhook_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L48"
     },
     {
       "id": "lib_embeddings_buildembeddingtext",
@@ -413,18 +365,6 @@
       "source_location": "L14"
     },
     {
-      "id": "lib_matcher_findmatches",
-      "label": "findMatches()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "parser.ts",
-      "file_type": "code",
-      "norm_label": "findmatches()",
-      "source_file": "lib/matcher.ts",
-      "source_location": "L22"
-    },
-    {
       "id": "lib_openai_getopenai",
       "label": "getOpenAI()",
       "_callable": true,
@@ -446,7 +386,7 @@
       "file_type": "code",
       "norm_label": "buildrawmessage()",
       "source_file": "lib/parser.ts",
-      "source_location": "L223"
+      "source_location": "L260"
     },
     {
       "id": "lib_parser_classifywithopenai",
@@ -458,7 +398,7 @@
       "file_type": "code",
       "norm_label": "classifywithopenai()",
       "source_file": "lib/parser.ts",
-      "source_location": "L159"
+      "source_location": "L170"
     },
     {
       "id": "lib_parser_isduplicate",
@@ -470,7 +410,19 @@
       "file_type": "code",
       "norm_label": "isduplicate()",
       "source_file": "lib/parser.ts",
-      "source_location": "L212"
+      "source_location": "L249"
+    },
+    {
+      "id": "lib_parser_normalizeparsed",
+      "label": "normalizeParsed()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "normalizeparsed()",
+      "source_file": "lib/parser.ts",
+      "source_location": "L222"
     },
     {
       "id": "lib_parser_parseandstoremessage",
@@ -482,7 +434,19 @@
       "file_type": "code",
       "norm_label": "parseandstoremessage()",
       "source_file": "lib/parser.ts",
-      "source_location": "L78"
+      "source_location": "L89"
+    },
+    {
+      "id": "lib_whatsapp_downloadwhatsappmedia",
+      "label": "downloadWhatsAppMedia()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "downloadwhatsappmedia()",
+      "source_file": "lib/whatsapp.ts",
+      "source_location": "L32"
     },
     {
       "id": "app_layout_rootlayout",
@@ -507,6 +471,54 @@
       "norm_label": "home()",
       "source_file": "app/page.tsx",
       "source_location": "L3"
+    },
+    {
+      "id": "app_api_matches_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "app/api/matches/route.ts",
+      "source_location": "L13"
+    },
+    {
+      "id": "app_api_matches_route_patch",
+      "label": "PATCH()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "patch()",
+      "source_file": "app/api/matches/route.ts",
+      "source_location": "L52"
+    },
+    {
+      "id": "app_api_properties_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "app/api/properties/route.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "lib_matcher_findmatches",
+      "label": "findMatches()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "findmatches()",
+      "source_file": "lib/matcher.ts",
+      "source_location": "L29"
     },
     {
       "id": "eslint_config",
@@ -970,7 +982,7 @@
       "node_kind": "heading",
       "norm_label": "flujo de trabajo",
       "source_file": "AGENTS.md",
-      "source_location": "L24"
+      "source_location": "L26"
     },
     {
       "id": "agents_propertymatch_convenciones_del_proyecto",
@@ -1089,143 +1101,14 @@
       "source_location": "L20"
     },
     {
-      "id": "app_api_webhook_route",
-      "label": "webhook/route.ts",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "webhook/route.ts",
-      "source_file": "app/api/webhook/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_whatsapp",
-      "label": "whatsapp.ts",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "whatsapp.ts",
-      "source_file": "lib/whatsapp.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_whatsapp_supported_mimes",
-      "label": "SUPPORTED_MIMES",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "ingest/route.ts",
-      "file_type": "code",
-      "norm_label": "supported_mimes",
-      "source_file": "lib/whatsapp.ts",
-      "source_location": "L12"
-    },
-    {
       "id": "checklist",
       "label": "CHECKLIST.md",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "checklist.md",
-      "source_file": "CHECKLIST.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "checklist_1_c\u00f3digo",
-      "label": "1. C\u00f3digo",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1. codigo",
-      "source_file": "CHECKLIST.md",
-      "source_location": "L6"
-    },
-    {
-      "id": "checklist_2_base_de_datos_supabase_property_matcher_mach",
-      "label": "2. Base de datos (Supabase `property-matcher-mach`)",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2. base de datos (supabase `property-matcher-mach`)",
-      "source_file": "CHECKLIST.md",
-      "source_location": "L15"
-    },
-    {
-      "id": "checklist_3_vercel_sistema_realtor_mach",
-      "label": "3. Vercel (`sistema-realtor-mach`)",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. vercel (`sistema-realtor-mach`)",
-      "source_file": "CHECKLIST.md",
-      "source_location": "L21"
-    },
-    {
-      "id": "checklist_4_evolution_api_easypanel_personaldev",
-      "label": "4. Evolution API (Easypanel `personaldev`)",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. evolution api (easypanel `personaldev`)",
-      "source_file": "CHECKLIST.md",
-      "source_location": "L29"
-    },
-    {
-      "id": "checklist_5_prueba_de_extremo_a_extremo",
-      "label": "5. Prueba de extremo a extremo",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "5. prueba de extremo a extremo",
-      "source_file": "CHECKLIST.md",
-      "source_location": "L36"
-    },
-    {
-      "id": "checklist_6_seguridad_y_riesgos_conocidos",
-      "label": "6. Seguridad y riesgos conocidos",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "6. seguridad y riesgos conocidos",
-      "source_file": "CHECKLIST.md",
-      "source_location": "L44"
-    },
-    {
-      "id": "checklist_7_mejoras_pendientes_no_bloquean_la_puesta_en_marcha",
-      "label": "7. Mejoras pendientes (no bloquean la puesta en marcha)",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "7. mejoras pendientes (no bloquean la puesta en marcha)",
-      "source_file": "CHECKLIST.md",
-      "source_location": "L53"
-    },
-    {
-      "id": "checklist_checklist_de_confirmaci\u00f3n_de_estado",
-      "label": "Checklist de confirmaci\u00f3n de estado",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "checklist de confirmacion de estado",
       "source_file": "CHECKLIST.md",
       "source_location": "L1"
     },
@@ -1234,7 +1117,7 @@
       "label": "DEPLOY.md",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "deploy.md",
@@ -1246,7 +1129,7 @@
       "label": "1. Supabase",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1. supabase",
@@ -1258,7 +1141,7 @@
       "label": "2. Vercel",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "2. vercel",
@@ -1270,7 +1153,7 @@
       "label": "3. Evolution API (grupos)",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "3. evolution api (grupos)",
@@ -1282,7 +1165,7 @@
       "label": "4. API oficial de Meta (opcional, solo chats directos)",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "4. api oficial de meta (opcional, solo chats directos)",
@@ -1294,7 +1177,7 @@
       "label": "Despliegue \u2014 PropertyMatch",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "despliegue \u2014 propertymatch",
@@ -1306,7 +1189,7 @@
       "label": "Infraestructura actual",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "infraestructura actual",
@@ -1318,7 +1201,7 @@
       "label": "Troubleshooting",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "troubleshooting",
@@ -1330,7 +1213,7 @@
       "label": "EVOLUTION_SETUP.md",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "evolution_setup.md",
@@ -1338,83 +1221,11 @@
       "source_location": "L1"
     },
     {
-      "id": "evolution_setup_0_una_vez_lado_vercel",
-      "label": "0. Una vez (lado Vercel)",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "0. una vez (lado vercel)",
-      "source_file": "EVOLUTION_SETUP.md",
-      "source_location": "L9"
-    },
-    {
-      "id": "evolution_setup_1_crear_la_instancia_y_el_webhook",
-      "label": "1. Crear la instancia y el webhook",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1. crear la instancia y el webhook",
-      "source_file": "EVOLUTION_SETUP.md",
-      "source_location": "L18"
-    },
-    {
-      "id": "evolution_setup_2_vincular_el_n\u00famero",
-      "label": "2. Vincular el n\u00famero",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2. vincular el numero",
-      "source_file": "EVOLUTION_SETUP.md",
-      "source_location": "L56"
-    },
-    {
-      "id": "evolution_setup_3_probar",
-      "label": "3. Probar",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. probar",
-      "source_file": "EVOLUTION_SETUP.md",
-      "source_location": "L60"
-    },
-    {
-      "id": "evolution_setup_integrar_el_n\u00famero_grupos_con_evolution_api",
-      "label": "Integrar el n\u00famero (grupos) con Evolution API",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "integrar el numero (grupos) con evolution api",
-      "source_file": "EVOLUTION_SETUP.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "evolution_setup_notas",
-      "label": "Notas",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "notas",
-      "source_file": "EVOLUTION_SETUP.md",
-      "source_location": "L66"
-    },
-    {
       "id": "readme",
       "label": "README.md",
       "_origin": "ast",
       "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "readme.md",
@@ -1422,15 +1233,112 @@
       "source_location": "L1"
     },
     {
-      "id": "app_api_matches_route",
-      "label": "matches/route.ts",
+      "id": "readme_avisos",
+      "label": "Avisos",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "dashboard/page.tsx",
-      "file_type": "code",
-      "norm_label": "matches/route.ts",
-      "source_file": "app/api/matches/route.ts",
+      "community": 14,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "avisos",
+      "source_file": "README.md",
+      "source_location": "L89"
+    },
+    {
+      "id": "readme_c\u00f3mo_funciona",
+      "label": "C\u00f3mo funciona",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "como funciona",
+      "source_file": "README.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "readme_desarrollo_local",
+      "label": "Desarrollo local",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "desarrollo local",
+      "source_file": "README.md",
+      "source_location": "L73"
+    },
+    {
+      "id": "readme_documentaci\u00f3n",
+      "label": "Documentaci\u00f3n",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "documentacion",
+      "source_file": "README.md",
+      "source_location": "L83"
+    },
+    {
+      "id": "readme_estructura",
+      "label": "Estructura",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "estructura",
+      "source_file": "README.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "readme_propertymatch_sistema_realtor_mach",
+      "label": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "propertymatch \u2014 sistema realtor mach",
+      "source_file": "README.md",
       "source_location": "L1"
+    },
+    {
+      "id": "readme_reglas_de_matching",
+      "label": "Reglas de matching",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "reglas de matching",
+      "source_file": "README.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "readme_stack",
+      "label": "Stack",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "stack",
+      "source_file": "README.md",
+      "source_location": "L40"
+    },
+    {
+      "id": "readme_variables_de_entorno",
+      "label": "Variables de entorno",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "variables de entorno",
+      "source_file": "README.md",
+      "source_location": "L61"
     },
     {
       "id": "app_dashboard_page",
@@ -1466,14 +1374,14 @@
       "source_location": "L1"
     },
     {
-      "id": "app_api_properties_route",
-      "label": "properties/route.ts",
+      "id": "app_api_webhook_route",
+      "label": "webhook/route.ts",
       "_origin": "ast",
       "community": 3,
       "community_name": "parser.ts",
       "file_type": "code",
-      "norm_label": "properties/route.ts",
-      "source_file": "app/api/properties/route.ts",
+      "norm_label": "webhook/route.ts",
+      "source_file": "app/api/webhook/route.ts",
       "source_location": "L1"
     },
     {
@@ -1485,17 +1393,6 @@
       "file_type": "code",
       "norm_label": "embeddings.ts",
       "source_file": "lib/embeddings.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_matcher",
-      "label": "matcher.ts",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "parser.ts",
-      "file_type": "code",
-      "norm_label": "matcher.ts",
-      "source_file": "lib/matcher.ts",
       "source_location": "L1"
     },
     {
@@ -1521,37 +1418,48 @@
       "source_location": "L1"
     },
     {
-      "id": "lib_supabase",
-      "label": "supabase.ts",
+      "id": "lib_parser_operations",
+      "label": "OPERATIONS",
       "_origin": "ast",
       "community": 3,
       "community_name": "parser.ts",
       "file_type": "code",
-      "norm_label": "supabase.ts",
-      "source_file": "lib/supabase.ts",
+      "norm_label": "operations",
+      "source_file": "lib/parser.ts",
+      "source_location": "L219"
+    },
+    {
+      "id": "lib_parser_property_types",
+      "label": "PROPERTY_TYPES",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "property_types",
+      "source_file": "lib/parser.ts",
+      "source_location": "L218"
+    },
+    {
+      "id": "lib_whatsapp",
+      "label": "whatsapp.ts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "whatsapp.ts",
+      "source_file": "lib/whatsapp.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_supabase_supabaseadmin",
-      "label": "supabaseAdmin",
+      "id": "lib_whatsapp_supported_mimes",
+      "label": "SUPPORTED_MIMES",
       "_origin": "ast",
       "community": 3,
       "community_name": "parser.ts",
       "file_type": "code",
-      "norm_label": "supabaseadmin",
-      "source_file": "lib/supabase.ts",
-      "source_location": "L22"
-    },
-    {
-      "id": "lib_supabase_supabasepublic",
-      "label": "supabasePublic",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "parser.ts",
-      "file_type": "code",
-      "norm_label": "supabasepublic",
-      "source_file": "lib/supabase.ts",
-      "source_location": "L16"
+      "norm_label": "supported_mimes",
+      "source_file": "lib/whatsapp.ts",
+      "source_location": "L12"
     },
     {
       "id": "ref_openai",
@@ -1563,17 +1471,6 @@
       "norm_label": "openai",
       "source_file": "package.json",
       "source_location": "L14"
-    },
-    {
-      "id": "ref_supabase_supabase_js",
-      "label": "@supabase/supabase-js",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "parser.ts",
-      "file_type": "concept",
-      "norm_label": "@supabase/supabase-js",
-      "source_file": "package.json",
-      "source_location": "L12"
     },
     {
       "id": "app_layout",
@@ -1653,100 +1550,177 @@
       "source_location": "L13"
     },
     {
-      "id": "readme_avisos",
-      "label": "Avisos",
+      "id": "app_api_matches_route",
+      "label": "matches/route.ts",
       "_origin": "ast",
       "community": 5,
-      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "avisos",
-      "source_file": "README.md",
-      "source_location": "L78"
-    },
-    {
-      "id": "readme_c\u00f3mo_funciona",
-      "label": "C\u00f3mo funciona",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "como funciona",
-      "source_file": "README.md",
-      "source_location": "L7"
-    },
-    {
-      "id": "readme_desarrollo_local",
-      "label": "Desarrollo local",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "desarrollo local",
-      "source_file": "README.md",
-      "source_location": "L62"
-    },
-    {
-      "id": "readme_documentaci\u00f3n",
-      "label": "Documentaci\u00f3n",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "documentacion",
-      "source_file": "README.md",
-      "source_location": "L72"
-    },
-    {
-      "id": "readme_estructura",
-      "label": "Estructura",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "estructura",
-      "source_file": "README.md",
-      "source_location": "L36"
-    },
-    {
-      "id": "readme_propertymatch_sistema_realtor_mach",
-      "label": "PropertyMatch \u2014 Sistema Realtor MACH",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "propertymatch \u2014 sistema realtor mach",
-      "source_file": "README.md",
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "matches/route.ts",
+      "source_file": "app/api/matches/route.ts",
       "source_location": "L1"
     },
     {
-      "id": "readme_stack",
-      "label": "Stack",
+      "id": "app_api_properties_route",
+      "label": "properties/route.ts",
       "_origin": "ast",
       "community": 5,
-      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "stack",
-      "source_file": "README.md",
-      "source_location": "L29"
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "properties/route.ts",
+      "source_file": "app/api/properties/route.ts",
+      "source_location": "L1"
     },
     {
-      "id": "readme_variables_de_entorno",
-      "label": "Variables de entorno",
+      "id": "lib_matcher",
+      "label": "matcher.ts",
       "_origin": "ast",
       "community": 5,
-      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "matcher.ts",
+      "source_file": "lib/matcher.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_supabase",
+      "label": "supabase.ts",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "supabase.ts",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_supabase_supabaseadmin",
+      "label": "supabaseAdmin",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "supabaseadmin",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "lib_supabase_supabasepublic",
+      "label": "supabasePublic",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "supabasepublic",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "ref_supabase_supabase_js",
+      "label": "@supabase/supabase-js",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "matches/route.ts",
+      "file_type": "concept",
+      "norm_label": "@supabase/supabase-js",
+      "source_file": "package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "checklist_1_c\u00f3digo",
+      "label": "1. C\u00f3digo",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Checklist de confirmaci\u00f3n de estado",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "variables de entorno",
-      "source_file": "README.md",
-      "source_location": "L50"
+      "norm_label": "1. codigo",
+      "source_file": "CHECKLIST.md",
+      "source_location": "L6"
+    },
+    {
+      "id": "checklist_2_base_de_datos_supabase_property_matcher_mach",
+      "label": "2. Base de datos (Supabase `property-matcher-mach`)",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. base de datos (supabase `property-matcher-mach`)",
+      "source_file": "CHECKLIST.md",
+      "source_location": "L15"
+    },
+    {
+      "id": "checklist_3_vercel_sistema_realtor_mach",
+      "label": "3. Vercel (`sistema-realtor-mach`)",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. vercel (`sistema-realtor-mach`)",
+      "source_file": "CHECKLIST.md",
+      "source_location": "L25"
+    },
+    {
+      "id": "checklist_4_evolution_api_easypanel_personaldev",
+      "label": "4. Evolution API (Easypanel `personaldev`)",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. evolution api (easypanel `personaldev`)",
+      "source_file": "CHECKLIST.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "checklist_5_prueba_de_extremo_a_extremo",
+      "label": "5. Prueba de extremo a extremo",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. prueba de extremo a extremo",
+      "source_file": "CHECKLIST.md",
+      "source_location": "L40"
+    },
+    {
+      "id": "checklist_6_seguridad_y_riesgos_conocidos",
+      "label": "6. Seguridad y riesgos conocidos",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6. seguridad y riesgos conocidos",
+      "source_file": "CHECKLIST.md",
+      "source_location": "L48"
+    },
+    {
+      "id": "checklist_7_mejoras_pendientes_no_bloquean_la_puesta_en_marcha",
+      "label": "7. Mejoras pendientes (no bloquean la puesta en marcha)",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7. mejoras pendientes (no bloquean la puesta en marcha)",
+      "source_file": "CHECKLIST.md",
+      "source_location": "L57"
+    },
+    {
+      "id": "checklist_checklist_de_confirmaci\u00f3n_de_estado",
+      "label": "Checklist de confirmaci\u00f3n de estado",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "checklist de confirmacion de estado",
+      "source_file": "CHECKLIST.md",
+      "source_location": "L1"
     },
     {
       "id": "package_devdependencies",
@@ -1912,6 +1886,78 @@
       "norm_label": "@supabase/supabase-js",
       "source_file": "package.json",
       "source_location": "L12"
+    },
+    {
+      "id": "evolution_setup_0_una_vez_lado_vercel",
+      "label": "0. Una vez (lado Vercel)",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "Integrar el n\u00famero (grupos) con Evolution API",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "0. una vez (lado vercel)",
+      "source_file": "EVOLUTION_SETUP.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "evolution_setup_1_crear_la_instancia_y_el_webhook",
+      "label": "1. Crear la instancia y el webhook",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "Integrar el n\u00famero (grupos) con Evolution API",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. crear la instancia y el webhook",
+      "source_file": "EVOLUTION_SETUP.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "evolution_setup_2_vincular_el_n\u00famero",
+      "label": "2. Vincular el n\u00famero",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "Integrar el n\u00famero (grupos) con Evolution API",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. vincular el numero",
+      "source_file": "EVOLUTION_SETUP.md",
+      "source_location": "L56"
+    },
+    {
+      "id": "evolution_setup_3_probar",
+      "label": "3. Probar",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "Integrar el n\u00famero (grupos) con Evolution API",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. probar",
+      "source_file": "EVOLUTION_SETUP.md",
+      "source_location": "L60"
+    },
+    {
+      "id": "evolution_setup_integrar_el_n\u00famero_grupos_con_evolution_api",
+      "label": "Integrar el n\u00famero (grupos) con Evolution API",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "Integrar el n\u00famero (grupos) con Evolution API",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "integrar el numero (grupos) con evolution api",
+      "source_file": "EVOLUTION_SETUP.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "evolution_setup_notas",
+      "label": "Notas",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "Integrar el n\u00famero (grupos) con Evolution API",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "notas",
+      "source_file": "EVOLUTION_SETUP.md",
+      "source_location": "L66"
     },
     {
       "id": "ref_node_crypto",
@@ -2116,67 +2162,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L185",
+      "source_location": "L196",
       "weight": 1.0
     },
     {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_embeddings_buildembeddingtext",
+      "source": "lib_parser_classifywithopenai",
+      "target": "lib_parser_normalizeparsed",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L106",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_embeddings_generateembedding",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L107",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_parser_buildrawmessage",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L111",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_matcher_findmatches",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L152",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_parser_isduplicate",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L82",
+      "source_location": "L215",
       "weight": 1.0
     },
     {
@@ -2188,7 +2186,67 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L91",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_embeddings_buildembeddingtext",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_embeddings_generateembedding",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_parser_buildrawmessage",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_matcher_findmatches",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_parser_isduplicate",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -3093,7 +3151,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "AGENTS.md",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -3423,7 +3481,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L21",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -3434,7 +3492,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L29",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -3445,7 +3503,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L36",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -3456,7 +3514,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L44",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -3467,7 +3525,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L53",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -3687,7 +3745,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/matcher.ts",
-      "source_location": "L22",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -3709,7 +3767,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L159",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser",
+      "target": "lib_parser_property_types",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/parser.ts",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser",
+      "target": "lib_parser_operations",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/parser.ts",
+      "source_location": "L219",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser",
+      "target": "lib_parser_normalizeparsed",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/parser.ts",
+      "source_location": "L222",
       "weight": 1.0
     },
     {
@@ -3720,7 +3811,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L212",
+      "source_location": "L249",
       "weight": 1.0
     },
     {
@@ -3731,7 +3822,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L223",
+      "source_location": "L260",
       "weight": 1.0
     },
     {
@@ -3742,7 +3833,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L78",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -4099,7 +4190,7 @@
     },
     {
       "source": "readme_propertymatch_sistema_realtor_mach",
-      "target": "readme_stack",
+      "target": "readme_reglas_de_matching",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4110,13 +4201,24 @@
     },
     {
       "source": "readme_propertymatch_sistema_realtor_mach",
+      "target": "readme_stack",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_propertymatch_sistema_realtor_mach",
       "target": "readme_estructura",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L36",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -4127,18 +4229,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L50",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_propertymatch_sistema_realtor_mach",
-      "target": "readme_desarrollo_local",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L62",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -4154,13 +4245,24 @@
     },
     {
       "source": "readme_propertymatch_sistema_realtor_mach",
+      "target": "readme_desarrollo_local",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_propertymatch_sistema_realtor_mach",
       "target": "readme_documentaci\u00f3n",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L72",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -4171,7 +4273,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L78",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -4468,7 +4570,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L73",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -4479,7 +4581,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L74",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -4490,7 +4592,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L75",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -4502,10 +4604,10 @@
       "confidence_score": 0.95,
       "context": "parseAndStoreMessage",
       "source_file": "AGENTS.md",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "30939301275536560c0bcf95f627db665a0f08a3"
+  "built_at_commit": "8065267b97b1af590bba319c49a5ee206e93b5e9"
 }
