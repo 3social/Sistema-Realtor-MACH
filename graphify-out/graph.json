@@ -69,39 +69,13 @@
       "source_location": "L78"
     },
     {
-      "id": "types_index_parsedproperty",
-      "label": "ParsedProperty",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "dashboard/page.tsx",
-      "file_type": "code",
-      "norm_label": "parsedproperty",
-      "source_file": "types/index.ts",
-      "source_location": "L25"
-    },
-    {
-      "id": "types_index_property",
-      "label": "Property",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "dashboard/page.tsx",
-      "file_type": "code",
-      "norm_label": "property",
-      "source_file": "types/index.ts",
-      "source_location": "L42"
-    },
-    {
       "id": "lib_whatsapp_mediadownloadresult",
       "label": "MediaDownloadResult",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "webhook/route.ts",
+      "community": 3,
+      "community_name": "parser.ts",
       "file_type": "code",
       "norm_label": "mediadownloadresult",
       "source_file": "lib/whatsapp.ts",
@@ -113,8 +87,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "webhook/route.ts",
+      "community": 3,
+      "community_name": "parser.ts",
       "file_type": "code",
       "norm_label": "supportedmime",
       "source_file": "lib/whatsapp.ts",
@@ -126,12 +100,38 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "webhook/route.ts",
+      "community": 3,
+      "community_name": "parser.ts",
       "file_type": "code",
       "norm_label": "messagesource",
       "source_file": "types/index.ts",
       "source_location": "L7"
+    },
+    {
+      "id": "types_index_parsedproperty",
+      "label": "ParsedProperty",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "parsedproperty",
+      "source_file": "types/index.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "types_index_property",
+      "label": "Property",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "property",
+      "source_file": "types/index.ts",
+      "source_location": "L42"
     },
     {
       "id": "types_index_webhookpayload",
@@ -139,8 +139,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "webhook/route.ts",
+      "community": 3,
+      "community_name": "parser.ts",
       "file_type": "code",
       "norm_label": "webhookpayload",
       "source_file": "types/index.ts",
@@ -243,7 +243,7 @@
       "source_location": "L37"
     },
     {
-      "id": "app_api_properties_route_get",
+      "id": "app_api_webhook_route_get",
       "label": "GET()",
       "_callable": true,
       "_origin": "ast",
@@ -251,8 +251,32 @@
       "community_name": "parser.ts",
       "file_type": "code",
       "norm_label": "get()",
-      "source_file": "app/api/properties/route.ts",
-      "source_location": "L10"
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "app_api_webhook_route_hasvalidsignature",
+      "label": "hasValidSignature()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "hasvalidsignature()",
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "app_api_webhook_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L48"
     },
     {
       "id": "lib_embeddings_buildembeddingtext",
@@ -327,6 +351,18 @@
       "source_location": "L76"
     },
     {
+      "id": "lib_whatsapp_downloadwhatsappmedia",
+      "label": "downloadWhatsAppMedia()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "downloadwhatsappmedia()",
+      "source_file": "lib/whatsapp.ts",
+      "source_location": "L32"
+    },
+    {
       "id": "app_api_matches_route_get",
       "label": "GET()",
       "_callable": true,
@@ -351,6 +387,18 @@
       "source_location": "L52"
     },
     {
+      "id": "app_api_properties_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "app/api/properties/route.ts",
+      "source_location": "L10"
+    },
+    {
       "id": "app_layout_rootlayout",
       "label": "RootLayout()",
       "_callable": true,
@@ -373,42 +421,6 @@
       "norm_label": "home()",
       "source_file": "app/page.tsx",
       "source_location": "L3"
-    },
-    {
-      "id": "app_api_webhook_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "webhook/route.ts",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "app/api/webhook/route.ts",
-      "source_location": "L14"
-    },
-    {
-      "id": "app_api_webhook_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "webhook/route.ts",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "app/api/webhook/route.ts",
-      "source_location": "L30"
-    },
-    {
-      "id": "lib_whatsapp_downloadwhatsappmedia",
-      "label": "downloadWhatsAppMedia()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "webhook/route.ts",
-      "file_type": "code",
-      "norm_label": "downloadwhatsappmedia()",
-      "source_file": "lib/whatsapp.ts",
-      "source_location": "L32"
     },
     {
       "id": "eslint_config",
@@ -532,17 +544,6 @@
       "source_location": "L3"
     },
     {
-      "id": "ref_anthropic_ai_sdk",
-      "label": "@anthropic-ai/sdk",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@anthropic-ai/sdk",
-      "source_file": "package.json",
-      "source_location": "L12"
-    },
-    {
       "id": "ref_eslint",
       "label": "eslint",
       "_origin": "ast",
@@ -563,17 +564,6 @@
       "norm_label": "eslint-config-next",
       "source_file": "package.json",
       "source_location": "L25"
-    },
-    {
-      "id": "ref_openai",
-      "label": "openai",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "openai",
-      "source_file": "package.json",
-      "source_location": "L15"
     },
     {
       "id": "ref_react",
@@ -965,25 +955,14 @@
       "source_location": "L199"
     },
     {
-      "id": "types_index",
-      "label": "index.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "dashboard/page.tsx",
-      "file_type": "code",
-      "norm_label": "index.ts",
-      "source_file": "types/index.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_api_properties_route",
-      "label": "properties/route.ts",
+      "id": "app_api_webhook_route",
+      "label": "webhook/route.ts",
       "_origin": "ast",
       "community": 3,
       "community_name": "parser.ts",
       "file_type": "code",
-      "norm_label": "properties/route.ts",
-      "source_file": "app/api/properties/route.ts",
+      "norm_label": "webhook/route.ts",
+      "source_file": "app/api/webhook/route.ts",
       "source_location": "L1"
     },
     {
@@ -1042,48 +1021,59 @@
       "source_location": "L18"
     },
     {
-      "id": "lib_supabase",
-      "label": "supabase.ts",
+      "id": "lib_whatsapp",
+      "label": "whatsapp.ts",
       "_origin": "ast",
       "community": 3,
       "community_name": "parser.ts",
       "file_type": "code",
-      "norm_label": "supabase.ts",
-      "source_file": "lib/supabase.ts",
+      "norm_label": "whatsapp.ts",
+      "source_file": "lib/whatsapp.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_supabase_supabaseadmin",
-      "label": "supabaseAdmin",
+      "id": "lib_whatsapp_supported_mimes",
+      "label": "SUPPORTED_MIMES",
       "_origin": "ast",
       "community": 3,
       "community_name": "parser.ts",
       "file_type": "code",
-      "norm_label": "supabaseadmin",
-      "source_file": "lib/supabase.ts",
-      "source_location": "L22"
+      "norm_label": "supported_mimes",
+      "source_file": "lib/whatsapp.ts",
+      "source_location": "L12"
     },
     {
-      "id": "lib_supabase_supabasepublic",
-      "label": "supabasePublic",
+      "id": "types_index",
+      "label": "index.ts",
       "_origin": "ast",
       "community": 3,
       "community_name": "parser.ts",
       "file_type": "code",
-      "norm_label": "supabasepublic",
-      "source_file": "lib/supabase.ts",
-      "source_location": "L16"
+      "norm_label": "index.ts",
+      "source_file": "types/index.ts",
+      "source_location": "L1"
     },
     {
-      "id": "ref_supabase_supabase_js",
-      "label": "@supabase/supabase-js",
+      "id": "ref_anthropic_ai_sdk",
+      "label": "@anthropic-ai/sdk",
       "_origin": "ast",
       "community": 3,
       "community_name": "parser.ts",
       "file_type": "concept",
-      "norm_label": "@supabase/supabase-js",
+      "norm_label": "@anthropic-ai/sdk",
       "source_file": "package.json",
-      "source_location": "L13"
+      "source_location": "L12"
+    },
+    {
+      "id": "ref_openai",
+      "label": "openai",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "concept",
+      "norm_label": "openai",
+      "source_file": "package.json",
+      "source_location": "L15"
     },
     {
       "id": "app_api_matches_route",
@@ -1094,6 +1084,17 @@
       "file_type": "code",
       "norm_label": "matches/route.ts",
       "source_file": "app/api/matches/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_api_properties_route",
+      "label": "properties/route.ts",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "properties/route.ts",
+      "source_file": "app/api/properties/route.ts",
       "source_location": "L1"
     },
     {
@@ -1141,6 +1142,39 @@
       "source_location": "L1"
     },
     {
+      "id": "lib_supabase",
+      "label": "supabase.ts",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "supabase.ts",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_supabase_supabaseadmin",
+      "label": "supabaseAdmin",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "supabaseadmin",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "lib_supabase_supabasepublic",
+      "label": "supabasePublic",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "matches/route.ts",
+      "file_type": "code",
+      "norm_label": "supabasepublic",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L16"
+    },
+    {
       "id": "next_config",
       "label": "next.config.ts",
       "_origin": "ast",
@@ -1174,37 +1208,87 @@
       "source_location": "L14"
     },
     {
-      "id": "app_api_webhook_route",
-      "label": "webhook/route.ts",
+      "id": "ref_supabase_supabase_js",
+      "label": "@supabase/supabase-js",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "matches/route.ts",
+      "file_type": "concept",
+      "norm_label": "@supabase/supabase-js",
+      "source_file": "package.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "resumen_manana",
+      "label": "RESUMEN_MANANA.md",
       "_origin": "ast",
       "community": 5,
-      "community_name": "webhook/route.ts",
-      "file_type": "code",
-      "norm_label": "webhook/route.ts",
-      "source_file": "app/api/webhook/route.ts",
+      "community_name": "Resumen para retomar (2026-10-05)",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "resumen_manana.md",
+      "source_file": "RESUMEN_MANANA.md",
       "source_location": "L1"
     },
     {
-      "id": "lib_whatsapp",
-      "label": "whatsapp.ts",
+      "id": "resumen_manana_estado_de_la_infraestructura_revisado_por_mcp",
+      "label": "Estado de la infraestructura (revisado por MCP)",
       "_origin": "ast",
       "community": 5,
-      "community_name": "webhook/route.ts",
-      "file_type": "code",
-      "norm_label": "whatsapp.ts",
-      "source_file": "lib/whatsapp.ts",
-      "source_location": "L1"
+      "community_name": "Resumen para retomar (2026-10-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "estado de la infraestructura (revisado por mcp)",
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L14"
     },
     {
-      "id": "lib_whatsapp_supported_mimes",
-      "label": "SUPPORTED_MIMES",
+      "id": "resumen_manana_hecho_esta_noche_sin_cambiar_el_comportamiento_existente",
+      "label": "Hecho esta noche (sin cambiar el comportamiento existente)",
       "_origin": "ast",
       "community": 5,
-      "community_name": "webhook/route.ts",
-      "file_type": "code",
-      "norm_label": "supported_mimes",
-      "source_file": "lib/whatsapp.ts",
-      "source_location": "L12"
+      "community_name": "Resumen para retomar (2026-10-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "hecho esta noche (sin cambiar el comportamiento existente)",
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "resumen_manana_para_salir_a_producci\u00f3n_orden",
+      "label": "Para salir a producci\u00f3n (orden)",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Resumen para retomar (2026-10-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "para salir a produccion (orden)",
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "resumen_manana_pendiente_no_lo_toqu\u00e9_porque_cambia_comportamiento_dec\u00eddelo_t\u00fa",
+      "label": "Pendiente (no lo toqu\u00e9 porque cambia comportamiento; dec\u00eddelo t\u00fa)",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Resumen para retomar (2026-10-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pendiente (no lo toque porque cambia comportamiento; decidelo tu)",
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L30"
+    },
+    {
+      "id": "resumen_manana_resumen_para_retomar_2026_10_05",
+      "label": "Resumen para retomar (2026-10-05)",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Resumen para retomar (2026-10-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "resumen para retomar (2026-10-05)",
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L1"
     },
     {
       "id": "deploy",
@@ -1276,7 +1360,7 @@
       "node_kind": "heading",
       "norm_label": "paso 4 \u2014 probar en local",
       "source_file": "DEPLOY.md",
-      "source_location": "L39"
+      "source_location": "L40"
     },
     {
       "id": "deploy_paso_5_deploy_en_vercel",
@@ -1561,12 +1645,23 @@
       "norm_label": "app_globals",
       "source_file": "",
       "type": "external"
+    },
+    {
+      "id": "ref_node_crypto",
+      "label": "ref_node_crypto",
+      "community": 3,
+      "community_name": "parser.ts",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_crypto",
+      "source_file": "",
+      "type": "external"
     }
   ],
   "links": [
     {
       "source": "app_api_webhook_route_post",
-      "target": "lib_parser_parseandstoremessage",
+      "target": "lib_whatsapp_downloadwhatsappmedia",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1578,14 +1673,26 @@
     },
     {
       "source": "app_api_webhook_route_post",
-      "target": "lib_whatsapp_downloadwhatsappmedia",
+      "target": "lib_parser_parseandstoremessage",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/webhook/route.ts",
-      "source_location": "L89",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_webhook_route_post",
+      "target": "app_api_webhook_route_hasvalidsignature",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -1597,7 +1704,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/dashboard/page.tsx",
-      "source_location": "L332",
+      "source_location": "L334",
       "weight": 1.0
     },
     {
@@ -1609,7 +1716,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/dashboard/page.tsx",
-      "source_location": "L348",
+      "source_location": "L350",
       "weight": 1.0
     },
     {
@@ -1806,7 +1913,7 @@
     },
     {
       "source": "app_api_webhook_route",
-      "target": "lib_whatsapp_downloadwhatsappmedia",
+      "target": "lib_parser_parseandstoremessage",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1818,7 +1925,7 @@
     },
     {
       "source": "app_api_webhook_route",
-      "target": "types_index_messagesource",
+      "target": "lib_whatsapp_downloadwhatsappmedia",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1826,6 +1933,18 @@
       "context": "import",
       "source_file": "app/api/webhook/route.ts",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_webhook_route",
+      "target": "types_index_messagesource",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -1837,19 +1956,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "app/api/webhook/route.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "app_api_webhook_route",
-      "target": "lib_parser_parseandstoremessage",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "app/api/webhook/route.ts",
-      "source_location": "L9",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -2203,7 +2310,7 @@
     },
     {
       "source": "app_api_webhook_route",
-      "target": "lib_whatsapp",
+      "target": "lib_parser",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2215,7 +2322,7 @@
     },
     {
       "source": "app_api_webhook_route",
-      "target": "types_index",
+      "target": "lib_whatsapp",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2223,12 +2330,24 @@
       "context": "import",
       "source_file": "app/api/webhook/route.ts",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_webhook_route",
+      "target": "types_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L12",
       "type_only": true,
       "weight": 1.0
     },
     {
       "source": "app_api_webhook_route",
-      "target": "ref_next",
+      "target": "ref_node_crypto",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2240,7 +2359,7 @@
     },
     {
       "source": "app_api_webhook_route",
-      "target": "lib_parser",
+      "target": "ref_next",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2517,13 +2636,24 @@
     },
     {
       "source": "app_api_webhook_route",
+      "target": "app_api_webhook_route_hasvalidsignature",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/webhook/route.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_webhook_route",
       "target": "app_api_webhook_route_get",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/webhook/route.ts",
-      "source_location": "L14",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -2534,7 +2664,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/webhook/route.ts",
-      "source_location": "L30",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -2765,7 +2895,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "DEPLOY.md",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -3297,6 +3427,61 @@
       "weight": 1.0
     },
     {
+      "source": "resumen_manana",
+      "target": "resumen_manana_resumen_para_retomar_2026_10_05",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "resumen_manana_resumen_para_retomar_2026_10_05",
+      "target": "resumen_manana_estado_de_la_infraestructura_revisado_por_mcp",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "resumen_manana_resumen_para_retomar_2026_10_05",
+      "target": "resumen_manana_para_salir_a_producci\u00f3n_orden",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "resumen_manana_resumen_para_retomar_2026_10_05",
+      "target": "resumen_manana_hecho_esta_noche_sin_cambiar_el_comportamiento_existente",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "resumen_manana_resumen_para_retomar_2026_10_05",
+      "target": "resumen_manana_pendiente_no_lo_toqu\u00e9_porque_cambia_comportamiento_dec\u00eddelo_t\u00fa",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
       "source": "tsconfig",
       "target": "tsconfig_compileroptions",
       "relation": "contains",
@@ -3573,5 +3758,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8c9dde4c20392909029db86d8820cbdc2b235733"
+  "built_at_commit": "1155ab327ed7ed2cd671a2d40f49796ac8629f04"
 }
