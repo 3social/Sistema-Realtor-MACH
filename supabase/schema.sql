@@ -105,18 +105,19 @@ AS $$
 $$;
 
 -- ============================================================
--- RLS (Row Level Security) — Opcional pero recomendado
--- Solo el service role puede insertar/actualizar
+-- RLS (Row Level Security)
+-- Sin políticas para anon/authenticated: tabla cerrada al API público.
+-- Todo el acceso pasa por las API routes con el service role, que
+-- ignora RLS. (Antes había políticas abiertas con `true` que dejaban
+-- a cualquiera con la anon key leer teléfonos y escribir datos.)
 -- ============================================================
 ALTER TABLE properties ENABLE ROW LEVEL SECURITY;
 ALTER TABLE matches ENABLE ROW LEVEL SECURITY;
 
--- Permitir lectura pública (para el dashboard con anon key)
-CREATE POLICY "properties_select" ON properties FOR SELECT USING (true);
-CREATE POLICY "matches_select"    ON matches    FOR SELECT USING (true);
-
--- Solo service role puede escribir (operaciones backend)
-CREATE POLICY "properties_insert" ON properties FOR INSERT WITH CHECK (true);
-CREATE POLICY "properties_update" ON properties FOR UPDATE USING (true);
-CREATE POLICY "matches_insert"    ON matches    FOR INSERT WITH CHECK (true);
-CREATE POLICY "matches_update"    ON matches    FOR UPDATE USING (true);
+-- Si ya ejecutaste la versión anterior, limpia las políticas abiertas:
+DROP POLICY IF EXISTS "properties_select" ON properties;
+DROP POLICY IF EXISTS "properties_insert" ON properties;
+DROP POLICY IF EXISTS "properties_update" ON properties;
+DROP POLICY IF EXISTS "matches_select"    ON matches;
+DROP POLICY IF EXISTS "matches_insert"    ON matches;
+DROP POLICY IF EXISTS "matches_update"    ON matches;

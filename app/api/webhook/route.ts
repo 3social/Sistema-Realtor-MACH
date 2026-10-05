@@ -5,10 +5,28 @@
 // GET  → Verificación del webhook (requerido por Meta al configurar)
 // POST → Recepción de mensajes: texto, imagen, imagen+caption
 // ============================================================
-import { NextRequest, NextResponse } from 'next/server'
+import { createHmac, timingSafeEqual } from 'node:crypto'
+import { NextRequest, NextResponse, after } from 'next/server'
 import { parseAndStoreMessage } from '@/lib/parser'
 import { downloadWhatsAppMedia } from '@/lib/whatsapp'
 import type { WebhookPayload, MessageSource } from '@/types'
+
+// ── Firma de Meta (X-Hub-Signature-256) ────────────────────────
+// Se valida cuando WHATSAPP_APP_SECRET está configurado (App Secret de la
+// app en Meta). Sin la variable el webhook sigue funcionando como antes,
+// pero registra una advertencia: configúrala en producción.
+function hasValidSignature(rawBody: string, header: string | null): boolean {
+  const secret = process.env.WHATSAPP_APP_SECRET
+  if (!secret) {
+    console.warn('[webhook] WHATSAPP_APP_SECRET no configurado — firma NO verificada')
+    return true
+  }
+  if (!header?.startsWith('sha256=')) return false
+
+  const expected = createHmac('sha256', secret).update(rawBody).digest()
+  const received = Buffer.from(header.slice('sha256='.length), 'hex')
+  return received.length === expected.length && timingSafeEqual(received, expected)
+}
 
 // ── GET: Verificación del webhook ──────────────────────────────
 export async function GET(req: NextRequest) {
@@ -29,7 +47,14 @@ export async function GET(req: NextRequest) {
 // ── POST: Recepción de mensajes ────────────────────────────────
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
+    const rawBody = await req.text()
+
+    if (!hasValidSignature(rawBody, req.headers.get('x-hub-signature-256'))) {
+      console.warn('[webhook] Firma inválida, rechazando request')
+      return new NextResponse('Unauthorized', { status: 401 })
+    }
+
+    const body = JSON.parse(rawBody)
 
     const entry   = body.entry?.[0]
     const changes = entry?.changes?.[0]
@@ -117,7 +142,11 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    Promise.allSettled(processingPromises).catch(console.error)
+    // after() mantiene viva la función serverless hasta terminar el
+    // procesamiento (Vercel corta las promesas sueltas tras responder).
+    after(async () => {
+      await Promise.allSettled(processingPromises)
+    })
 
     return NextResponse.json({ status: 'ok' })
   } catch (error) {

@@ -239,8 +239,10 @@ export default function Dashboard() {
   }, [])
 
   useEffect(() => {
-    fetchMatches(activeTab)
-    fetchCounts()
+    // Las llamadas hacen setState tras el await, no de forma síncrona.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    void fetchMatches(activeTab)
+    void fetchCounts()
   }, [activeTab, fetchMatches, fetchCounts])
 
   const handleUpdate = useCallback(async (matchId: string, status: MatchStatus) => {

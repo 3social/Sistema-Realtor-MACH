@@ -26,6 +26,7 @@ Abrir `.env.local` y completar los valores reales:
 ```env
 WHATSAPP_VERIFY_TOKEN=    # un string secreto que tú inventas
 WHATSAPP_ACCESS_TOKEN=    # del portal de Meta
+WHATSAPP_APP_SECRET=      # Meta → App settings → Basic → App secret (valida la firma del webhook)
 WHATSAPP_PHONE_NUMBER_ID= # del portal de Meta
 ANTHROPIC_API_KEY=        # de console.anthropic.com
 OPENAI_API_KEY=           # de platform.openai.com
@@ -39,7 +40,6 @@ SUPABASE_SERVICE_ROLE_KEY=
 ## PASO 4 — Probar en local
 
 ```bash
-cd property-matcher
 npm run dev
 ```
 
