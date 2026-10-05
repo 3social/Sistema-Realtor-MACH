@@ -2,8 +2,8 @@
   "0": "package.json",
   "1": "compilerOptions",
   "2": "dashboard/page.tsx",
-  "3": "webhook/route.ts",
-  "4": "matches/route.ts",
+  "3": "parser.ts",
+  "4": "next",
   "5": "Resumen para retomar (2026-10-05)",
   "6": "🚀 Guía de Deploy — WhatsApp Property Matcher",
   "7": "devDependencies",
@@ -12,5 +12,6 @@
   "10": "AGENTS.md",
   "11": "postcss.config.mjs",
   "12": "CLAUDE.md",
-  "13": "parser.ts"
+  "13": "ingest/route.ts",
+  "14": "Integrar el número (grupos) con Evolution API"
 }

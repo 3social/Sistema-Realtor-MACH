@@ -168,7 +168,7 @@
       "file_type": "code",
       "norm_label": "buildembeddingtext()",
       "source_file": "lib/embeddings.ts",
-      "source_location": "L39"
+      "source_location": "L32"
     },
     {
       "id": "lib_embeddings_generateembedding",
@@ -180,19 +180,7 @@
       "file_type": "code",
       "norm_label": "generateembedding()",
       "source_file": "lib/embeddings.ts",
-      "source_location": "L21"
-    },
-    {
-      "id": "lib_embeddings_getopenai",
-      "label": "getOpenAI()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "parser.ts",
-      "file_type": "code",
-      "norm_label": "getopenai()",
-      "source_file": "lib/embeddings.ts",
-      "source_location": "L11"
+      "source_location": "L14"
     },
     {
       "id": "lib_matcher_findmatches",
@@ -207,6 +195,18 @@
       "source_location": "L22"
     },
     {
+      "id": "lib_openai_getopenai",
+      "label": "getOpenAI()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "getopenai()",
+      "source_file": "lib/openai.ts",
+      "source_location": "L11"
+    },
+    {
       "id": "lib_parser_buildrawmessage",
       "label": "buildRawMessage()",
       "_callable": true,
@@ -216,31 +216,19 @@
       "file_type": "code",
       "norm_label": "buildrawmessage()",
       "source_file": "lib/parser.ts",
-      "source_location": "L228"
+      "source_location": "L205"
     },
     {
-      "id": "lib_parser_classifywithclaude",
-      "label": "classifyWithClaude()",
+      "id": "lib_parser_classifywithopenai",
+      "label": "classifyWithOpenAI()",
       "_callable": true,
       "_origin": "ast",
       "community": 13,
       "community_name": "parser.ts",
       "file_type": "code",
-      "norm_label": "classifywithclaude()",
+      "norm_label": "classifywithopenai()",
       "source_file": "lib/parser.ts",
-      "source_location": "L154"
-    },
-    {
-      "id": "lib_parser_getclaude",
-      "label": "getClaude()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "parser.ts",
-      "file_type": "code",
-      "norm_label": "getclaude()",
-      "source_file": "lib/parser.ts",
-      "source_location": "L20"
+      "source_location": "L152"
     },
     {
       "id": "lib_parser_parseandstoremessage",
@@ -252,7 +240,7 @@
       "file_type": "code",
       "norm_label": "parseandstoremessage()",
       "source_file": "lib/parser.ts",
-      "source_location": "L80"
+      "source_location": "L78"
     },
     {
       "id": "app_dashboard_page_dashboard",
@@ -568,17 +556,6 @@
       "source_location": "L3"
     },
     {
-      "id": "ref_anthropic_ai_sdk",
-      "label": "@anthropic-ai/sdk",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@anthropic-ai/sdk",
-      "source_file": "package.json",
-      "source_location": "L12"
-    },
-    {
       "id": "ref_eslint",
       "label": "eslint",
       "_origin": "ast",
@@ -587,7 +564,7 @@
       "file_type": "concept",
       "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L23"
     },
     {
       "id": "ref_eslint_config_next",
@@ -598,7 +575,7 @@
       "file_type": "concept",
       "norm_label": "eslint-config-next",
       "source_file": "package.json",
-      "source_location": "L25"
+      "source_location": "L24"
     },
     {
       "id": "ref_react",
@@ -609,7 +586,7 @@
       "file_type": "concept",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L15"
     },
     {
       "id": "ref_react_dom",
@@ -620,18 +597,7 @@
       "file_type": "concept",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "ref_supabase_supabase_js",
-      "label": "@supabase/supabase-js",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@supabase/supabase-js",
-      "source_file": "package.json",
-      "source_location": "L13"
+      "source_location": "L16"
     },
     {
       "id": "ref_tailwindcss",
@@ -642,7 +608,7 @@
       "file_type": "concept",
       "norm_label": "tailwindcss",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L25"
     },
     {
       "id": "ref_tailwindcss_postcss",
@@ -653,7 +619,7 @@
       "file_type": "concept",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L19"
     },
     {
       "id": "ref_types_node",
@@ -664,7 +630,7 @@
       "file_type": "concept",
       "norm_label": "@types/node",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L20"
     },
     {
       "id": "ref_types_react",
@@ -675,7 +641,7 @@
       "file_type": "concept",
       "norm_label": "@types/react",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L21"
     },
     {
       "id": "ref_types_react_dom",
@@ -686,7 +652,7 @@
       "file_type": "concept",
       "norm_label": "@types/react-dom",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L22"
     },
     {
       "id": "ref_typescript",
@@ -697,7 +663,7 @@
       "file_type": "concept",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L26"
     },
     {
       "id": "tsconfig",
@@ -1012,6 +978,17 @@
       "source_location": "L1"
     },
     {
+      "id": "lib_openai",
+      "label": "openai.ts",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "openai.ts",
+      "source_file": "lib/openai.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "lib_parser",
       "label": "parser.ts",
       "_origin": "ast",
@@ -1064,7 +1041,18 @@
       "file_type": "concept",
       "norm_label": "openai",
       "source_file": "package.json",
-      "source_location": "L15"
+      "source_location": "L14"
+    },
+    {
+      "id": "ref_supabase_supabase_js",
+      "label": "@supabase/supabase-js",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "parser.ts",
+      "file_type": "concept",
+      "norm_label": "@supabase/supabase-js",
+      "source_file": "package.json",
+      "source_location": "L12"
     },
     {
       "id": "app_dashboard_page",
@@ -1218,7 +1206,7 @@
       "file_type": "concept",
       "norm_label": "next",
       "source_file": "package.json",
-      "source_location": "L14"
+      "source_location": "L13"
     },
     {
       "id": "resumen_manana",
@@ -1231,6 +1219,18 @@
       "norm_label": "resumen_manana.md",
       "source_file": "RESUMEN_MANANA.md",
       "source_location": "L1"
+    },
+    {
+      "id": "resumen_manana_actualizaci\u00f3n_solo_openai",
+      "label": "Actualizaci\u00f3n: solo OpenAI",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Resumen para retomar (2026-10-05)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "actualizacion: solo openai",
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L39"
     },
     {
       "id": "resumen_manana_estado_de_la_infraestructura_revisado_por_mcp",
@@ -1362,7 +1362,7 @@
       "node_kind": "heading",
       "norm_label": "paso 4 \u2014 probar en local",
       "source_file": "DEPLOY.md",
-      "source_location": "L40"
+      "source_location": "L39"
     },
     {
       "id": "deploy_paso_5_deploy_en_vercel",
@@ -1374,7 +1374,7 @@
       "node_kind": "heading",
       "norm_label": "paso 5 \u2014 deploy en vercel",
       "source_file": "DEPLOY.md",
-      "source_location": "L50"
+      "source_location": "L49"
     },
     {
       "id": "deploy_paso_6_configurar_webhook_en_meta",
@@ -1386,7 +1386,7 @@
       "node_kind": "heading",
       "norm_label": "paso 6 \u2014 configurar webhook en meta",
       "source_file": "DEPLOY.md",
-      "source_location": "L65"
+      "source_location": "L64"
     },
     {
       "id": "deploy_paso_7_verificaci\u00f3n_final",
@@ -1398,7 +1398,7 @@
       "node_kind": "heading",
       "norm_label": "paso 7 \u2014 verificacion final",
       "source_file": "DEPLOY.md",
-      "source_location": "L77"
+      "source_location": "L76"
     },
     {
       "id": "deploy_troubleshooting",
@@ -1410,7 +1410,7 @@
       "node_kind": "heading",
       "norm_label": "troubleshooting",
       "source_file": "DEPLOY.md",
-      "source_location": "L92"
+      "source_location": "L91"
     },
     {
       "id": "package_devdependencies",
@@ -1421,7 +1421,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L18"
     },
     {
       "id": "package_devdependencies_eslint",
@@ -1432,7 +1432,7 @@
       "file_type": "code",
       "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L23"
     },
     {
       "id": "package_devdependencies_eslint_config_next",
@@ -1443,7 +1443,7 @@
       "file_type": "code",
       "norm_label": "eslint-config-next",
       "source_file": "package.json",
-      "source_location": "L25"
+      "source_location": "L24"
     },
     {
       "id": "package_devdependencies_tailwindcss",
@@ -1454,7 +1454,7 @@
       "file_type": "code",
       "norm_label": "tailwindcss",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L25"
     },
     {
       "id": "package_devdependencies_tailwindcss_postcss",
@@ -1465,7 +1465,7 @@
       "file_type": "code",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L19"
     },
     {
       "id": "package_devdependencies_types_node",
@@ -1476,7 +1476,7 @@
       "file_type": "code",
       "norm_label": "@types/node",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L20"
     },
     {
       "id": "package_devdependencies_types_react",
@@ -1487,7 +1487,7 @@
       "file_type": "code",
       "norm_label": "@types/react",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L21"
     },
     {
       "id": "package_devdependencies_types_react_dom",
@@ -1498,7 +1498,7 @@
       "file_type": "code",
       "norm_label": "@types/react-dom",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L22"
     },
     {
       "id": "package_devdependencies_typescript",
@@ -1509,7 +1509,7 @@
       "file_type": "code",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L26"
     },
     {
       "id": "package_dependencies",
@@ -1523,17 +1523,6 @@
       "source_location": "L11"
     },
     {
-      "id": "package_dependencies_anthropic_ai_sdk",
-      "label": "@anthropic-ai/sdk",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "@anthropic-ai/sdk",
-      "source_file": "package.json",
-      "source_location": "L12"
-    },
-    {
       "id": "package_dependencies_next",
       "label": "next",
       "_origin": "ast",
@@ -1542,7 +1531,7 @@
       "file_type": "code",
       "norm_label": "next",
       "source_file": "package.json",
-      "source_location": "L14"
+      "source_location": "L13"
     },
     {
       "id": "package_dependencies_openai",
@@ -1553,7 +1542,7 @@
       "file_type": "code",
       "norm_label": "openai",
       "source_file": "package.json",
-      "source_location": "L15"
+      "source_location": "L14"
     },
     {
       "id": "package_dependencies_react",
@@ -1564,7 +1553,7 @@
       "file_type": "code",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L15"
     },
     {
       "id": "package_dependencies_react_dom",
@@ -1575,7 +1564,7 @@
       "file_type": "code",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L17"
+      "source_location": "L16"
     },
     {
       "id": "package_dependencies_supabase_supabase_js",
@@ -1586,7 +1575,7 @@
       "file_type": "code",
       "norm_label": "@supabase/supabase-js",
       "source_file": "package.json",
-      "source_location": "L13"
+      "source_location": "L12"
     },
     {
       "id": "readme",
@@ -1784,26 +1773,26 @@
     },
     {
       "source": "lib_embeddings_generateembedding",
-      "target": "lib_embeddings_getopenai",
+      "target": "lib_openai_getopenai",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/embeddings.ts",
-      "source_location": "L23",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
-      "source": "lib_parser_classifywithclaude",
-      "target": "lib_parser_getclaude",
+      "source": "lib_parser_classifywithopenai",
+      "target": "lib_openai_getopenai",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L204",
+      "source_location": "L178",
       "weight": 1.0
     },
     {
@@ -1815,7 +1804,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L102",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
@@ -1827,7 +1816,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L103",
+      "source_location": "L101",
       "weight": 1.0
     },
     {
@@ -1839,7 +1828,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L107",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -1851,19 +1840,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L147",
+      "source_location": "L145",
       "weight": 1.0
     },
     {
       "source": "lib_parser_parseandstoremessage",
-      "target": "lib_parser_classifywithclaude",
+      "target": "lib_parser_classifywithopenai",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L87",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -2011,6 +2000,18 @@
       "weight": 1.0
     },
     {
+      "source": "lib_embeddings",
+      "target": "lib_openai_getopenai",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/embeddings.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
       "source": "lib_matcher",
       "target": "lib_supabase_supabaseadmin",
       "relation": "imports",
@@ -2036,7 +2037,7 @@
     },
     {
       "source": "lib_parser",
-      "target": "lib_supabase_supabaseadmin",
+      "target": "lib_openai_getopenai",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2044,6 +2045,18 @@
       "context": "import",
       "source_file": "lib/parser.ts",
       "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser",
+      "target": "lib_supabase_supabaseadmin",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/parser.ts",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -2055,7 +2068,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/parser.ts",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -2067,7 +2080,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/parser.ts",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -2079,7 +2092,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/parser.ts",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -2091,7 +2104,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/parser.ts",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -2103,19 +2116,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/parser.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "package",
-      "target": "ref_anthropic_ai_sdk",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "package.json",
-      "source_location": "L12",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -2127,7 +2128,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -2139,7 +2140,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -2151,7 +2152,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -2163,7 +2164,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -2175,7 +2176,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -2187,7 +2188,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -2199,7 +2200,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -2211,7 +2212,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -2223,7 +2224,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -2235,7 +2236,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -2247,7 +2248,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -2259,7 +2260,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -2271,7 +2272,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -2484,7 +2485,7 @@
     },
     {
       "source": "lib_embeddings",
-      "target": "ref_openai",
+      "target": "lib_openai",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2520,8 +2521,20 @@
       "weight": 1.0
     },
     {
+      "source": "lib_openai",
+      "target": "ref_openai",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/openai.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "lib_parser",
-      "target": "ref_anthropic_ai_sdk",
+      "target": "ref_openai",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2529,11 +2542,12 @@
       "context": "import",
       "source_file": "lib/parser.ts",
       "source_location": "L12",
+      "type_only": true,
       "weight": 1.0
     },
     {
       "source": "lib_parser",
-      "target": "lib_supabase",
+      "target": "lib_openai",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2545,7 +2559,7 @@
     },
     {
       "source": "lib_parser",
-      "target": "lib_embeddings",
+      "target": "lib_supabase",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2557,7 +2571,7 @@
     },
     {
       "source": "lib_parser",
-      "target": "lib_matcher",
+      "target": "lib_embeddings",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2569,7 +2583,7 @@
     },
     {
       "source": "lib_parser",
-      "target": "types_index",
+      "target": "lib_matcher",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2577,6 +2591,18 @@
       "context": "import",
       "source_file": "lib/parser.ts",
       "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser",
+      "target": "types_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/parser.ts",
+      "source_location": "L17",
       "type_only": true,
       "weight": 1.0
     },
@@ -2922,7 +2948,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "DEPLOY.md",
-      "source_location": "L40",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -2933,7 +2959,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "DEPLOY.md",
-      "source_location": "L50",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -2944,7 +2970,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "DEPLOY.md",
-      "source_location": "L65",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -2955,7 +2981,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "DEPLOY.md",
-      "source_location": "L77",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -2966,7 +2992,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "DEPLOY.md",
-      "source_location": "L92",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -2982,24 +3008,13 @@
     },
     {
       "source": "lib_embeddings",
-      "target": "lib_embeddings_getopenai",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/embeddings.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_embeddings",
       "target": "lib_embeddings_generateembedding",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/embeddings.ts",
-      "source_location": "L21",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -3010,7 +3025,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/embeddings.ts",
-      "source_location": "L39",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -3025,25 +3040,25 @@
       "weight": 1.0
     },
     {
-      "source": "lib_parser",
-      "target": "lib_parser_classifywithclaude",
+      "source": "lib_openai",
+      "target": "lib_openai_getopenai",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "lib/parser.ts",
-      "source_location": "L154",
+      "source_file": "lib/openai.ts",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
       "source": "lib_parser",
-      "target": "lib_parser_getclaude",
+      "target": "lib_parser_classifywithopenai",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L20",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -3054,7 +3069,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L228",
+      "source_location": "L205",
       "weight": 1.0
     },
     {
@@ -3065,7 +3080,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L80",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -3164,7 +3179,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -3213,7 +3228,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_anthropic_ai_sdk",
+      "target": "package_dependencies_supabase_supabase_js",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3224,7 +3239,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_supabase_supabase_js",
+      "target": "package_dependencies_next",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3235,7 +3250,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_next",
+      "target": "package_dependencies_openai",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3246,7 +3261,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_openai",
+      "target": "package_dependencies_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3257,24 +3272,13 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "package.json",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "package_dependencies",
       "target": "package_dependencies_react_dom",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -3285,7 +3289,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3296,7 +3300,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -3307,7 +3311,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -3318,7 +3322,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -3329,7 +3333,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -3340,7 +3344,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -3351,7 +3355,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -3362,7 +3366,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -3506,6 +3510,17 @@
       "confidence_score": 1.0,
       "source_file": "RESUMEN_MANANA.md",
       "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "resumen_manana_resumen_para_retomar_2026_10_05",
+      "target": "resumen_manana_actualizaci\u00f3n_solo_openai",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "RESUMEN_MANANA.md",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -3785,5 +3800,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "86956819b9a6180bc9df34287b7d3abf54b335ae"
+  "built_at_commit": "1878d5c6dde3dad9720b650a5faecc611272b384"
 }

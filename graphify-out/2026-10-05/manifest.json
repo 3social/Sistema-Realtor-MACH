@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "app/api/webhook/route.ts": {
-    "mtime": 1791182363.4842012,
-    "seen": 1791182420.860411,
-    "ast_hash": "94d7ceb0a0e6775a0b538c8aa0f97ec4",
+    "mtime": 1791216923.6204371,
+    "seen": 1791216945.8147857,
+    "ast_hash": "5e43384b3e8ec7a96cb5ff8f929fdcff",
     "semantic_hash": ""
   },
   "app/dashboard/page.tsx": {
@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   "app/layout.tsx": {
-    "mtime": 1791180876.5198898,
-    "seen": 1791181183.129306,
-    "ast_hash": "96c88222c22e92a32fc876697de39bf9",
+    "mtime": 1791216923.6250834,
+    "seen": 1791216945.8147886,
+    "ast_hash": "ff3625aa43e791bff7de176eb1596187",
     "semantic_hash": ""
   },
   "app/page.tsx": {
@@ -42,9 +42,9 @@
     "semantic_hash": ""
   },
   "lib/embeddings.ts": {
-    "mtime": 1791215681.7655349,
-    "seen": 1791215722.9897542,
-    "ast_hash": "0e13d2ba1ba970bce7adfd8bd28ca981",
+    "mtime": 1791216904.2857661,
+    "seen": 1791216945.8147922,
+    "ast_hash": "e4ab4de7fbd096efb110c6f2ecc80689",
     "semantic_hash": ""
   },
   "lib/matcher.ts": {
@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "lib/parser.ts": {
-    "mtime": 1791215681.7660425,
-    "seen": 1791215722.9897566,
-    "ast_hash": "c1771a821251039cf7516c98cc6273f3",
+    "mtime": 1791216923.619282,
+    "seen": 1791216945.814796,
+    "ast_hash": "844a5e3ce6aa14a450178deef1dbcff2",
     "semantic_hash": ""
   },
   "lib/supabase.ts": {
@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "lib/whatsapp.ts": {
-    "mtime": 1791180876.5211282,
-    "seen": 1791181183.1293237,
-    "ast_hash": "5fd979924e4066f432da4882b1e08bfe",
+    "mtime": 1791216923.619966,
+    "seen": 1791216945.814799,
+    "ast_hash": "b222c5ff93dd09d8c749338325094f65",
     "semantic_hash": ""
   },
   "next.config.ts": {
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1791180876.5211282,
-    "seen": 1791181183.1293254,
-    "ast_hash": "ae607dceb9d232ee6a4a0d65b65282e5",
+    "mtime": 1791216906.2887626,
+    "seen": 1791216945.814801,
+    "ast_hash": "aa27b9cc60f41e619488209cf374e015",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "types/index.ts": {
-    "mtime": 1791180876.5234241,
-    "seen": 1791181183.1293275,
-    "ast_hash": "603683d6ce0fc501148af1305f0eef18",
+    "mtime": 1791216923.622843,
+    "seen": 1791216945.8148053,
+    "ast_hash": "aed181f9251b37c4cf849f826b40072e",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -114,9 +114,9 @@
     "semantic_hash": ""
   },
   "DEPLOY.md": {
-    "mtime": 1791182420.094692,
-    "seen": 1791182420.8608947,
-    "ast_hash": "0899a991d607ed6204cccb2bebbfd512",
+    "mtime": 1791216923.6409185,
+    "seen": 1791216945.8148086,
+    "ast_hash": "dc08f7d4cba90ba5fada83b4a7cfd538",
     "semantic_hash": ""
   },
   "README.md": {
@@ -168,9 +168,15 @@
     "semantic_hash": ""
   },
   "RESUMEN_MANANA.md": {
-    "mtime": 1791214230.2229939,
-    "seen": 1791214232.4777157,
-    "ast_hash": "5090939f16fe6a4d18ec92166f0bf1b5",
+    "mtime": 1791216923.641731,
+    "seen": 1791216945.8148112,
+    "ast_hash": "5c146ae3599fdf1224b6dc39675dbe6a",
+    "semantic_hash": ""
+  },
+  "lib/openai.ts": {
+    "mtime": 1791216904.2647624,
+    "seen": 1791216945.8147948,
+    "ast_hash": "7f6ea1afbc7619fc7169deb253d5b68a",
     "semantic_hash": ""
   }
 }
