@@ -17,6 +17,8 @@ para la arquitectura y `DEPLOY.md` para la infraestructura.
   activa **sin políticas** para anon; no agregar políticas abiertas (`true`).
 - Nunca escribir secretos en el repo, docs ni commits (`.env*` está ignorado). Valores solo en Vercel.
 - `/api/ingest` exige `INGEST_SECRET` (falla cerrado). `/api/webhook` valida firma si hay `WHATSAPP_APP_SECRET`.
+- La lógica de matching (tipo, operación, zona, precio, habitaciones) vive en la función SQL `match_properties`
+  (`supabase/schema.sql`); si cambias reglas, cambia el SQL **y** aplícalo en Supabase. Tipos válidos: casa, apartamento, lote, finca, local, oficina.
 - Todo mensaje entrante pasa por `parseAndStoreMessage` (dedupe por `messageId`). No duplicar el pipeline.
 - El dashboard y las rutas `/api/matches`, `/api/properties` no tienen login: no quitar la Vercel
   Authentication sin añadir autenticación antes.

@@ -24,7 +24,7 @@ export interface WebhookPayload {
 /** Resultado que devuelve el modelo al clasificar un mensaje */
 export interface ParsedProperty {
   type: 'offer' | 'demand' | 'ignore'
-  property_type: 'casa' | 'apartamento' | 'local' | 'terreno' | 'oficina' | null
+  property_type: 'casa' | 'apartamento' | 'lote' | 'finca' | 'local' | 'oficina' | null
   operation: 'venta' | 'alquiler' | null
   location: string | null
   price_min: number | null

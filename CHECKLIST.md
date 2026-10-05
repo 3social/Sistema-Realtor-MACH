@@ -14,7 +14,11 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 
 ## 2. Base de datos (Supabase `property-matcher-mach`)
 - ✅ Tablas `properties` y `matches` creadas, RLS activa, sin políticas para anon.
-- ✅ `match_properties` ejecutable por `service_role`, no por `anon`.
+- ✅ `match_properties(uuid, …)` y `zones_compatible` ejecutables por `service_role`, no por `anon`.
+- ✅ Matching por tipo (casa/apartamento/lote/finca), operación, zona, precio (+10 %), habitaciones y remitente:
+  probado en la base con 13 casos (transacción revertida, sin filas residuales).
+- ⬜ Limpieza: la función vieja `match_properties(vector, text, float, int)` sigue en la base (sin acceso para anon, sin uso);
+  eliminarla en el SQL Editor con `DROP FUNCTION match_properties(extensions.vector, text, double precision, integer);`.
 - ✅ Aviso de seguridad restante: solo "RLS sin políticas" (informativo y deseado).
 - ⬜ Tras la primera prueba: la fila aparece en `properties` (verificación en el Table Editor).
 
@@ -52,6 +56,6 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 
 ## 7. Mejoras pendientes (no bloquean la puesta en marcha)
 - Autenticación del dashboard y de las rutas API.
-- Filtrar el matching por operación (venta/alquiler) y rango de precio, además de embeddings.
+- Calibrar el umbral de similitud (0.6) y el margen de precio (10 %) con mensajes reales; considerar área (m²) para lotes y fincas.
 - Nombre del grupo (Evolution no lo envía en `MESSAGES_UPSERT`; se guarda el ID).
 - Validar con un esquema (zod) el JSON devuelto por el modelo.

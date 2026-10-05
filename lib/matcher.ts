@@ -6,8 +6,13 @@
 import { supabaseAdmin } from './supabase'
 import type { Property } from '@/types'
 
-/** Score mínimo de similitud coseno para registrar un match (0-1) */
-const MATCH_THRESHOLD = 0.75
+/**
+ * Similitud coseno mínima (0-1) entre los embeddings. Los criterios duros
+ * (tipo de propiedad, operación, zona, precio, habitaciones, remitente)
+ * se aplican en SQL dentro de `match_properties`; el embedding solo ordena y
+ * descarta lo que no se parece en características/resumen. Calibrar con datos reales.
+ */
+const MATCH_THRESHOLD = 0.6
 
 /** Cantidad máxima de candidatos por búsqueda */
 const MATCH_COUNT = 10
@@ -15,6 +20,8 @@ const MATCH_COUNT = 10
 /**
  * Dado una propiedad recién insertada, busca sus contrapartes compatibles
  * en el pool de Supabase y registra los matches encontrados.
+ * La compatibilidad se decide en la función SQL `match_properties`
+ * (ver supabase/schema.sql).
  *
  * - Si llegó una OFERTA → busca DEMANDAS compatibles
  * - Si llegó una DEMANDA → busca OFERTAS compatibles
@@ -26,14 +33,11 @@ export async function findMatches(newProperty: Property): Promise<void> {
     return
   }
 
-  const searchType = newProperty.type === 'offer' ? 'demand' : 'offer'
-
-  // Búsqueda vectorial via función SQL
+  // Filtros duros + similitud vectorial via función SQL
   const { data: candidates, error } = await supabaseAdmin.rpc(
     'match_properties',
     {
-      query_embedding: newProperty.embedding,
-      search_type: searchType,
+      p_property_id: newProperty.id,
       match_threshold: MATCH_THRESHOLD,
       match_count: MATCH_COUNT
     }

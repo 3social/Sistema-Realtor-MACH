@@ -34,7 +34,7 @@ TIPOS DE CONTENIDO:
 
 Cuando analices una IMAGEN, extrae toda la información visible:
 - Texto en la imagen (precios, direcciones, teléfonos, características)
-- Tipo de propiedad visible (casa, apartamento, local comercial, terreno)
+- Tipo de propiedad visible (casa, apartamento, lote, finca, local comercial, oficina)
 - Características visuales (piscina, jardín, garaje, número de plantas, estado aparente)
 - Logotipos o nombres de inmobiliaria (van en extras)
 
@@ -42,7 +42,7 @@ RESPONDE ÚNICAMENTE con JSON válido, sin texto adicional, sin markdown, sin bl
 
 {
   "type": "offer" | "demand" | "ignore",
-  "property_type": "casa" | "apartamento" | "local" | "terreno" | "oficina" | null,
+  "property_type": "casa" | "apartamento" | "lote" | "finca" | "local" | "oficina" | null,
   "operation": "venta" | "alquiler" | null,
   "location": "nombre del lugar o zona" | null,
   "price_min": número en USD o null,
@@ -60,6 +60,17 @@ REGLAS:
 - Si el precio viene en colones (₡ o CRC), conviértelo a USD dividiendo entre 530
 - "hasta $200k" → price_max: 200000 | "desde $150k" → price_min: 150000
 - "cuartos", "piezas", "dormitorios" → bedrooms
+- TIPO DE PROPIEDAD (distínguelo con cuidado, es clave para el matching):
+  · "lote": terreno o lote urbano/para construir, "terreno", "lote", "lotes en urbanización"
+  · "finca": propiedad rural o agrícola/ganadera, "finca", "quinta", "hectáreas", "manzanas", "con cultivos/ganado"
+  · "casa": casa, villa, quinta residencial, "casa en condominio"
+  · "apartamento": apartamento, apto, "torre", "condominio vertical", estudio
+  · "local" (local comercial/bodega) y "oficina"
+  · Si no es claro, usa null (no adivines)
+- ÁREA: area_m2 siempre en metros cuadrados (1 hectárea = 10000 m², 1 manzana ≈ 7000 m²)
+- PRECIO en OFERTAS: precio de venta o alquiler mensual en price_max (usa price_min solo si da un rango)
+- PRECIO en DEMANDAS: presupuesto máximo en price_max; "desde X" en price_min
+- UBICACIÓN: nombre de la zona/cantón/distrito tal como lo escribe el remitente (ej. "Escazú", "Santa Ana", "Playa Hermosa"); si busca en varias zonas, sepáralas por coma
 - features puede incluir: piscina, jardín, garaje, seguridad 24h, vista al mar, rancho, bodega, terraza, etc.
 - Si no puedes extraer un campo con confianza, usa null
 - Para contenido ambiguo entre offer/demand, elige el más probable`
@@ -201,7 +212,33 @@ async function classifyWithOpenAI(payload: WebhookPayload): Promise<ParsedProper
     .replace(/```\n?/g, '')
     .trim()
 
-  return JSON.parse(cleanJson) as ParsedProperty
+  return normalizeParsed(JSON.parse(cleanJson))
+}
+
+const PROPERTY_TYPES = ['casa', 'apartamento', 'lote', 'finca', 'local', 'oficina'] as const
+const OPERATIONS = ['venta', 'alquiler'] as const
+
+/** Sanea la salida del modelo para que respete los CHECK de la base de datos */
+function normalizeParsed(raw: Partial<Omit<ParsedProperty, 'property_type'>> & { property_type?: string | null }): ParsedProperty {
+  const type = raw.type === 'offer' || raw.type === 'demand' ? raw.type : 'ignore'
+  const propertyType = raw.property_type === 'terreno' ? 'lote' : raw.property_type
+  const num = (v: unknown) => (typeof v === 'number' && Number.isFinite(v) ? v : null)
+
+  return {
+    type,
+    property_type: PROPERTY_TYPES.find((t) => t === propertyType) ?? null,
+    operation:     OPERATIONS.find((o) => o === raw.operation) ?? null,
+    location:      typeof raw.location === 'string' && raw.location.trim() ? raw.location.trim() : null,
+    price_min:     num(raw.price_min),
+    price_max:     num(raw.price_max),
+    bedrooms_min:  num(raw.bedrooms_min),
+    bedrooms_max:  num(raw.bedrooms_max),
+    bathrooms:     num(raw.bathrooms),
+    area_m2:       num(raw.area_m2),
+    features:      Array.isArray(raw.features) ? raw.features.filter((f) => typeof f === 'string') : [],
+    condition:     (['nuevo', 'usado', 'en planos'] as const).find((c) => c === raw.condition) ?? null,
+    summary:       typeof raw.summary === 'string' ? raw.summary : ''
+  }
 }
 
 // ============================================================

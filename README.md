@@ -26,6 +26,17 @@ POST /api/ingest  (Vercel) ──►  lib/parser.ts
 También existe `POST /api/webhook`, el webhook de la **API oficial de Meta** (solo chats
 directos; la Cloud API no entrega mensajes de grupos). Comparte el mismo pipeline.
 
+## Reglas de matching
+`match_properties` (SQL) empareja una propiedad con sus contrapartes (oferta ↔ demanda). Si un dato falta en
+cualquiera de los dos lados, ese criterio no descarta. Deben cumplirse todos:
+- **Tipo de propiedad** igual: `casa`, `apartamento`, `lote`, `finca`, `local` u `oficina`.
+- **Operación** igual: venta o alquiler.
+- **Zona** compatible: una contiene a la otra (`Escazú` ⊂ `San Rafael de Escazú`), sin acentos/mayúsculas;
+  una demanda puede listar varias zonas (`Escazú, Santa Ana`).
+- **Precio**: el precio más bajo de la oferta ≤ presupuesto máximo de la demanda **+ 10 %**.
+- **Habitaciones** dentro de lo que pide la demanda; **remitentes distintos**; propiedades activas.
+- Después, similitud de embeddings (características y resumen) > 0.6 (`MATCH_THRESHOLD` en `lib/matcher.ts`).
+
 ## Stack
 Next.js 16 (App Router, Turbopack) · React 19 · Tailwind 4 · Supabase (Postgres + pgvector) ·
 OpenAI · Evolution API v2 · Vercel.
