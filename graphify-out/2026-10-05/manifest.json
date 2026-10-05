@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "lib/parser.ts": {
-    "mtime": 1791216923.619282,
-    "seen": 1791216945.814796,
-    "ast_hash": "844a5e3ce6aa14a450178deef1dbcff2",
+    "mtime": 1791218683.505008,
+    "seen": 1791218889.7809112,
+    "ast_hash": "feb62f08d9835c5a39d4088b5c950314",
     "semantic_hash": ""
   },
   "lib/supabase.ts": {
@@ -168,15 +168,27 @@
     "semantic_hash": ""
   },
   "RESUMEN_MANANA.md": {
-    "mtime": 1791216923.641731,
-    "seen": 1791216945.8148112,
-    "ast_hash": "5c146ae3599fdf1224b6dc39675dbe6a",
+    "mtime": 1791218889.161282,
+    "seen": 1791218889.7809243,
+    "ast_hash": "27c586298f786f6fcc707c2de49a0635",
     "semantic_hash": ""
   },
   "lib/openai.ts": {
     "mtime": 1791216904.2647624,
     "seen": 1791216945.8147948,
     "ast_hash": "7f6ea1afbc7619fc7169deb253d5b68a",
+    "semantic_hash": ""
+  },
+  "app/api/ingest/route.ts": {
+    "mtime": 1791218683.4929428,
+    "seen": 1791218889.7808964,
+    "ast_hash": "89f616ff1a9acd5dde2b4513985d055e",
+    "semantic_hash": ""
+  },
+  "EVOLUTION_SETUP.md": {
+    "mtime": 1791218889.161282,
+    "seen": 1791218889.780922,
+    "ast_hash": "98a246de240a9d5673b6e7317840d845",
     "semantic_hash": ""
   }
 }
