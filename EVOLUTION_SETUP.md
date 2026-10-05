@@ -16,6 +16,11 @@ webhook `MESSAGES_UPSERT` → `POST /api/ingest` (Vercel) → clasificar → mat
      `/api/matches`, `/api/properties` públicos (muestran teléfonos) hasta que tengan login.
 
 ## 1. Crear la instancia y el webhook
+**Si el Manager no muestra headers** (versión de solo URL), pon el secreto en la propia URL:
+`https://<DOMINIO>/api/ingest?secret=<INGEST_SECRET>&x-vercel-protection-bypass=<BYPASS>`
+(sin `&x-vercel-protection-bypass=...` si desactivaste la protección). Deja *Webhook by Events* apagado.
+El método por headers de abajo es preferible si tu versión lo permite.
+
 Evolution: `https://personaldev-evolution-api.aaqnec.easypanel.host` (API key global =
 `AUTHENTICATION_API_KEY` del servicio `evolution-api` en Easypanel).
 Reemplaza `<APIKEY>`, `<INGEST_SECRET>`, `<BYPASS>` y `<DOMINIO>` (p. ej.

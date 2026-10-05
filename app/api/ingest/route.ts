@@ -7,8 +7,9 @@
 // y sigue el mismo pipeline que el webhook de Meta:
 //   clasificar → embedding → guardar → matching.
 //
-// Auth: header `x-ingest-secret` == INGEST_SECRET (si no hay secreto
-// configurado, el endpoint rechaza todo).
+// Auth: INGEST_SECRET, enviado en el header `x-ingest-secret` o, si el
+// cliente no permite headers (Evolution Manager), en `?secret=` de la URL.
+// Si no hay secreto configurado, el endpoint rechaza todo.
 // ============================================================
 import { timingSafeEqual } from 'node:crypto'
 import { NextRequest, NextResponse, after } from 'next/server'
@@ -55,7 +56,8 @@ function jidToPhone(jid?: string): string | undefined {
 }
 
 export async function POST(req: NextRequest) {
-  if (!secretMatches(req.headers.get('x-ingest-secret'))) {
+  const received = req.headers.get('x-ingest-secret') ?? req.nextUrl.searchParams.get('secret')
+  if (!secretMatches(received)) {
     return new NextResponse('Unauthorized', { status: 401 })
   }
 
