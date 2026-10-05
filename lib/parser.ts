@@ -15,7 +15,11 @@ import { generateEmbedding, buildEmbeddingText } from './embeddings'
 import { findMatches } from './matcher'
 import type { WebhookPayload, ParsedProperty } from '@/types'
 
-const claude = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! })
+// Cliente perezoso (ver lib/embeddings.ts): evita fallos en build sin claves.
+let claude: Anthropic | undefined
+function getClaude(): Anthropic {
+  return (claude ??= new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! }))
+}
 
 // ============================================================
 // System prompt — especializado en Costa Rica / LATAM
@@ -197,7 +201,7 @@ async function classifyWithClaude(payload: WebhookPayload): Promise<ParsedProper
     ]
   }
 
-  const response = await claude.messages.create({
+  const response = await getClaude().messages.create({
     model:      'claude-sonnet-4-6',
     max_tokens: 700,
     system:     SYSTEM_PROMPT,

@@ -5,9 +5,12 @@
 // ============================================================
 import OpenAI from 'openai'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!
-})
+// Cliente perezoso: no se crea al importar el módulo, así `next build`
+// no falla si OPENAI_API_KEY aún no está configurada (se exige en runtime).
+let openai: OpenAI | undefined
+function getOpenAI(): OpenAI {
+  return (openai ??= new OpenAI({ apiKey: process.env.OPENAI_API_KEY! }))
+}
 
 /**
  * Genera un embedding vectorial de 1536 dimensiones para un texto dado.
@@ -17,7 +20,7 @@ const openai = new OpenAI({
  */
 export async function generateEmbedding(text: string): Promise<number[]> {
   try {
-    const response = await openai.embeddings.create({
+    const response = await getOpenAI().embeddings.create({
       model: 'text-embedding-3-small',
       input: text.slice(0, 8000) // límite de tokens del modelo
     })
