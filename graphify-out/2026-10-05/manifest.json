@@ -108,9 +108,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1791181501.4967098,
-    "seen": 1791181505.0396285,
-    "ast_hash": "03e3d38ba74cf8886d3d8fc322d9da8a",
+    "mtime": 1791180876.5158055,
+    "seen": 1791181183.1293292,
+    "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
     "semantic_hash": ""
   },
   "DEPLOY.md": {
@@ -153,18 +153,6 @@
     "mtime": 1791180876.5234241,
     "seen": 1791181183.129336,
     "ast_hash": "a2760511c65806022ad20adf74370ff3",
-    "semantic_hash": ""
-  },
-  ".claude/settings.json": {
-    "mtime": 1791181501.4978118,
-    "seen": 1791181505.0396008,
-    "ast_hash": "cbaf2b3390ea3e622938b2e9c1c65eed",
-    "semantic_hash": ""
-  },
-  "supabase/schema.sql": {
-    "mtime": 1791180876.5234241,
-    "seen": 1791181505.0396242,
-    "ast_hash": "ea69caa425622840d31cb93733628538",
     "semantic_hash": ""
   }
 }

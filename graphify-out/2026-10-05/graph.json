@@ -598,6 +598,17 @@
       "source_location": "L17"
     },
     {
+      "id": "ref_supabase_supabase_js",
+      "label": "@supabase/supabase-js",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@supabase/supabase-js",
+      "source_file": "package.json",
+      "source_location": "L13"
+    },
+    {
       "id": "ref_tailwindcss",
       "label": "tailwindcss",
       "_origin": "ast",
@@ -931,18 +942,6 @@
       "source_location": "L1"
     },
     {
-      "id": "claude_graphify",
-      "label": "graphify",
-      "_origin": "ast",
-      "community": 12,
-      "community_name": "CLAUDE.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "graphify",
-      "source_file": "CLAUDE.md",
-      "source_location": "L3"
-    },
-    {
       "id": "app_dashboard_page",
       "label": "dashboard/page.tsx",
       "_origin": "ast",
@@ -1073,17 +1072,6 @@
       "norm_label": "supabasepublic",
       "source_file": "lib/supabase.ts",
       "source_location": "L16"
-    },
-    {
-      "id": "ref_supabase_supabase_js",
-      "label": "@supabase/supabase-js",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "parser.ts",
-      "file_type": "concept",
-      "norm_label": "@supabase/supabase-js",
-      "source_file": "package.json",
-      "source_location": "L13"
     },
     {
       "id": "app_api_matches_route",
@@ -1553,7 +1541,6 @@
     {
       "id": "app_globals",
       "label": "app_globals",
-      "_origin": "semantic",
       "community": 4,
       "community_name": "matches/route.ts",
       "external": true,
@@ -2703,17 +2690,6 @@
       "weight": 1.0
     },
     {
-      "source": "claude",
-      "target": "claude_graphify",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
       "source": "deploy",
       "target": "deploy_gu\u00eda_de_deploy_whatsapp_property_matcher",
       "relation": "contains",
@@ -3573,5 +3549,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8c9dde4c20392909029db86d8820cbdc2b235733"
+  "built_at_commit": "ea74bf7a116f1d35d5f3a77b6c65286ff80c9ff0"
 }
