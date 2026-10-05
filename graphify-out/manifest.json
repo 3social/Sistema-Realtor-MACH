@@ -102,27 +102,27 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791180876.5158055,
-    "seen": 1791181183.1293285,
-    "ast_hash": "9e09241799026ac05be315a2f0b50055",
+    "mtime": 1791222053.1059637,
+    "seen": 1791222070.3253667,
+    "ast_hash": "a0d83204785529fdeb2ceb56eb877db5",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1791181501.4967098,
-    "seen": 1791181505.0396285,
-    "ast_hash": "03e3d38ba74cf8886d3d8fc322d9da8a",
+    "mtime": 1791222053.1166394,
+    "seen": 1791222070.3253698,
+    "ast_hash": "e8dc1ce2d92d759697cb91d538893a1a",
     "semantic_hash": ""
   },
   "DEPLOY.md": {
-    "mtime": 1791216923.6409185,
-    "seen": 1791216945.8148086,
-    "ast_hash": "dc08f7d4cba90ba5fada83b4a7cfd538",
+    "mtime": 1791222053.104276,
+    "seen": 1791222070.325371,
+    "ast_hash": "648f9842ea165db1655725dcf13c0aec",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1791180876.5158055,
-    "seen": 1791181183.1293314,
-    "ast_hash": "f15aaa42d5d299d091b1171097ea56ad",
+    "mtime": 1791222053.1023936,
+    "seen": 1791222070.3253736,
+    "ast_hash": "383057e65b0480b638b92dcf01159048",
     "semantic_hash": ""
   },
   "public/file.svg": {
@@ -167,12 +167,6 @@
     "ast_hash": "c4d272b834d88b45d9cadba9980a1790",
     "semantic_hash": ""
   },
-  "RESUMEN_MANANA.md": {
-    "mtime": 1791218889.161282,
-    "seen": 1791218889.7809243,
-    "ast_hash": "27c586298f786f6fcc707c2de49a0635",
-    "semantic_hash": ""
-  },
   "lib/openai.ts": {
     "mtime": 1791216904.2647624,
     "seen": 1791216945.8147948,
@@ -189,6 +183,12 @@
     "mtime": 1791221468.0706244,
     "seen": 1791221498.1445136,
     "ast_hash": "ef1d6d3f4e40bd5e6d2b4464429a810a",
+    "semantic_hash": ""
+  },
+  "CHECKLIST.md": {
+    "mtime": 1791222069.7858605,
+    "seen": 1791222070.3253686,
+    "ast_hash": "39da9172ad3b1ecfc3c72fb8d948f9c3",
     "semantic_hash": ""
   }
 }

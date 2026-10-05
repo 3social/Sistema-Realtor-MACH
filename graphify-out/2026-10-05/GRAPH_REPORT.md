@@ -1,7 +1,7 @@
 # Graph Report - Sistema-Realtor-MACH  (2026-10-05)
 
 ## Corpus Check
-- 27 files · ~8,000 words
+- 27 files · ~8,065 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .ico 1, .css 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `09283450`
+- Built from commit: `4dd57608`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -49,12 +49,12 @@
   app/api/ingest/route.ts → lib/parser.ts
 - `PropertyPanelProps` --references--> `MatchWithProperties`  [EXTRACTED]
   app/dashboard/page.tsx → types/index.ts
-- `POST()` --calls--> `parseAndStoreMessage()`  [EXTRACTED]
-  app/api/webhook/route.ts → lib/parser.ts
 - `MatchCardProps` --references--> `MatchStatus`  [EXTRACTED]
   app/dashboard/page.tsx → types/index.ts
 - `MatchCardProps` --references--> `MatchWithProperties`  [EXTRACTED]
   app/dashboard/page.tsx → types/index.ts
+- `POST()` --calls--> `parseAndStoreMessage()`  [EXTRACTED]
+  app/api/webhook/route.ts → lib/parser.ts
 
 ## Import Cycles
 - None detected.

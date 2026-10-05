@@ -4,14 +4,12 @@
   "2": "dashboard/page.tsx",
   "3": "parser.ts",
   "4": "next",
-  "5": "Resumen para retomar (2026-10-05)",
-  "6": "🚀 Guía de Deploy — WhatsApp Property Matcher",
+  "5": "PropertyMatch — Sistema Realtor MACH",
   "7": "devDependencies",
   "8": "dependencies",
-  "9": "README.md",
-  "10": "AGENTS.md",
+  "10": "PropertyMatch — convenciones del proyecto",
   "11": "postcss.config.mjs",
   "12": "CLAUDE.md",
   "13": "ingest/route.ts",
-  "14": "Integrar el número (grupos) con Evolution API"
+  "14": "Checklist de confirmación de estado"
 }
