@@ -1264,7 +1264,7 @@
       "node_kind": "heading",
       "norm_label": "para salir a produccion (orden)",
       "source_file": "RESUMEN_MANANA.md",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "resumen_manana_pendiente_no_lo_toqu\u00e9_porque_cambia_comportamiento_dec\u00eddelo_t\u00fa",
@@ -1276,7 +1276,7 @@
       "node_kind": "heading",
       "norm_label": "pendiente (no lo toque porque cambia comportamiento; decidelo tu)",
       "source_file": "RESUMEN_MANANA.md",
-      "source_location": "L30"
+      "source_location": "L31"
     },
     {
       "id": "resumen_manana_resumen_para_retomar_2026_10_05",
@@ -1635,6 +1635,18 @@
       "source_location": "L23"
     },
     {
+      "id": "ref_node_crypto",
+      "label": "ref_node_crypto",
+      "_origin": "semantic",
+      "community": 3,
+      "community_name": "parser.ts",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_node_crypto",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "app_globals",
       "label": "app_globals",
       "_origin": "semantic",
@@ -1643,17 +1655,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "app_globals",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_node_crypto",
-      "label": "ref_node_crypto",
-      "community": 3,
-      "community_name": "parser.ts",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_node_crypto",
       "source_file": "",
       "type": "external"
     }
@@ -3456,7 +3457,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "RESUMEN_MANANA.md",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -3478,7 +3479,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "RESUMEN_MANANA.md",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -3758,5 +3759,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1155ab327ed7ed2cd671a2d40f49796ac8629f04"
+  "built_at_commit": "312c4506d5b2553233d099ba63560078af511504"
 }
