@@ -86,6 +86,11 @@ npm run build
 - [`CHECKLIST.md`](CHECKLIST.md): confirmación de estado del sistema.
 - [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md): mapa del código (`graphify update .` lo regenera).
 
+## Costos (orientativo; confirmar tarifas en OpenAI)
+- Mensaje de texto ≈ $0.0002 (clasificación `gpt-4o-mini` + embedding); imagen/flyer ≈ $0.001–0.003.
+- ≈ $0.20 por cada 1,000 mensajes de texto. Todo mensaje de grupo pasa por OpenAI, incluso los irrelevantes.
+- Control: límite mensual y alertas en platform.openai.com → Billing → Limits; consumo real en Usage.
+
 ## Avisos
 - Evolution/Baileys es un cliente **no oficial** de WhatsApp: usa un número dedicado, no envíes mensajes
   desde él y entra a los grupos gradualmente. Hay riesgo de bloqueo del número.

@@ -62,7 +62,14 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ✅ Evolution reintenta el webhook ante 5xx: variables `WEBHOOK_RETRY_*` (10 intentos, 5 s → 300 s, ~25 min) configuradas en Easypanel
   (confirmado por el usuario; existen en el `.env.example` oficial de la 2.3.7). Verificar que la instancia siga *Connected*.
 
-## 7. Mejoras pendientes (no bloquean la puesta en marcha)
+## 7. Cierre: pendientes del propietario
+- ⬜ Rotar `INGEST_SECRET` (se expuso en el chat y viaja en la URL del webhook) y actualizarlo en Vercel y en Evolution.
+- ⬜ Rotar las claves visibles en Easypanel (clave global de Evolution, `OPENAI_KEY` y VAPI en n8n, contraseñas de BD).
+- ⬜ Límite mensual y alerta de gasto en OpenAI (Billing → Limits).
+- ⬜ Decidir caducidad de publicaciones (ver abajo).
+
+## 8. Mejoras pendientes (no bloquean la puesta en marcha)
+- Descartar sin llamar a OpenAI los mensajes de texto muy cortos (< ~15 caracteres) para reducir gasto.
 - Caducidad de publicaciones: hoy una oferta/demanda sigue activa para siempre (cruza con todo lo nuevo); desactivar tras N días.
 - Cargar histórico: solo se procesa lo que llega desde que se activó el webhook (no el historial de los grupos).
 - Autenticación del dashboard y de las rutas API.
