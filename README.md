@@ -88,7 +88,8 @@ npm run build
 
 ## Costos (orientativo; confirmar tarifas en OpenAI)
 - Mensaje de texto ≈ $0.0002 (clasificación `gpt-4o-mini` + embedding); imagen/flyer ≈ $0.001–0.003.
-- ≈ $0.20 por cada 1,000 mensajes de texto. Todo mensaje de grupo pasa por OpenAI, incluso los irrelevantes.
+- ≈ $0.20 por cada 1,000 mensajes de texto. Todo mensaje de grupo pasa por OpenAI, salvo el texto de menos de 15 caracteres
+  ("ok", "gracias"), que se descarta antes; las imágenes siempre se procesan.
 - Control: límite mensual y alertas en platform.openai.com → Billing → Limits; consumo real en Usage.
 
 ## Avisos

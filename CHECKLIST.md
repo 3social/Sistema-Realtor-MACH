@@ -4,6 +4,8 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 Última revisión: 2026-10-05, commit `0861354`.
 
 ## 1. Código
+- ✅ Filtro de ahorro: los mensajes de **solo texto** con menos de 15 caracteres ("ok", "gracias") se descartan sin llamar a OpenAI
+  ni a la base de datos; las imágenes siempre se procesan, aunque el caption sea corto (`MIN_TEXT_LENGTH` en `lib/parser.ts`).
 - ✅ `npx tsc --noEmit` y `npx eslint` sin errores.
 - ✅ `npm run build` correcto con solo las variables de Supabase (sin claves de IA).
 - ✅ `POST /api/ingest`: 401 sin secreto o con secreto malo; ignora chats directos, mensajes propios y eventos
@@ -69,7 +71,6 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ⬜ Decidir caducidad de publicaciones (ver abajo).
 
 ## 8. Mejoras pendientes (no bloquean la puesta en marcha)
-- Descartar sin llamar a OpenAI los mensajes de texto muy cortos (< ~15 caracteres) para reducir gasto.
 - Caducidad de publicaciones: hoy una oferta/demanda sigue activa para siempre (cruza con todo lo nuevo); desactivar tras N días.
 - Cargar histórico: solo se procesa lo que llega desde que se activó el webhook (no el historial de los grupos).
 - Autenticación del dashboard y de las rutas API.

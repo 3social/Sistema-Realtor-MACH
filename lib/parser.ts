@@ -17,6 +17,12 @@ import { findMatches } from './matcher'
 import { dbRetry, isTransientDbError, TransientError } from './retry'
 import type { WebhookPayload, ParsedProperty } from '@/types'
 
+/**
+ * Un mensaje de solo texto con menos caracteres que esto ("ok", "gracias", un emoji) no puede ser
+ * una publicación: se descarta sin llamar a OpenAI ni a la base de datos. No aplica a imágenes.
+ */
+const MIN_TEXT_LENGTH = 15
+
 /** Modelo con visión usado para clasificar texto, flyers e imágenes */
 const CLASSIFY_MODEL = 'gpt-4o-mini'
 
@@ -89,6 +95,12 @@ REGLAS:
  */
 export async function parseAndStoreMessage(payload: WebhookPayload): Promise<void> {
   console.log(`[parser] Procesando ${payload.source} de ${payload.from} en grupo ${payload.groupId}`)
+
+  // Filtro de ahorro: texto demasiado corto para ser una oferta o demanda
+  if (payload.source === 'text' && (payload.text ?? '').trim().length < MIN_TEXT_LENGTH) {
+    console.log(`[parser] Texto de menos de ${MIN_TEXT_LENGTH} caracteres, descartando sin llamar a OpenAI`)
+    return
+  }
 
   // Evitar duplicados: Meta y Evolution reintentan webhooks
   if (await isDuplicate(payload.messageId)) {
