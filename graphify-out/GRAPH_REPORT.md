@@ -1,17 +1,17 @@
 # Graph Report - Sistema-Realtor-MACH  (2026-10-10)
 
 ## Corpus Check
-- 29 files · ~11,609 words
+- 29 files · ~11,996 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .ico 1, .css 1)
 
 ## Summary
-- 188 nodes · 270 edges · 13 communities (11 shown, 2 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.95)
+- 189 nodes · 276 edges · 13 communities (11 shown, 2 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a8ff66f4`
+- Built from commit: `9601dc95`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -31,18 +31,20 @@
 - Checklist de confirmación de estado
 
 ## God Nodes (most connected - your core abstractions)
-1. `parseAndStoreMessage()` - 17 edges
+1. `parseAndStoreMessage()` - 18 edges
 2. `compilerOptions` - 16 edges
 3. `Checklist de confirmación de estado` - 11 edges
-4. `PropertyMatch — Sistema Realtor MACH` - 11 edges
-5. `dbRetry()` - 10 edges
-6. `next` - 8 edges
-7. `TransientError` - 7 edges
-8. `Despliegue — PropertyMatch` - 7 edges
-9. `MatchCard()` - 6 edges
-10. `isTransientDbError()` - 6 edges
+4. `dbRetry()` - 11 edges
+5. `PropertyMatch — Sistema Realtor MACH` - 11 edges
+6. `TransientError` - 8 edges
+7. `next` - 8 edges
+8. `isTransientDbError()` - 7 edges
+9. `Despliegue — PropertyMatch` - 7 edges
+10. `isSimilarPost()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Reglas` --references--> `isSimilarPost()`  [INFERRED]
+  AGENTS.md → lib/parser.ts
 - `Reglas` --references--> `normalizeParsed()`  [INFERRED]
   AGENTS.md → lib/parser.ts
 - `Reglas` --references--> `parseAndStoreMessage()`  [INFERRED]
@@ -51,8 +53,6 @@
   app/api/ingest/route.ts → lib/parser.ts
 - `POST()` --calls--> `parseAndStoreMessage()`  [EXTRACTED]
   app/api/webhook/route.ts → lib/parser.ts
-- `PropertyPanelProps` --references--> `MatchWithProperties`  [EXTRACTED]
-  app/dashboard/page.tsx → types/index.ts
 
 ## Import Cycles
 - None detected.
@@ -72,8 +72,8 @@ Cohesion: 0.19
 Nodes (16): Dashboard(), formatDate(), formatPrice(), getScoreClass(), getScoreColor(), MatchCard(), MatchCardProps, PropertyPanel() (+8 more)
 
 ### Community 3 - "parser.ts"
-Cohesion: 0.18
-Nodes (21): buildEmbeddingText(), generateEmbedding(), findMatches(), getOpenAI(), buildRawMessage(), classifyWithOpenAI(), computeContentHash(), isDuplicate() (+13 more)
+Cohesion: 0.17
+Nodes (23): Reglas, buildEmbeddingText(), generateEmbedding(), findMatches(), getOpenAI(), buildRawMessage(), classifyWithOpenAI(), computeContentHash() (+15 more)
 
 ### Community 4 - "next"
 Cohesion: 0.12
@@ -92,8 +92,8 @@ Cohesion: 0.22
 Nodes (9): devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, @types/node, @types/react, @types/react-dom (+1 more)
 
 ### Community 10 - "PropertyMatch — convenciones del proyecto"
-Cohesion: 0.40
-Nodes (4): Flujo de trabajo, PropertyMatch — convenciones del proyecto, Reglas, This is NOT the Next.js you know
+Cohesion: 0.50
+Nodes (3): Flujo de trabajo, PropertyMatch — convenciones del proyecto, This is NOT the Next.js you know
 
 ### Community 13 - "ingest/route.ts"
 Cohesion: 0.13
@@ -112,16 +112,16 @@ Nodes (11): 1. Código, 2. Base de datos (Supabase `property-matcher-mach`), 3. 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `next` connect `next` to `package.json`, `ingest/route.ts`?**
-  _High betweenness centrality (0.135) - this node is a cross-community bridge._
+  _High betweenness centrality (0.133) - this node is a cross-community bridge._
 - **What connects `This is NOT the Next.js you know`, `Flujo de trabajo`, `1. Código` to the rest of the system?**
   _97 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
-- **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.055) - this node is a cross-community bridge._
+- **Why does `openai` connect `parser.ts` to `package.json`?**
+  _High betweenness centrality (0.057) - this node is a cross-community bridge._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
-- **Why does `openai` connect `parser.ts` to `package.json`?**
+- **Why does `devDependencies` connect `devDependencies` to `package.json`?**
   _High betweenness centrality (0.055) - this node is a cross-community bridge._
 - **Should `next` be split into smaller, more focused modules?**
   _Cohesion score 0.12280701754385964 - nodes in this community are weakly interconnected._

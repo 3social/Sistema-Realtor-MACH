@@ -436,7 +436,7 @@
       "file_type": "code",
       "norm_label": "buildrawmessage()",
       "source_file": "lib/parser.ts",
-      "source_location": "L360"
+      "source_location": "L403"
     },
     {
       "id": "lib_parser_classifywithopenai",
@@ -448,7 +448,7 @@
       "file_type": "code",
       "norm_label": "classifywithopenai()",
       "source_file": "lib/parser.ts",
-      "source_location": "L205"
+      "source_location": "L211"
     },
     {
       "id": "lib_parser_computecontenthash",
@@ -460,7 +460,7 @@
       "file_type": "code",
       "norm_label": "computecontenthash()",
       "source_file": "lib/parser.ts",
-      "source_location": "L334"
+      "source_location": "L347"
     },
     {
       "id": "lib_parser_isduplicate",
@@ -472,7 +472,7 @@
       "file_type": "code",
       "norm_label": "isduplicate()",
       "source_file": "lib/parser.ts",
-      "source_location": "L313"
+      "source_location": "L326"
     },
     {
       "id": "lib_parser_isrepeatedpost",
@@ -484,7 +484,19 @@
       "file_type": "code",
       "norm_label": "isrepeatedpost()",
       "source_file": "lib/parser.ts",
-      "source_location": "L343"
+      "source_location": "L356"
+    },
+    {
+      "id": "lib_parser_issimilarpost",
+      "label": "isSimilarPost()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "code",
+      "norm_label": "issimilarpost()",
+      "source_file": "lib/parser.ts",
+      "source_location": "L377"
     },
     {
       "id": "lib_parser_normalizeparsed",
@@ -496,7 +508,7 @@
       "file_type": "code",
       "norm_label": "normalizeparsed()",
       "source_file": "lib/parser.ts",
-      "source_location": "L261"
+      "source_location": "L268"
     },
     {
       "id": "lib_parser_parseandstoremessage",
@@ -1158,7 +1170,7 @@
       "node_kind": "heading",
       "norm_label": "flujo de trabajo",
       "source_file": "AGENTS.md",
-      "source_location": "L31"
+      "source_location": "L33"
     },
     {
       "id": "agents_propertymatch_convenciones_del_proyecto",
@@ -1171,18 +1183,6 @@
       "norm_label": "propertymatch \u2014 convenciones del proyecto",
       "source_file": "AGENTS.md",
       "source_location": "L7"
-    },
-    {
-      "id": "agents_reglas",
-      "label": "Reglas",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "PropertyMatch \u2014 convenciones del proyecto",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "reglas",
-      "source_file": "AGENTS.md",
-      "source_location": "L12"
     },
     {
       "id": "agents_this_is_not_the_next_js_you_know",
@@ -1426,7 +1426,7 @@
       "node_kind": "heading",
       "norm_label": "7. cierre: pendientes del propietario",
       "source_file": "CHECKLIST.md",
-      "source_location": "L73"
+      "source_location": "L77"
     },
     {
       "id": "checklist_8_mejoras_pendientes_no_bloquean_la_puesta_en_marcha",
@@ -1438,7 +1438,7 @@
       "node_kind": "heading",
       "norm_label": "8. mejoras pendientes (no bloquean la puesta en marcha)",
       "source_file": "CHECKLIST.md",
-      "source_location": "L79"
+      "source_location": "L83"
     },
     {
       "id": "checklist_checklist_de_confirmaci\u00f3n_de_estado",
@@ -1538,7 +1538,7 @@
       "file_type": "code",
       "norm_label": "operations",
       "source_file": "lib/parser.ts",
-      "source_location": "L254"
+      "source_location": "L260"
     },
     {
       "id": "lib_parser_property_types",
@@ -1549,7 +1549,7 @@
       "file_type": "code",
       "norm_label": "property_types",
       "source_file": "lib/parser.ts",
-      "source_location": "L253"
+      "source_location": "L259"
     },
     {
       "id": "lib_retry",
@@ -1583,6 +1583,18 @@
       "norm_label": "openai",
       "source_file": "package.json",
       "source_location": "L14"
+    },
+    {
+      "id": "agents_reglas",
+      "label": "Reglas",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "parser.ts",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "reglas",
+      "source_file": "AGENTS.md",
+      "source_location": "L12"
     },
     {
       "id": "app_api_matches_route",
@@ -2377,7 +2389,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L231",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -2389,7 +2401,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L250",
+      "source_location": "L256",
       "weight": 1.0
     },
     {
@@ -2401,7 +2413,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L315",
+      "source_location": "L328",
       "weight": 1.0
     },
     {
@@ -2413,7 +2425,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L323",
+      "source_location": "L336",
       "weight": 1.0
     },
     {
@@ -2425,7 +2437,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L323",
+      "source_location": "L336",
       "weight": 1.0
     },
     {
@@ -2437,7 +2449,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L345",
+      "source_location": "L358",
       "weight": 1.0
     },
     {
@@ -2449,7 +2461,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L353",
+      "source_location": "L366",
       "weight": 1.0
     },
     {
@@ -2461,7 +2473,43 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L353",
+      "source_location": "L366",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_issimilarpost",
+      "target": "lib_retry_dbretry",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L381",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_issimilarpost",
+      "target": "lib_retry_istransientdberror",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L396",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_issimilarpost",
+      "target": "lib_retry_transienterror",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L396",
       "weight": 1.0
     },
     {
@@ -2526,7 +2574,7 @@
     },
     {
       "source": "lib_parser_parseandstoremessage",
-      "target": "lib_embeddings_buildembeddingtext",
+      "target": "lib_parser_issimilarpost",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2538,6 +2586,18 @@
     },
     {
       "source": "lib_parser_parseandstoremessage",
+      "target": "lib_embeddings_buildembeddingtext",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
       "target": "lib_embeddings_generateembedding",
       "relation": "calls",
       "_origin": "ast",
@@ -2545,7 +2605,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L149",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -2557,7 +2617,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L153",
+      "source_location": "L159",
       "weight": 1.0
     },
     {
@@ -2569,7 +2629,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L156",
+      "source_location": "L162",
       "weight": 1.0
     },
     {
@@ -2581,7 +2641,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L189",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -2593,7 +2653,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L198",
+      "source_location": "L204",
       "weight": 1.0
     },
     {
@@ -3642,7 +3702,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "AGENTS.md",
-      "source_location": "L31",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -4060,7 +4120,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L73",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -4071,7 +4131,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L79",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -4313,7 +4373,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L205",
+      "source_location": "L211",
       "weight": 1.0
     },
     {
@@ -4324,7 +4384,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L253",
+      "source_location": "L259",
       "weight": 1.0
     },
     {
@@ -4335,7 +4395,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L254",
+      "source_location": "L260",
       "weight": 1.0
     },
     {
@@ -4346,7 +4406,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L261",
+      "source_location": "L268",
       "weight": 1.0
     },
     {
@@ -4357,7 +4417,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L313",
+      "source_location": "L326",
       "weight": 1.0
     },
     {
@@ -4368,7 +4428,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L334",
+      "source_location": "L347",
       "weight": 1.0
     },
     {
@@ -4379,7 +4439,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L343",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser",
+      "target": "lib_parser_issimilarpost",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/parser.ts",
+      "source_location": "L377",
       "weight": 1.0
     },
     {
@@ -4390,7 +4461,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L360",
+      "source_location": "L403",
       "weight": 1.0
     },
     {
@@ -5264,6 +5335,18 @@
     },
     {
       "source": "agents_reglas",
+      "target": "lib_parser_issimilarpost",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "isSimilarPost",
+      "source_file": "AGENTS.md",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_reglas",
       "target": "lib_parser_normalizeparsed",
       "relation": "references",
       "_origin": "ast",
@@ -5283,10 +5366,10 @@
       "confidence_score": 0.95,
       "context": "parseAndStoreMessage",
       "source_file": "AGENTS.md",
-      "source_location": "L27",
+      "source_location": "L29",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a8ff66f4a95e646e1478910795d2c34cca9c89d4"
+  "built_at_commit": "9601dc95e234954b64e7dfa06aa0db152fa4404a"
 }
