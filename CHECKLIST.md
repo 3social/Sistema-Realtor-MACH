@@ -68,7 +68,11 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ✅ Corregido: la misma publicación en varios grupos se guardaba N veces y multiplicaba los matches (dedupe por huella de contenido).
 - ✅ Corregido: demandas sin "venta/alquiler" cruzaban con alquileres (ahora se deduce por precio).
 - ✅ Corregido: el modelo tomaba nombres de ferias (p. ej. "Concasa") como ubicación (prompt).
-- ⬜ Ejecutar `supabase/maintenance/limpiar-duplicados-y-operaciones.sql` para limpiar lo ya guardado (borra duplicados y matches erróneos).
+- ✅ Limpieza ejecutada (177 → 106 publicaciones; 21 → 13 matches; sin datos demo; 0 matches venta/alquiler).
+- ✅ Corregido: el mismo anuncio con precio levemente distinto (conversión de colones) ya no se duplica (±2 %), y las ventas con
+  precio < 1 000 USD se guardan sin precio.
+- ⬜ Volver a ejecutar `supabase/maintenance/limpiar-duplicados-y-operaciones.sql` (versión actualizada): fusiona los casi-duplicados
+  que quedaron (p. ej. lote de Grecia: 8 matches = 1 par real) y limpia el precio imposible.
 
 ## 7. Cierre: pendientes del propietario
 - ⬜ Rotar `INGEST_SECRET` (se expuso en el chat y viaja en la URL del webhook) y actualizarlo en Vercel y en Evolution.

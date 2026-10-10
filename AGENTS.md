@@ -24,6 +24,8 @@ para la arquitectura y `DEPLOY.md` para la infraestructura.
 - Los mensajes de solo texto de menos de 15 caracteres se descartan antes de llamar a OpenAI (`MIN_TEXT_LENGTH`); las imágenes no.
 - Crosspost: la misma persona publicando lo mismo en varios grupos se procesa una vez (huella `extras.contentHash`,
   30 días). La operación faltante se deduce por el precio (≥ 20 000 USD venta, ≤ 8 000 alquiler) en `normalizeParsed`.
+- Anuncio equivalente (misma persona, tipo, habitaciones y precio ±2 %) también se ignora; una venta con precio < 1 000 USD
+  se guarda sin precio. Ver `isSimilarPost` y `normalizeParsed` en `lib/parser.ts`.
 - Todo mensaje entrante pasa por `parseAndStoreMessage` (dedupe por `messageId`). No duplicar el pipeline.
 - El dashboard y las rutas `/api/matches`, `/api/properties` no tienen login: no quitar la Vercel
   Authentication sin añadir autenticación antes.

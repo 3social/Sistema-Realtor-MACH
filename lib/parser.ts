@@ -144,6 +144,12 @@ export async function parseAndStoreMessage(payload: WebhookPayload): Promise<voi
 
   console.log(`[parser] Tipo: ${parsed.type} | ${parsed.property_type} | ${parsed.location} | $${parsed.price_max}`)
 
+  // Mismo anuncio con texto distinto (p. ej. precio convertido de colones con pequeñas variaciones)
+  if (await isSimilarPost(payload.from, parsed)) {
+    console.log(`[parser] Anuncio equivalente de ${payload.from} ya registrado, ignorando`)
+    return
+  }
+
   // ── PASO 2: Generar embedding semántico (OpenAI) ───────────
   const embeddingText = buildEmbeddingText(parsed)
   const embedding = await generateEmbedding(embeddingText)
@@ -254,6 +260,7 @@ const PROPERTY_TYPES = ['casa', 'apartamento', 'lote', 'finca', 'local', 'oficin
 const OPERATIONS = ['venta', 'alquiler'] as const
 
 /** Si el mensaje no dice venta/alquiler: ≥ 20 000 USD se asume venta; ≤ 8 000 USD, alquiler mensual */
+const MIN_PLAUSIBLE_SALE_USD = 1_000
 const SALE_PRICE_FLOOR_USD = 20_000
 const RENT_PRICE_CEILING_USD = 8_000
 
@@ -286,6 +293,12 @@ function normalizeParsed(raw: Partial<Omit<ParsedProperty, 'property_type'>> & {
   if (operation === null && price !== null) {
     if (price >= SALE_PRICE_FLOOR_USD) operation = 'venta'
     else if (price <= RENT_PRICE_CEILING_USD) operation = 'alquiler'
+  }
+
+  // Una venta por menos de 1 000 USD no es un precio total (suele ser $/m² o miles abreviados): se descarta el precio
+  if (operation === 'venta' && price !== null && price < MIN_PLAUSIBLE_SALE_USD) {
+    priceMin = null
+    priceMax = null
   }
 
   return {
@@ -351,6 +364,36 @@ async function isRepeatedPost(contentHash: string): Promise<boolean> {
 
   if (res.error) {
     if (isTransientDbError(res)) throw new TransientError('Supabase no disponible al buscar publicaciones repetidas')
+    return false
+  }
+  return (res.data?.length ?? 0) > 0
+}
+
+/**
+ * ¿La misma persona ya publicó un anuncio equivalente? Mismo tipo y tipo de propiedad, mismas habitaciones
+ * y precio dentro de ±2 % (las conversiones de colones varían unos dólares entre publicaciones).
+ * Sin precio o sin remitente conocido no se deduplica.
+ */
+async function isSimilarPost(from: string, parsed: ParsedProperty): Promise<boolean> {
+  if (!from || from === 'unknown' || parsed.price_max === null) return false
+
+  const since = new Date(Date.now() - REPEAT_WINDOW_DAYS * 86_400_000).toISOString()
+  const res = await dbRetry(() => {
+    let query = supabaseAdmin
+      .from('properties')
+      .select('id')
+      .eq('sender_phone', from)
+      .eq('type', parsed.type)
+      .gte('created_at', since)
+      .gte('price_max', parsed.price_max! * 0.98)
+      .lte('price_max', parsed.price_max! * 1.02)
+    if (parsed.property_type) query = query.eq('property_type', parsed.property_type)
+    if (parsed.bedrooms_min !== null) query = query.eq('bedrooms_min', parsed.bedrooms_min)
+    return query.limit(1)
+  }, 'buscar anuncio equivalente')
+
+  if (res.error) {
+    if (isTransientDbError(res)) throw new TransientError('Supabase no disponible al buscar anuncios equivalentes')
     return false
   }
   return (res.data?.length ?? 0) > 0

@@ -17,18 +17,24 @@ WHERE operation IS NULL
   AND COALESCE(price_max, price_min) IS NOT NULL
   AND (COALESCE(price_max, price_min) >= 20000 OR COALESCE(price_max, price_min) <= 8000);
 
--- 2) Borrar publicaciones repetidas (misma persona y mismo contenido), conservando la primera.
---    Sus matches se borran en cascada.
+-- 1b) Ventas con precio imposible (< 1 000 USD: suele ser $/m² o miles abreviados): dejar el precio vacío
+UPDATE properties SET price_min = NULL, price_max = NULL
+WHERE operation = 'venta' AND COALESCE(price_max, price_min) < 1000;
+
+-- 2) Borrar publicaciones repetidas (misma persona, mismo tipo, operación y habitaciones, precio dentro de
+--    ~±2 %: se agrupa por tramos de 500 USD), conservando la primera. Sus matches se borran en cascada.
+--    Se puede volver a ejecutar sin problema.
 DELETE FROM properties p
 USING (
   SELECT id,
          row_number() OVER (
-           PARTITION BY sender_phone, type, property_type, operation, location,
-                        COALESCE(price_max, price_min), bedrooms_min
+           PARTITION BY sender_phone, type, property_type, operation, bedrooms_min,
+                        round(COALESCE(price_max, price_min) / 500.0)
            ORDER BY created_at
          ) AS rn
   FROM properties
   WHERE sender_phone <> 'unknown' AND group_id <> 'DEMO'
+    AND COALESCE(price_max, price_min) IS NOT NULL
 ) d
 WHERE p.id = d.id AND d.rn > 1;
 
