@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS properties (
   price_max     NUMERIC,                -- USD (oferta: precio; demanda: presupuesto máximo)
   bedrooms_min  INT,
   bedrooms_max  INT,
-  bathrooms     INT,
+  bathrooms     NUMERIC(3,1),           -- admite 2.5
   area_m2       NUMERIC,
   features      TEXT[],                 -- ['piscina', 'jardín', 'garaje', ...]
   condition     TEXT CHECK (condition IN ('nuevo', 'usado', 'en planos')),

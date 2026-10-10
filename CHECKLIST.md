@@ -54,6 +54,12 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ⚠ Evolution/Baileys es no oficial: riesgo de bloqueo del número; usar número dedicado, sin enviar mensajes.
 - ⬜ Rotar las claves que quedaron visibles al listar variables de Easypanel (otros servicios del proyecto).
 
+## 6b. Incidentes vistos en producción (2026-10-10)
+- ⚠ Supabase estuvo inaccesible ~9 min (DNS `ENOTFOUND` y luego 521). Los mensajes que llegaron en ese lapso **se perdieron**:
+  no hay cola ni reintento (el webhook ya había respondido 200). Pendiente: reintentos/cola para fallos de base de datos.
+- ✅ Corregido: baños con decimales (`2.5`) hacían fallar el insert (`bathrooms` ahora `NUMERIC(3,1)`); habitaciones se redondean.
+- ✅ Corregido: el modelo a veces guardaba el precio de la oferta en `price_min`; ahora se normaliza a `price_max`.
+
 ## 7. Mejoras pendientes (no bloquean la puesta en marcha)
 - Autenticación del dashboard y de las rutas API.
 - Calibrar el umbral de similitud (0.6) y el margen de precio (10 %) con mensajes reales; considerar área (m²) para lotes y fincas.

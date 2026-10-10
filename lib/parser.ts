@@ -222,17 +222,34 @@ const OPERATIONS = ['venta', 'alquiler'] as const
 function normalizeParsed(raw: Partial<Omit<ParsedProperty, 'property_type'>> & { property_type?: string | null }): ParsedProperty {
   const type = raw.type === 'offer' || raw.type === 'demand' ? raw.type : 'ignore'
   const propertyType = raw.property_type === 'terreno' ? 'lote' : raw.property_type
-  const num = (v: unknown) => (typeof v === 'number' && Number.isFinite(v) ? v : null)
+  // Acepta números y cadenas numéricas ("180000", "180,000")
+  const num = (v: unknown): number | null => {
+    const n = typeof v === 'string' ? Number(v.replace(/[,\s$]/g, '')) : v
+    return typeof n === 'number' && Number.isFinite(n) ? n : null
+  }
+
+  // Una oferta con un solo precio: siempre en price_max (el modelo a veces lo pone en price_min)
+  let priceMin = num(raw.price_min)
+  let priceMax = num(raw.price_max)
+  if (type === 'offer' && priceMax === null && priceMin !== null) {
+    priceMax = priceMin
+    priceMin = null
+  }
+  // Habitaciones son enteros en la base de datos; baños admiten medios (2.5)
+  const whole = (v: unknown) => {
+    const n = num(v)
+    return n === null ? null : Math.round(n)
+  }
 
   return {
     type,
     property_type: PROPERTY_TYPES.find((t) => t === propertyType) ?? null,
     operation:     OPERATIONS.find((o) => o === raw.operation) ?? null,
     location:      typeof raw.location === 'string' && raw.location.trim() ? raw.location.trim() : null,
-    price_min:     num(raw.price_min),
-    price_max:     num(raw.price_max),
-    bedrooms_min:  num(raw.bedrooms_min),
-    bedrooms_max:  num(raw.bedrooms_max),
+    price_min:     priceMin,
+    price_max:     priceMax,
+    bedrooms_min:  whole(raw.bedrooms_min),
+    bedrooms_max:  whole(raw.bedrooms_max),
     bathrooms:     num(raw.bathrooms),
     area_m2:       num(raw.area_m2),
     features:      Array.isArray(raw.features) ? raw.features.filter((f) => typeof f === 'string') : [],

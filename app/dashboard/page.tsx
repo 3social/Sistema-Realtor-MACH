@@ -59,7 +59,7 @@ function PropertyPanel({ property, variant }: PropertyPanelProps) {
     property.operation   ? `🔄 ${property.operation}` : '',
     property.property_type ? `🏠 ${property.property_type}` : '',
     property.location    ? `📍 ${property.location}` : '',
-    property.price_max   ? formatPrice(property.price_max) : '',
+    (property.price_max ?? property.price_min) ? formatPrice(property.price_max ?? property.price_min) : '',
     property.bedrooms_min ? `🛏 ${property.bedrooms_min} hab` : '',
     property.bathrooms   ? `🚿 ${property.bathrooms} baños` : '',
     property.area_m2     ? `📐 ${property.area_m2}m²` : '',
