@@ -436,7 +436,7 @@
       "file_type": "code",
       "norm_label": "buildrawmessage()",
       "source_file": "lib/parser.ts",
-      "source_location": "L293"
+      "source_location": "L305"
     },
     {
       "id": "lib_parser_classifywithopenai",
@@ -448,7 +448,7 @@
       "file_type": "code",
       "norm_label": "classifywithopenai()",
       "source_file": "lib/parser.ts",
-      "source_location": "L180"
+      "source_location": "L192"
     },
     {
       "id": "lib_parser_isduplicate",
@@ -460,7 +460,7 @@
       "file_type": "code",
       "norm_label": "isduplicate()",
       "source_file": "lib/parser.ts",
-      "source_location": "L276"
+      "source_location": "L288"
     },
     {
       "id": "lib_parser_normalizeparsed",
@@ -472,7 +472,7 @@
       "file_type": "code",
       "norm_label": "normalizeparsed()",
       "source_file": "lib/parser.ts",
-      "source_location": "L232"
+      "source_location": "L244"
     },
     {
       "id": "lib_parser_parseandstoremessage",
@@ -484,7 +484,7 @@
       "file_type": "code",
       "norm_label": "parseandstoremessage()",
       "source_file": "lib/parser.ts",
-      "source_location": "L90"
+      "source_location": "L96"
     },
     {
       "id": "lib_retry_dbretry",
@@ -1134,7 +1134,7 @@
       "node_kind": "heading",
       "norm_label": "flujo de trabajo",
       "source_file": "AGENTS.md",
-      "source_location": "L28"
+      "source_location": "L29"
     },
     {
       "id": "agents_propertymatch_convenciones_del_proyecto",
@@ -1330,7 +1330,7 @@
       "node_kind": "heading",
       "norm_label": "2. base de datos (supabase `property-matcher-mach`)",
       "source_file": "CHECKLIST.md",
-      "source_location": "L15"
+      "source_location": "L17"
     },
     {
       "id": "checklist_3_vercel_sistema_realtor_mach",
@@ -1342,7 +1342,7 @@
       "node_kind": "heading",
       "norm_label": "3. vercel (`sistema-realtor-mach`)",
       "source_file": "CHECKLIST.md",
-      "source_location": "L25"
+      "source_location": "L27"
     },
     {
       "id": "checklist_4_evolution_api_easypanel_personaldev",
@@ -1354,7 +1354,7 @@
       "node_kind": "heading",
       "norm_label": "4. evolution api (easypanel `personaldev`)",
       "source_file": "CHECKLIST.md",
-      "source_location": "L33"
+      "source_location": "L35"
     },
     {
       "id": "checklist_5_prueba_de_extremo_a_extremo",
@@ -1366,7 +1366,7 @@
       "node_kind": "heading",
       "norm_label": "5. prueba de extremo a extremo",
       "source_file": "CHECKLIST.md",
-      "source_location": "L40"
+      "source_location": "L42"
     },
     {
       "id": "checklist_6_seguridad_y_riesgos_conocidos",
@@ -1378,7 +1378,7 @@
       "node_kind": "heading",
       "norm_label": "6. seguridad y riesgos conocidos",
       "source_file": "CHECKLIST.md",
-      "source_location": "L48"
+      "source_location": "L50"
     },
     {
       "id": "checklist_6b_incidentes_vistos_en_producci\u00f3n_2026_10_10",
@@ -1390,7 +1390,7 @@
       "node_kind": "heading",
       "norm_label": "6b. incidentes vistos en produccion (2026-10-10)",
       "source_file": "CHECKLIST.md",
-      "source_location": "L57"
+      "source_location": "L59"
     },
     {
       "id": "checklist_7_cierre_pendientes_del_propietario",
@@ -1402,7 +1402,7 @@
       "node_kind": "heading",
       "norm_label": "7. cierre: pendientes del propietario",
       "source_file": "CHECKLIST.md",
-      "source_location": "L65"
+      "source_location": "L67"
     },
     {
       "id": "checklist_8_mejoras_pendientes_no_bloquean_la_puesta_en_marcha",
@@ -1414,7 +1414,7 @@
       "node_kind": "heading",
       "norm_label": "8. mejoras pendientes (no bloquean la puesta en marcha)",
       "source_file": "CHECKLIST.md",
-      "source_location": "L71"
+      "source_location": "L73"
     },
     {
       "id": "checklist_checklist_de_confirmaci\u00f3n_de_estado",
@@ -1622,7 +1622,7 @@
       "file_type": "code",
       "norm_label": "operations",
       "source_file": "lib/parser.ts",
-      "source_location": "L229"
+      "source_location": "L241"
     },
     {
       "id": "lib_parser_property_types",
@@ -1633,7 +1633,7 @@
       "file_type": "code",
       "norm_label": "property_types",
       "source_file": "lib/parser.ts",
-      "source_location": "L228"
+      "source_location": "L240"
     },
     {
       "id": "lib_retry",
@@ -1905,7 +1905,7 @@
       "node_kind": "heading",
       "norm_label": "avisos",
       "source_file": "README.md",
-      "source_location": "L94"
+      "source_location": "L95"
     },
     {
       "id": "readme_costos_orientativo_confirmar_tarifas_en_openai",
@@ -2329,7 +2329,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L206",
+      "source_location": "L218",
       "weight": 1.0
     },
     {
@@ -2341,7 +2341,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L225",
+      "source_location": "L237",
       "weight": 1.0
     },
     {
@@ -2353,7 +2353,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L278",
+      "source_location": "L290",
       "weight": 1.0
     },
     {
@@ -2365,7 +2365,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L286",
+      "source_location": "L298",
       "weight": 1.0
     },
     {
@@ -2377,103 +2377,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L286",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_parser_classifywithopenai",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L103",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_retry_transienterror",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L109",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_embeddings_buildembeddingtext",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L124",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_embeddings_generateembedding",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L125",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_parser_buildrawmessage",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L129",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_retry_dbretry",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L132",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_retry_istransientdberror",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L164",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_parser_parseandstoremessage",
-      "target": "lib_matcher_findmatches",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "lib/parser.ts",
-      "source_location": "L173",
+      "source_location": "L298",
       "weight": 1.0
     },
     {
@@ -2485,7 +2389,103 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/parser.ts",
-      "source_location": "L94",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_parser_classifywithopenai",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_retry_transienterror",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_embeddings_buildembeddingtext",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_embeddings_generateembedding",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_parser_buildrawmessage",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_retry_dbretry",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_retry_istransientdberror",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_parser_parseandstoremessage",
+      "target": "lib_matcher_findmatches",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/parser.ts",
+      "source_location": "L185",
       "weight": 1.0
     },
     {
@@ -3522,7 +3522,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "AGENTS.md",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -3852,7 +3852,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -3863,7 +3863,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L25",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -3874,7 +3874,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -3885,7 +3885,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L40",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -3896,7 +3896,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L48",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -3907,7 +3907,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L57",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -3929,7 +3929,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L65",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -3940,7 +3940,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L71",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -4171,7 +4171,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L180",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -4182,7 +4182,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L228",
+      "source_location": "L240",
       "weight": 1.0
     },
     {
@@ -4193,7 +4193,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L229",
+      "source_location": "L241",
       "weight": 1.0
     },
     {
@@ -4204,7 +4204,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L232",
+      "source_location": "L244",
       "weight": 1.0
     },
     {
@@ -4215,7 +4215,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L276",
+      "source_location": "L288",
       "weight": 1.0
     },
     {
@@ -4226,7 +4226,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L293",
+      "source_location": "L305",
       "weight": 1.0
     },
     {
@@ -4237,7 +4237,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/parser.ts",
-      "source_location": "L90",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -4765,7 +4765,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L94",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -5107,10 +5107,10 @@
       "confidence_score": 0.95,
       "context": "parseAndStoreMessage",
       "source_file": "AGENTS.md",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a523a56d717ea15fb0dc1782621c8e5ca79a2ba9"
+  "built_at_commit": "00fbba5f6ebfaacb42cd7d44108db199c89ae0d3"
 }

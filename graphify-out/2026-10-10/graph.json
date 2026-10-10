@@ -1393,16 +1393,28 @@
       "source_location": "L57"
     },
     {
-      "id": "checklist_7_mejoras_pendientes_no_bloquean_la_puesta_en_marcha",
-      "label": "7. Mejoras pendientes (no bloquean la puesta en marcha)",
+      "id": "checklist_7_cierre_pendientes_del_propietario",
+      "label": "7. Cierre: pendientes del propietario",
       "_origin": "ast",
       "community": 14,
       "community_name": "Checklist de confirmaci\u00f3n de estado",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "7. mejoras pendientes (no bloquean la puesta en marcha)",
+      "norm_label": "7. cierre: pendientes del propietario",
       "source_file": "CHECKLIST.md",
       "source_location": "L65"
+    },
+    {
+      "id": "checklist_8_mejoras_pendientes_no_bloquean_la_puesta_en_marcha",
+      "label": "8. Mejoras pendientes (no bloquean la puesta en marcha)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Checklist de confirmaci\u00f3n de estado",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8. mejoras pendientes (no bloquean la puesta en marcha)",
+      "source_file": "CHECKLIST.md",
+      "source_location": "L71"
     },
     {
       "id": "checklist_checklist_de_confirmaci\u00f3n_de_estado",
@@ -1525,114 +1537,6 @@
       "source_location": "L1"
     },
     {
-      "id": "readme_avisos",
-      "label": "Avisos",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "avisos",
-      "source_file": "README.md",
-      "source_location": "L89"
-    },
-    {
-      "id": "readme_c\u00f3mo_funciona",
-      "label": "C\u00f3mo funciona",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "como funciona",
-      "source_file": "README.md",
-      "source_location": "L7"
-    },
-    {
-      "id": "readme_desarrollo_local",
-      "label": "Desarrollo local",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "desarrollo local",
-      "source_file": "README.md",
-      "source_location": "L73"
-    },
-    {
-      "id": "readme_documentaci\u00f3n",
-      "label": "Documentaci\u00f3n",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "documentacion",
-      "source_file": "README.md",
-      "source_location": "L83"
-    },
-    {
-      "id": "readme_estructura",
-      "label": "Estructura",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "estructura",
-      "source_file": "README.md",
-      "source_location": "L47"
-    },
-    {
-      "id": "readme_propertymatch_sistema_realtor_mach",
-      "label": "PropertyMatch \u2014 Sistema Realtor MACH",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "propertymatch \u2014 sistema realtor mach",
-      "source_file": "README.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "readme_reglas_de_matching",
-      "label": "Reglas de matching",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "reglas de matching",
-      "source_file": "README.md",
-      "source_location": "L29"
-    },
-    {
-      "id": "readme_stack",
-      "label": "Stack",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "stack",
-      "source_file": "README.md",
-      "source_location": "L40"
-    },
-    {
-      "id": "readme_variables_de_entorno",
-      "label": "Variables de entorno",
-      "_origin": "ast",
-      "community": 14,
-      "community_name": "Checklist de confirmaci\u00f3n de estado",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "variables de entorno",
-      "source_file": "README.md",
-      "source_location": "L61"
-    },
-    {
       "id": "app_dashboard_page",
       "label": "dashboard/page.tsx",
       "_origin": "ast",
@@ -1655,6 +1559,17 @@
       "source_location": "L199"
     },
     {
+      "id": "lib_matcher",
+      "label": "matcher.ts",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "dashboard/page.tsx",
+      "file_type": "code",
+      "norm_label": "matcher.ts",
+      "source_file": "lib/matcher.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "types_index",
       "label": "index.ts",
       "_origin": "ast",
@@ -1674,17 +1589,6 @@
       "file_type": "code",
       "norm_label": "embeddings.ts",
       "source_file": "lib/embeddings.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_matcher",
-      "label": "matcher.ts",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "parser.ts",
-      "file_type": "code",
-      "norm_label": "matcher.ts",
-      "source_file": "lib/matcher.ts",
       "source_location": "L1"
     },
     {
@@ -1990,6 +1894,126 @@
       "norm_label": "troubleshooting",
       "source_file": "DEPLOY.md",
       "source_location": "L36"
+    },
+    {
+      "id": "readme_avisos",
+      "label": "Avisos",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "avisos",
+      "source_file": "README.md",
+      "source_location": "L94"
+    },
+    {
+      "id": "readme_costos_orientativo_confirmar_tarifas_en_openai",
+      "label": "Costos (orientativo; confirmar tarifas en OpenAI)",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "costos (orientativo; confirmar tarifas en openai)",
+      "source_file": "README.md",
+      "source_location": "L89"
+    },
+    {
+      "id": "readme_c\u00f3mo_funciona",
+      "label": "C\u00f3mo funciona",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "como funciona",
+      "source_file": "README.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "readme_desarrollo_local",
+      "label": "Desarrollo local",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "desarrollo local",
+      "source_file": "README.md",
+      "source_location": "L73"
+    },
+    {
+      "id": "readme_documentaci\u00f3n",
+      "label": "Documentaci\u00f3n",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "documentacion",
+      "source_file": "README.md",
+      "source_location": "L83"
+    },
+    {
+      "id": "readme_estructura",
+      "label": "Estructura",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "estructura",
+      "source_file": "README.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "readme_propertymatch_sistema_realtor_mach",
+      "label": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "propertymatch \u2014 sistema realtor mach",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_reglas_de_matching",
+      "label": "Reglas de matching",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "reglas de matching",
+      "source_file": "README.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "readme_stack",
+      "label": "Stack",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "stack",
+      "source_file": "README.md",
+      "source_location": "L40"
+    },
+    {
+      "id": "readme_variables_de_entorno",
+      "label": "Variables de entorno",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "PropertyMatch \u2014 Sistema Realtor MACH",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "variables de entorno",
+      "source_file": "README.md",
+      "source_location": "L61"
     },
     {
       "id": "package_devdependencies",
@@ -3899,13 +3923,24 @@
     },
     {
       "source": "checklist_checklist_de_confirmaci\u00f3n_de_estado",
-      "target": "checklist_7_mejoras_pendientes_no_bloquean_la_puesta_en_marcha",
+      "target": "checklist_7_cierre_pendientes_del_propietario",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
       "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "checklist_checklist_de_confirmaci\u00f3n_de_estado",
+      "target": "checklist_8_mejoras_pendientes_no_bloquean_la_puesta_en_marcha",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CHECKLIST.md",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -4713,13 +4748,24 @@
     },
     {
       "source": "readme_propertymatch_sistema_realtor_mach",
-      "target": "readme_avisos",
+      "target": "readme_costos_orientativo_confirmar_tarifas_en_openai",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
       "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_propertymatch_sistema_realtor_mach",
+      "target": "readme_avisos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -5066,5 +5112,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "670c26278fba9425d8aeae8f24846e4c0c5353c4"
+  "built_at_commit": "a523a56d717ea15fb0dc1782621c8e5ca79a2ba9"
 }

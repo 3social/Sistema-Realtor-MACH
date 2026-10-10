@@ -1,7 +1,7 @@
 # Graph Report - Sistema-Realtor-MACH  (2026-10-10)
 
 ## Corpus Check
-- 28 files · ~10,684 words
+- 28 files · ~10,827 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .ico 1, .css 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a523a56d`
+- Built from commit: `00fbba5f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,12 +45,12 @@
 ## Surprising Connections (you probably didn't know these)
 - `Reglas` --references--> `parseAndStoreMessage()`  [INFERRED]
   AGENTS.md → lib/parser.ts
-- `PropertyPanelProps` --references--> `MatchWithProperties`  [EXTRACTED]
-  app/dashboard/page.tsx → types/index.ts
 - `POST()` --calls--> `parseAndStoreMessage()`  [EXTRACTED]
   app/api/ingest/route.ts → lib/parser.ts
 - `POST()` --calls--> `parseAndStoreMessage()`  [EXTRACTED]
   app/api/webhook/route.ts → lib/parser.ts
+- `PropertyPanelProps` --references--> `MatchWithProperties`  [EXTRACTED]
+  app/dashboard/page.tsx → types/index.ts
 - `MatchCardProps` --references--> `MatchStatus`  [EXTRACTED]
   app/dashboard/page.tsx → types/index.ts
 
@@ -104,7 +104,7 @@ Cohesion: 0.11
 Nodes (16): 1. Código, 2. Base de datos (Supabase `property-matcher-mach`), 3. Vercel (`sistema-realtor-mach`), 4. Evolution API (Easypanel `personaldev`), 5. Prueba de extremo a extremo, 6. Seguridad y riesgos conocidos, 6b. Incidentes vistos en producción (2026-10-10), 7. Cierre: pendientes del propietario (+8 more)
 
 ## Knowledge Gaps
-- **95 isolated node(s):** `1. Código`, `2. Base de datos (Supabase `property-matcher-mach`)`, `3. Vercel (`sistema-realtor-mach`)`, `4. Evolution API (Easypanel `personaldev`)`, `5. Prueba de extremo a extremo` (+90 more)
+- **95 isolated node(s):** `This is NOT the Next.js you know`, `Flujo de trabajo`, `1. Código`, `2. Base de datos (Supabase `property-matcher-mach`)`, `3. Vercel (`sistema-realtor-mach`)` (+90 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 104 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -113,7 +113,7 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `next` connect `next` to `package.json`, `ingest/route.ts`?**
   _High betweenness centrality (0.143) - this node is a cross-community bridge._
-- **What connects `1. Código`, `2. Base de datos (Supabase `property-matcher-mach`)`, `3. Vercel (`sistema-realtor-mach`)` to the rest of the system?**
+- **What connects `This is NOT the Next.js you know`, `Flujo de trabajo`, `1. Código` to the rest of the system?**
   _95 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
