@@ -59,13 +59,12 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ✅ Corregido: `lib/retry.ts` reintenta fallos transitorios de Supabase (1 s, 3 s, 8 s, 20 s). Si sigue caído, `/api/ingest`
   responde **503** (sin guardar) para que el emisor reintente; los reintentos se descartan por `messageId`. Probado con un
   servidor simulado (2 fallos y éxito → 200; caída total → 503; recuperación → 200).
-- ⬜ Para cortes largos (minutos) Evolution debe reintentar el webhook: revisar en Easypanel (servicio `evolution-api`) si su
-  versión admite variables `WEBHOOK_RETRY_*` (p. ej. `WEBHOOK_RETRY_MAX_ATTEMPTS`; fuente no oficial, verificar) y activarlas.
-  Cambiar variables reinicia el servicio y puede pedir volver a vincular el número: hacerlo con cuidado.
-- ✅ Corregido: baños con decimales (`2.5`) hacían fallar el insert (`bathrooms` ahora `NUMERIC(3,1)`); habitaciones se redondean.
-- ✅ Corregido: el modelo a veces guardaba el precio de la oferta en `price_min`; ahora se normaliza a `price_max`.
+- ✅ Evolution reintenta el webhook ante 5xx: variables `WEBHOOK_RETRY_*` (10 intentos, 5 s → 300 s, ~25 min) configuradas en Easypanel
+  (confirmado por el usuario; existen en el `.env.example` oficial de la 2.3.7). Verificar que la instancia siga *Connected*.
 
 ## 7. Mejoras pendientes (no bloquean la puesta en marcha)
+- Caducidad de publicaciones: hoy una oferta/demanda sigue activa para siempre (cruza con todo lo nuevo); desactivar tras N días.
+- Cargar histórico: solo se procesa lo que llega desde que se activó el webhook (no el historial de los grupos).
 - Autenticación del dashboard y de las rutas API.
 - Calibrar el umbral de similitud (0.6) y el margen de precio (10 %) con mensajes reales; considerar área (m²) para lotes y fincas.
 - Nombre del grupo (Evolution no lo envía en `MESSAGES_UPSERT`; se guarda el ID).
