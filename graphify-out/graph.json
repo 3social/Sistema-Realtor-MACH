@@ -1402,7 +1402,7 @@
       "node_kind": "heading",
       "norm_label": "7. mejoras pendientes (no bloquean la puesta en marcha)",
       "source_file": "CHECKLIST.md",
-      "source_location": "L68"
+      "source_location": "L65"
     },
     {
       "id": "checklist_checklist_de_confirmaci\u00f3n_de_estado",
@@ -3905,7 +3905,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CHECKLIST.md",
-      "source_location": "L68",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -5066,5 +5066,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "21cf4d42972f83203814615172bd8fee97d902fe"
+  "built_at_commit": "670c26278fba9425d8aeae8f24846e4c0c5353c4"
 }
