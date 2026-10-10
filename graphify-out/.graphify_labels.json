@@ -4,12 +4,11 @@
   "2": "dashboard/page.tsx",
   "3": "parser.ts",
   "4": "next",
-  "6": "Checklist de confirmación de estado",
+  "5": "Despliegue — PropertyMatch",
   "7": "devDependencies",
-  "9": "Integrar el número (grupos) con Evolution API",
   "10": "PropertyMatch — convenciones del proyecto",
   "11": "postcss.config.mjs",
   "12": "CLAUDE.md",
   "13": "ingest/route.ts",
-  "14": "PropertyMatch — Sistema Realtor MACH"
+  "14": "Checklist de confirmación de estado"
 }
