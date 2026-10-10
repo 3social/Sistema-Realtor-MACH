@@ -1,17 +1,17 @@
 # Graph Report - Sistema-Realtor-MACH  (2026-10-10)
 
 ## Corpus Check
-- 28 files · ~10,827 words
+- 29 files · ~11,609 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .ico 1, .css 1)
 
 ## Summary
-- 184 nodes · 259 edges · 13 communities (11 shown, 2 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.95)
+- 188 nodes · 270 edges · 13 communities (11 shown, 2 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `00fbba5f`
+- Built from commit: `a8ff66f4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -31,18 +31,20 @@
 - Checklist de confirmación de estado
 
 ## God Nodes (most connected - your core abstractions)
-1. `compilerOptions` - 16 edges
-2. `parseAndStoreMessage()` - 15 edges
-3. `Checklist de confirmación de estado` - 10 edges
-4. `PropertyMatch — Sistema Realtor MACH` - 10 edges
-5. `dbRetry()` - 9 edges
+1. `parseAndStoreMessage()` - 17 edges
+2. `compilerOptions` - 16 edges
+3. `Checklist de confirmación de estado` - 11 edges
+4. `PropertyMatch — Sistema Realtor MACH` - 11 edges
+5. `dbRetry()` - 10 edges
 6. `next` - 8 edges
-7. `Despliegue — PropertyMatch` - 7 edges
-8. `TransientError` - 6 edges
+7. `TransientError` - 7 edges
+8. `Despliegue — PropertyMatch` - 7 edges
 9. `MatchCard()` - 6 edges
-10. `Integrar el número (grupos) con Evolution API` - 6 edges
+10. `isTransientDbError()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `Reglas` --references--> `normalizeParsed()`  [INFERRED]
+  AGENTS.md → lib/parser.ts
 - `Reglas` --references--> `parseAndStoreMessage()`  [INFERRED]
   AGENTS.md → lib/parser.ts
 - `POST()` --calls--> `parseAndStoreMessage()`  [EXTRACTED]
@@ -50,8 +52,6 @@
 - `POST()` --calls--> `parseAndStoreMessage()`  [EXTRACTED]
   app/api/webhook/route.ts → lib/parser.ts
 - `PropertyPanelProps` --references--> `MatchWithProperties`  [EXTRACTED]
-  app/dashboard/page.tsx → types/index.ts
-- `MatchCardProps` --references--> `MatchStatus`  [EXTRACTED]
   app/dashboard/page.tsx → types/index.ts
 
 ## Import Cycles
@@ -73,7 +73,7 @@ Nodes (16): Dashboard(), formatDate(), formatPrice(), getScoreClass(), getScoreC
 
 ### Community 3 - "parser.ts"
 Cohesion: 0.18
-Nodes (19): buildEmbeddingText(), generateEmbedding(), findMatches(), getOpenAI(), buildRawMessage(), classifyWithOpenAI(), isDuplicate(), normalizeParsed() (+11 more)
+Nodes (21): buildEmbeddingText(), generateEmbedding(), findMatches(), getOpenAI(), buildRawMessage(), classifyWithOpenAI(), computeContentHash(), isDuplicate() (+13 more)
 
 ### Community 4 - "next"
 Cohesion: 0.12
@@ -84,8 +84,8 @@ Cohesion: 0.29
 Nodes (7): 1. Supabase, 2. Vercel, 3. Evolution API (grupos), 4. API oficial de Meta (opcional, solo chats directos), Despliegue — PropertyMatch, Infraestructura actual, Troubleshooting
 
 ### Community 6 - "PropertyMatch — Sistema Realtor MACH"
-Cohesion: 0.20
-Nodes (10): Avisos, Costos (orientativo; confirmar tarifas en OpenAI), Cómo funciona, Desarrollo local, Documentación, Estructura, PropertyMatch — Sistema Realtor MACH, Reglas de matching (+2 more)
+Cohesion: 0.10
+Nodes (17): 0. Una vez (lado Vercel), 1. Crear la instancia y el webhook, 2. Vincular el número, 3. Probar, Integrar el número (grupos) con Evolution API, Notas, Avisos, Costos (orientativo; confirmar tarifas en OpenAI) (+9 more)
 
 ### Community 7 - "devDependencies"
 Cohesion: 0.22
@@ -100,28 +100,28 @@ Cohesion: 0.13
 Nodes (15): EvolutionEvent, ImageMime, jidToPhone(), maxDuration, POST(), secretMatches(), SUPPORTED_MIMES, hasValidSignature() (+7 more)
 
 ### Community 14 - "Checklist de confirmación de estado"
-Cohesion: 0.11
-Nodes (16): 1. Código, 2. Base de datos (Supabase `property-matcher-mach`), 3. Vercel (`sistema-realtor-mach`), 4. Evolution API (Easypanel `personaldev`), 5. Prueba de extremo a extremo, 6. Seguridad y riesgos conocidos, 6b. Incidentes vistos en producción (2026-10-10), 7. Cierre: pendientes del propietario (+8 more)
+Cohesion: 0.18
+Nodes (11): 1. Código, 2. Base de datos (Supabase `property-matcher-mach`), 3. Vercel (`sistema-realtor-mach`), 4. Evolution API (Easypanel `personaldev`), 5. Prueba de extremo a extremo, 6. Seguridad y riesgos conocidos, 6b. Incidentes vistos en producción (2026-10-10), 6c. Revisión del 2026-10-10 (177 filas, 106 publicaciones únicas, 21 matches) (+3 more)
 
 ## Knowledge Gaps
-- **95 isolated node(s):** `This is NOT the Next.js you know`, `Flujo de trabajo`, `1. Código`, `2. Base de datos (Supabase `property-matcher-mach`)`, `3. Vercel (`sistema-realtor-mach`)` (+90 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 104 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **97 isolated node(s):** `This is NOT the Next.js you know`, `Flujo de trabajo`, `1. Código`, `2. Base de datos (Supabase `property-matcher-mach`)`, `3. Vercel (`sistema-realtor-mach`)` (+92 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 106 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `next` connect `next` to `package.json`, `ingest/route.ts`?**
-  _High betweenness centrality (0.143) - this node is a cross-community bridge._
+  _High betweenness centrality (0.135) - this node is a cross-community bridge._
 - **What connects `This is NOT the Next.js you know`, `Flujo de trabajo`, `1. Código` to the rest of the system?**
-  _95 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _97 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.056) - this node is a cross-community bridge._
+  _High betweenness centrality (0.055) - this node is a cross-community bridge._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
 - **Why does `openai` connect `parser.ts` to `package.json`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
+  _High betweenness centrality (0.055) - this node is a cross-community bridge._
 - **Should `next` be split into smaller, more focused modules?**
   _Cohesion score 0.12280701754385964 - nodes in this community are weakly interconnected._
