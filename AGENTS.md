@@ -22,6 +22,8 @@ para la arquitectura y `DEPLOY.md` para la infraestructura.
 - Fallos transitorios de Supabase/OpenAI: `lib/retry.ts` reintenta y `/api/ingest` responde 503 (no 200) si no logra
   guardar, para que el emisor reintente. No volver a procesar en `after()` en `/api/ingest` ni tragarse esos errores.
 - Los mensajes de solo texto de menos de 15 caracteres se descartan antes de llamar a OpenAI (`MIN_TEXT_LENGTH`); las imágenes no.
+- Crosspost: la misma persona publicando lo mismo en varios grupos se procesa una vez (huella `extras.contentHash`,
+  30 días). La operación faltante se deduce por el precio (≥ 20 000 USD venta, ≤ 8 000 alquiler) en `normalizeParsed`.
 - Todo mensaje entrante pasa por `parseAndStoreMessage` (dedupe por `messageId`). No duplicar el pipeline.
 - El dashboard y las rutas `/api/matches`, `/api/properties` no tienen login: no quitar la Vercel
   Authentication sin añadir autenticación antes.

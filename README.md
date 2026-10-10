@@ -37,6 +37,11 @@ cualquiera de los dos lados, ese criterio no descarta. Deben cumplirse todos:
 - **Habitaciones** dentro de lo que pide la demanda; **remitentes distintos**; propiedades activas.
 - Después, similitud de embeddings (características y resumen) > 0.6 (`MATCH_THRESHOLD` en `lib/matcher.ts`).
 
+## Datos de entrada
+- **Crosspost:** si la misma persona publica el mismo texto/imagen en varios grupos, solo se guarda una vez (ventana de 30 días).
+- **Operación faltante:** se deduce por el precio (≥ 20 000 USD venta; ≤ 8 000 USD alquiler mensual); entre ambos queda vacía.
+- Limpieza de datos antiguos: `supabase/maintenance/limpiar-duplicados-y-operaciones.sql` (ejecución manual).
+
 ## Stack
 Next.js 16 (App Router, Turbopack) · React 19 · Tailwind 4 · Supabase (Postgres + pgvector) ·
 OpenAI · Evolution API v2 · Vercel.

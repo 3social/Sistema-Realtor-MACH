@@ -9,6 +9,7 @@
 //
 // Flujo: payload → OpenAI (text o vision) → JSON → embed → Supabase → matcher
 // ============================================================
+import { createHash } from 'node:crypto'
 import type { ChatCompletionContentPart } from 'openai/resources/chat/completions'
 import { getOpenAI } from './openai'
 import { supabaseAdmin } from './supabase'
@@ -22,6 +23,9 @@ import type { WebhookPayload, ParsedProperty } from '@/types'
  * una publicación: se descarta sin llamar a OpenAI ni a la base de datos. No aplica a imágenes.
  */
 const MIN_TEXT_LENGTH = 15
+
+/** Días durante los que la misma publicación de la misma persona se considera repetida (crosspost) */
+const REPEAT_WINDOW_DAYS = 30
 
 /** Modelo con visión usado para clasificar texto, flyers e imágenes */
 const CLASSIFY_MODEL = 'gpt-4o-mini'
@@ -77,8 +81,9 @@ REGLAS:
 - ÁREA: area_m2 siempre en metros cuadrados (1 hectárea = 10000 m², 1 manzana ≈ 7000 m²)
 - PRECIO en OFERTAS: precio de venta o alquiler mensual en price_max (usa price_min solo si da un rango)
 - PRECIO en DEMANDAS: presupuesto máximo en price_max; "desde X" en price_min
-- UBICACIÓN: nombre de la zona/cantón/distrito tal como lo escribe el remitente (ej. "Escazú", "Santa Ana", "Playa Hermosa"); si busca en varias zonas, sepáralas por coma
+- UBICACIÓN: solo lugares geográficos (zona, distrito, cantón, provincia). NUNCA uses nombres de ferias, eventos, proyectos o empresas (ej. "Concasa") como ubicación; si no hay un lugar claro, null. Es el nombre de la zona/cantón/distrito tal como lo escribe el remitente (ej. "Escazú", "Santa Ana", "Playa Hermosa"); si busca en varias zonas, sepáralas por coma
 - features puede incluir: piscina, jardín, garaje, seguridad 24h, vista al mar, rancho, bodega, terraza, etc.
+- OPERACIÓN: "venta" o "alquiler" solo si el mensaje lo dice o lo implica claramente; si no, null (el sistema la deduce por el precio)
 - Si no puedes extraer un campo con confianza, usa null
 - Para contenido ambiguo entre offer/demand, elige el más probable`
 
@@ -105,6 +110,13 @@ export async function parseAndStoreMessage(payload: WebhookPayload): Promise<voi
   // Evitar duplicados: Meta y Evolution reintentan webhooks
   if (await isDuplicate(payload.messageId)) {
     console.log(`[parser] Mensaje ${payload.messageId} ya procesado, ignorando`)
+    return
+  }
+
+  // Misma persona publicando lo mismo en varios grupos (crosspost): se procesa una sola vez
+  const contentHash = computeContentHash(payload)
+  if (contentHash && await isRepeatedPost(contentHash)) {
+    console.log(`[parser] Publicación repetida de ${payload.from} (otro grupo), ignorando`)
     return
   }
 
@@ -164,6 +176,7 @@ export async function parseAndStoreMessage(payload: WebhookPayload): Promise<voi
         summary:   parsed.summary,
         source:    payload.source,
         messageId: payload.messageId,
+        contentHash: contentHash ?? null,
         mediaId:   payload.imageMediaId ?? null
       },
       embedding
@@ -240,6 +253,10 @@ async function classifyWithOpenAI(payload: WebhookPayload): Promise<ParsedProper
 const PROPERTY_TYPES = ['casa', 'apartamento', 'lote', 'finca', 'local', 'oficina'] as const
 const OPERATIONS = ['venta', 'alquiler'] as const
 
+/** Si el mensaje no dice venta/alquiler: ≥ 20 000 USD se asume venta; ≤ 8 000 USD, alquiler mensual */
+const SALE_PRICE_FLOOR_USD = 20_000
+const RENT_PRICE_CEILING_USD = 8_000
+
 /** Sanea la salida del modelo para que respete los CHECK de la base de datos */
 function normalizeParsed(raw: Partial<Omit<ParsedProperty, 'property_type'>> & { property_type?: string | null }): ParsedProperty {
   const type = raw.type === 'offer' || raw.type === 'demand' ? raw.type : 'ignore'
@@ -263,10 +280,18 @@ function normalizeParsed(raw: Partial<Omit<ParsedProperty, 'property_type'>> & {
     return n === null ? null : Math.round(n)
   }
 
+  // Operación faltante: se deduce por el orden de magnitud del precio en USD (alquiler mensual vs compra)
+  let operation: ParsedProperty['operation'] = OPERATIONS.find((o) => o === raw.operation) ?? null
+  const price = priceMax ?? priceMin
+  if (operation === null && price !== null) {
+    if (price >= SALE_PRICE_FLOOR_USD) operation = 'venta'
+    else if (price <= RENT_PRICE_CEILING_USD) operation = 'alquiler'
+  }
+
   return {
     type,
     property_type: PROPERTY_TYPES.find((t) => t === propertyType) ?? null,
-    operation:     OPERATIONS.find((o) => o === raw.operation) ?? null,
+    operation,
     location:      typeof raw.location === 'string' && raw.location.trim() ? raw.location.trim() : null,
     price_min:     priceMin,
     price_max:     priceMax,
@@ -296,6 +321,36 @@ async function isDuplicate(messageId?: string): Promise<boolean> {
   if (res.error) {
     // Sin base de datos no se puede procesar: que el emisor reintente
     if (isTransientDbError(res)) throw new TransientError('Supabase no disponible al buscar duplicados')
+    return false
+  }
+  return (res.data?.length ?? 0) > 0
+}
+
+/**
+ * Huella del contenido: remitente + texto normalizado (o bytes de la imagen). Los mensajes de un mismo
+ * crosspost tienen distinto messageId en cada grupo pero la misma huella. Sin remitente conocido no se
+ * deduplica (se podrían fusionar personas distintas).
+ */
+function computeContentHash(payload: WebhookPayload): string | undefined {
+  if (!payload.from || payload.from === 'unknown') return undefined
+  const body = payload.imageBase64
+    ? `img:${createHash('sha256').update(payload.imageBase64).digest('hex')}`
+    : `txt:${(payload.text ?? '').toLowerCase().replace(/\s+/g, ' ').trim()}`
+  return createHash('sha256').update(`${payload.from}|${body}`).digest('hex')
+}
+
+/** ¿Esta persona ya publicó lo mismo (en cualquier grupo) en los últimos días? */
+async function isRepeatedPost(contentHash: string): Promise<boolean> {
+  const since = new Date(Date.now() - REPEAT_WINDOW_DAYS * 86_400_000).toISOString()
+  const res = await dbRetry(() => supabaseAdmin
+    .from('properties')
+    .select('id')
+    .eq('extras->>contentHash', contentHash)
+    .gte('created_at', since)
+    .limit(1), 'buscar publicación repetida')
+
+  if (res.error) {
+    if (isTransientDbError(res)) throw new TransientError('Supabase no disponible al buscar publicaciones repetidas')
     return false
   }
   return (res.data?.length ?? 0) > 0

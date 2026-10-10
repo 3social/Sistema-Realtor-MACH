@@ -64,6 +64,12 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ✅ Evolution reintenta el webhook ante 5xx: variables `WEBHOOK_RETRY_*` (10 intentos, 5 s → 300 s, ~25 min) configuradas en Easypanel
   (confirmado por el usuario; existen en el `.env.example` oficial de la 2.3.7). Verificar que la instancia siga *Connected*.
 
+## 6c. Revisión del 2026-10-10 (177 filas, 106 publicaciones únicas, 21 matches)
+- ✅ Corregido: la misma publicación en varios grupos se guardaba N veces y multiplicaba los matches (dedupe por huella de contenido).
+- ✅ Corregido: demandas sin "venta/alquiler" cruzaban con alquileres (ahora se deduce por precio).
+- ✅ Corregido: el modelo tomaba nombres de ferias (p. ej. "Concasa") como ubicación (prompt).
+- ⬜ Ejecutar `supabase/maintenance/limpiar-duplicados-y-operaciones.sql` para limpiar lo ya guardado (borra duplicados y matches erróneos).
+
 ## 7. Cierre: pendientes del propietario
 - ⬜ Rotar `INGEST_SECRET` (se expuso en el chat y viaja en la URL del webhook) y actualizarlo en Vercel y en Evolution.
 - ⬜ Rotar las claves visibles en Easypanel (clave global de Evolution, `OPENAI_KEY` y VAPI en n8n, contraseñas de BD).
