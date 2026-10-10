@@ -4,6 +4,7 @@
 // usando búsqueda vectorial coseno en Supabase (pgvector)
 // ============================================================
 import { supabaseAdmin } from './supabase'
+import { dbRetry } from './retry'
 import type { Property } from '@/types'
 
 /**
@@ -34,14 +35,14 @@ export async function findMatches(newProperty: Property): Promise<void> {
   }
 
   // Filtros duros + similitud vectorial via función SQL
-  const { data: candidates, error } = await supabaseAdmin.rpc(
+  const { data: candidates, error } = await dbRetry(() => supabaseAdmin.rpc(
     'match_properties',
     {
       p_property_id: newProperty.id,
       match_threshold: MATCH_THRESHOLD,
       match_count: MATCH_COUNT
     }
-  )
+  ), 'buscar matches')
 
   if (error) {
     console.error('[matcher] Error en búsqueda vectorial:', error)
@@ -60,7 +61,7 @@ export async function findMatches(newProperty: Property): Promise<void> {
     const offerId  = newProperty.type === 'offer' ? newProperty.id : candidate.id
     const demandId = newProperty.type === 'demand' ? newProperty.id : candidate.id
 
-    const { error: upsertError } = await supabaseAdmin
+    const { error: upsertError } = await dbRetry(() => supabaseAdmin
       .from('matches')
       .upsert(
         {
@@ -72,7 +73,7 @@ export async function findMatches(newProperty: Property): Promise<void> {
           onConflict: 'offer_id,demand_id',
           ignoreDuplicates: true
         }
-      )
+      ), 'guardar match')
 
     if (upsertError) {
       console.error('[matcher] Error al guardar match:', upsertError)

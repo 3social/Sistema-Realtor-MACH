@@ -41,4 +41,5 @@ token, suscripción al campo `messages`. La Cloud API **no entrega mensajes de g
 | `/api/ingest` responde 401 (texto "Unauthorized") | `INGEST_SECRET` distinto al de la URL/header |
 | Llega el webhook pero no hay propiedades | Revisa Logs de Vercel: clasificación `ignore`, `OPENAI_API_KEY` o Supabase |
 | Sin matches | Comprueba que existan oferta y demanda compatibles y que `match_properties` exista |
+| `/api/ingest` responde 503 | Supabase u OpenAI no disponibles tras los reintentos; Evolution debería reintentar (ver `CHECKLIST.md`) |
 | La sesión de WhatsApp se cae | Vuelve a escanear el QR en Evolution Manager |

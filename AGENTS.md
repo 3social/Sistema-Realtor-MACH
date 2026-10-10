@@ -19,6 +19,8 @@ para la arquitectura y `DEPLOY.md` para la infraestructura.
 - `/api/ingest` exige `INGEST_SECRET` (falla cerrado). `/api/webhook` valida firma si hay `WHATSAPP_APP_SECRET`.
 - La lógica de matching (tipo, operación, zona, precio, habitaciones) vive en la función SQL `match_properties`
   (`supabase/schema.sql`); si cambias reglas, cambia el SQL **y** aplícalo en Supabase. Tipos válidos: casa, apartamento, lote, finca, local, oficina.
+- Fallos transitorios de Supabase/OpenAI: `lib/retry.ts` reintenta y `/api/ingest` responde 503 (no 200) si no logra
+  guardar, para que el emisor reintente. No volver a procesar en `after()` en `/api/ingest` ni tragarse esos errores.
 - Todo mensaje entrante pasa por `parseAndStoreMessage` (dedupe por `messageId`). No duplicar el pipeline.
 - El dashboard y las rutas `/api/matches`, `/api/properties` no tienen login: no quitar la Vercel
   Authentication sin añadir autenticación antes.

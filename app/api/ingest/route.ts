@@ -12,9 +12,13 @@
 // Si no hay secreto configurado, el endpoint rechaza todo.
 // ============================================================
 import { timingSafeEqual } from 'node:crypto'
-import { NextRequest, NextResponse, after } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { parseAndStoreMessage } from '@/lib/parser'
+import { TransientError } from '@/lib/retry'
 import type { WebhookPayload } from '@/types'
+
+// Margen para clasificar con IA y reintentar la base de datos (ver lib/retry.ts)
+export const maxDuration = 60
 
 type ImageMime = NonNullable<WebhookPayload['imageMimeType']>
 const SUPPORTED_MIMES: ImageMime[] = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
@@ -121,13 +125,19 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ status: 'ignored', reason: 'tipo de mensaje no soportado' })
   }
 
-  // Responder rápido; after() mantiene viva la función hasta terminar.
-  const queued = payload
-  after(async () => {
-    await parseAndStoreMessage(queued).catch((err) =>
-      console.error(`[ingest] Error procesando mensaje ${queued.messageId}:`, err)
-    )
-  })
+  // Se procesa dentro de la petición: si la base de datos o OpenAI siguen caídos tras los
+  // reintentos internos, se responde 503 para que Evolution API pueda reintentar el webhook
+  // (el procesamiento es idempotente: se descartan duplicados por messageId).
+  try {
+    await parseAndStoreMessage(payload)
+  } catch (err) {
+    if (err instanceof TransientError) {
+      console.error(`[ingest] Fallo transitorio en mensaje ${payload.messageId}: ${err.message}`)
+      return NextResponse.json({ status: 'retry', reason: err.message }, { status: 503 })
+    }
+    console.error(`[ingest] Error procesando mensaje ${payload.messageId}:`, err)
+    return NextResponse.json({ status: 'error' })
+  }
 
-  return NextResponse.json({ status: 'queued' })
+  return NextResponse.json({ status: 'processed' })
 }

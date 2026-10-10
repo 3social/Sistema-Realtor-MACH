@@ -55,8 +55,13 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ⬜ Rotar las claves que quedaron visibles al listar variables de Easypanel (otros servicios del proyecto).
 
 ## 6b. Incidentes vistos en producción (2026-10-10)
-- ⚠ Supabase estuvo inaccesible ~9 min (DNS `ENOTFOUND` y luego 521). Los mensajes que llegaron en ese lapso **se perdieron**:
-  no hay cola ni reintento (el webhook ya había respondido 200). Pendiente: reintentos/cola para fallos de base de datos.
+- ⚠ Supabase estuvo inaccesible ~9 min (DNS `ENOTFOUND` y luego 521); los mensajes de ese lapso se perdieron (sin reintento).
+- ✅ Corregido: `lib/retry.ts` reintenta fallos transitorios de Supabase (1 s, 3 s, 8 s, 20 s). Si sigue caído, `/api/ingest`
+  responde **503** (sin guardar) para que el emisor reintente; los reintentos se descartan por `messageId`. Probado con un
+  servidor simulado (2 fallos y éxito → 200; caída total → 503; recuperación → 200).
+- ⬜ Para cortes largos (minutos) Evolution debe reintentar el webhook: revisar en Easypanel (servicio `evolution-api`) si su
+  versión admite variables `WEBHOOK_RETRY_*` (p. ej. `WEBHOOK_RETRY_MAX_ATTEMPTS`; fuente no oficial, verificar) y activarlas.
+  Cambiar variables reinicia el servicio y puede pedir volver a vincular el número: hacerlo con cuidado.
 - ✅ Corregido: baños con decimales (`2.5`) hacían fallar el insert (`bathrooms` ahora `NUMERIC(3,1)`); habitaciones se redondean.
 - ✅ Corregido: el modelo a veces guardaba el precio de la oferta en `price_min`; ahora se normaliza a `price_max`.
 

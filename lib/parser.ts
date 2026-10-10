@@ -14,6 +14,7 @@ import { getOpenAI } from './openai'
 import { supabaseAdmin } from './supabase'
 import { generateEmbedding, buildEmbeddingText } from './embeddings'
 import { findMatches } from './matcher'
+import { dbRetry, isTransientDbError, TransientError } from './retry'
 import type { WebhookPayload, ParsedProperty } from '@/types'
 
 /** Modelo con visión usado para clasificar texto, flyers e imágenes */
@@ -101,6 +102,12 @@ export async function parseAndStoreMessage(payload: WebhookPayload): Promise<voi
   try {
     parsed = await classifyWithOpenAI(payload)
   } catch (error) {
+    // Cuota/límite de OpenAI, 5xx o red: el emisor del webhook puede reintentar
+    const status = (error as { status?: number }).status
+    const name = (error as { name?: string }).name ?? ''
+    if (status === 429 || (status !== undefined && status >= 500) || /Connection|Timeout/.test(name)) {
+      throw new TransientError(`OpenAI no disponible: ${(error as Error).message}`)
+    }
     console.error('[parser] Error al clasificar con OpenAI:', error)
     return
   }
@@ -122,7 +129,7 @@ export async function parseAndStoreMessage(payload: WebhookPayload): Promise<voi
   const rawMessage = buildRawMessage(payload)
 
   // ── PASO 3: Insertar en Supabase ───────────────────────────
-  const { data: property, error: insertError } = await supabaseAdmin
+  const { data: property, error: insertError, status: insertStatus } = await dbRetry(() => supabaseAdmin
     .from('properties')
     .insert({
       group_id:      payload.groupId,
@@ -150,10 +157,13 @@ export async function parseAndStoreMessage(payload: WebhookPayload): Promise<voi
       embedding
     })
     .select()
-    .single()
+    .single(), 'insertar propiedad')
 
   if (insertError || !property) {
     console.error('[parser] Error al insertar en Supabase:', insertError)
+    if (isTransientDbError({ error: insertError, status: insertStatus })) {
+      throw new TransientError('Supabase no disponible al guardar la propiedad')
+    }
     return
   }
 
@@ -262,15 +272,21 @@ function normalizeParsed(raw: Partial<Omit<ParsedProperty, 'property_type'>> & {
 // Helpers
 // ============================================================
 
-/** ¿Ya existe una propiedad guardada desde este mensaje? (ignora errores) */
+/** ¿Ya existe una propiedad guardada desde este mensaje? */
 async function isDuplicate(messageId?: string): Promise<boolean> {
   if (!messageId) return false
-  const { data } = await supabaseAdmin
+  const res = await dbRetry(() => supabaseAdmin
     .from('properties')
     .select('id')
     .eq('extras->>messageId', messageId)
-    .limit(1)
-  return (data?.length ?? 0) > 0
+    .limit(1), 'buscar duplicado')
+
+  if (res.error) {
+    // Sin base de datos no se puede procesar: que el emisor reintente
+    if (isTransientDbError(res)) throw new TransientError('Supabase no disponible al buscar duplicados')
+    return false
+  }
+  return (res.data?.length ?? 0) > 0
 }
 
 /** Construye el texto a guardar en raw_message */
