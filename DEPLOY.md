@@ -5,7 +5,7 @@
 |---|---|---|
 | App | Vercel, proyecto `sistema-realtor-mach` (equipo "Michael's projects") | Deploy automático desde `main` |
 | Dominio | `https://sistema-realtor-mach-michael-proyectos.vercel.app` | Protegido por Vercel Authentication |
-| Base de datos | VPS (Easypanel), proyecto `supabase`: `pm-db` (Postgres 17 + pgvector), `pm-rest` (PostgREST) y `pm-gateway` (nginx) | API compatible con supabase-js en `https://supabase-pm-gateway.aaqnec.easypanel.host`. Esquema de `supabase/schema.sql`, RLS cerrada |
+| Base de datos | VPS (Easypanel), proyecto `personaldev`: `pm-db` (Postgres 17 + pgvector), `pm-rest` (PostgREST) y `pm-gateway` (nginx) | API compatible con supabase-js en `https://supabase-pm-gateway.aaqnec.easypanel.host`. Esquema de `supabase/schema.sql`, RLS cerrada |
 | Respaldo temporal | Supabase Cloud `property-matcher-mach` (`lleotnonyipedqmyxbmm`) | Congelado desde el 2026-11-01 (1116 propiedades, 674 matches); pausar/eliminar tras unos días |
 | Puente WhatsApp | Easypanel, proyecto `personaldev`, servicio `evolution-api` (v2.3.7) + `evolution-manager` | Instancia `propertymatch` (canal Baileys) |
 | IA | OpenAI | `gpt-4o-mini` (clasificación) y `text-embedding-3-small` (embeddings) |
@@ -16,8 +16,8 @@ Solo las piezas de Supabase que la app usa (REST y RPC). No hay Studio, Auth, St
 | Servicio | Imagen | Configuración clave |
 |---|---|---|
 | `pm-db` | `pgvector/pgvector:pg17` | Base `property`, pgWeb activo para SQL |
-| `pm-rest` | `postgrest/postgrest:v14.8` | `PGRST_DB_URI` (rol `authenticator`, host `supabase_pm-db`), `PGRST_DB_SCHEMAS=public`, `PGRST_DB_EXTRA_SEARCH_PATH=public,extensions`, `PGRST_DB_ANON_ROLE=anon`, `PGRST_JWT_SECRET` |
-| `pm-gateway` | `nginx:1.27-alpine` | Reescribe `/rest/v1/*` → `pm-rest:3000`; dominio https |
+| `pm-rest` | `postgrest/postgrest:v14.8` | `PGRST_DB_URI` (rol `authenticator`, host `personaldev_pm-db`), `PGRST_DB_SCHEMAS=public`, `PGRST_DB_EXTRA_SEARCH_PATH=public,extensions`, `PGRST_DB_ANON_ROLE=anon`, `PGRST_JWT_SECRET` |
+| `pm-gateway` | `nginx:1.27-alpine` | Reescribe `/rest/v1/*` → `personaldev_pm-rest:3000`; dominio https (el nombre `supabase-pm-gateway` es histórico) |
 
 Montarlo desde cero:
 1. Crea `pm-db` y ejecuta `supabase/vps-bootstrap.sql` (con la clave real de `authenticator`) y luego `supabase/schema.sql`.
