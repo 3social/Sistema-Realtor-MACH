@@ -28,7 +28,7 @@ Montarlo desde cero:
 No usar la plantilla compose oficial de Supabase en este VPS: los contenedores no resuelven entre sí el
 nombre `db` (`nxdomain`) y analytics, Kong y auth quedan en bucle. Los servicios nativos de Easypanel sí.
 
-Backups: programar en Easypanel → `pm-db` → Backups (requiere un destino S3 configurado en Settings).
+Backups: Easypanel → `pm-db` → Backups, diario 09:00 UTC, 7 copias, destino Google Drive (`google-drive-backups`, ruta `property-match/pm-db`). Restaurar desde la misma pantalla reemplaza el contenido de la base.
 
 ## 2. Vercel
 1. Importa el repo `3social/Sistema-Realtor-MACH` (rama `main`).
