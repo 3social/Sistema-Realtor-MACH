@@ -62,12 +62,13 @@ OpenAI · Evolution API v2 · Vercel.
 | `lib/matcher.ts` | Búsqueda vectorial de contrapartes |
 | `lib/supabase.ts`, `lib/whatsapp.ts` | Clientes Supabase y descarga de media de Meta |
 | `supabase/schema.sql` | Esquema, función `match_properties` y RLS cerrada |
+| `supabase/vps-bootstrap.sql` | Roles y schema `extensions` para un Postgres propio (antes de `schema.sql`) |
 
 ## Variables de entorno
 | Variable | Uso | Requerida |
 |---|---|---|
-| `NEXT_PUBLIC_SUPABASE_URL` | URL del proyecto Supabase | Sí |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Clave anon | Sí |
+| `NEXT_PUBLIC_SUPABASE_URL` | URL de la API (gateway del VPS, compatible con supabase-js) | Sí |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Clave anon (JWT firmado con el secreto de PostgREST) | Sí |
 | `SUPABASE_SERVICE_ROLE_KEY` | Clave service role (solo servidor) | Sí |
 | `OPENAI_API_KEY` | Clasificación y embeddings | Sí |
 | `INGEST_SECRET` | Secreto de `/api/ingest` (header `x-ingest-secret` o `?secret=`) | Sí (para grupos) |
