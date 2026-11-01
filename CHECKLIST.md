@@ -22,7 +22,7 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ✅ Índice vectorial ahora HNSW (antes IVFFlat).
 - ✅ Backup diario de `pm-db` (base `property`) a Google Drive, 09:00 UTC, retención 7; primera copia verificada en Drive (`property-match/pm-db`).
 - ⬜ Pausar y luego eliminar el proyecto Cloud `property-matcher-mach` (su contraseña de BD se expuso en un chat).
-- ⬜ Eliminar en `pm-db` (pgWeb) la función vieja: `DROP FUNCTION match_properties(extensions.vector, text, double precision, integer);`.
+- ✅ Eliminada en `pm-db` la función vieja `match_properties(extensions.vector, text, double precision, integer)`.
 
 ## 2. Base de datos (histórico: Supabase `property-matcher-mach`)
 - ✅ Tablas `properties` y `matches` creadas, RLS activa, sin políticas para anon.
