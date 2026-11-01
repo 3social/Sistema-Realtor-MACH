@@ -20,6 +20,7 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ✅ Variables de Vercel cambiadas (Production y Preview) y producción redesplegada.
 - ✅ Datos copiados en una sola transacción: 1116 propiedades y 674 matches (con embeddings). Cloud sin escrituras tras el corte.
 - ✅ Índice vectorial ahora HNSW (antes IVFFlat).
+- ✅ Servicios movidos al proyecto `personaldev` (copia verificada por conteos, API probada por la URL pública); proyecto `supabase` eliminado para liberar cupo.
 - ✅ Backup diario de `pm-db` (base `property`) a Google Drive, 09:00 UTC, retención 7; primera copia verificada en Drive (`property-match/pm-db`).
 - ⬜ Pausar y luego eliminar el proyecto Cloud `property-matcher-mach` (su contraseña de BD se expuso en un chat).
 - ✅ Eliminada en `pm-db` la función vieja `match_properties(extensions.vector, text, double precision, integer)`.
