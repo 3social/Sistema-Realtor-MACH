@@ -1,7 +1,8 @@
 -- ============================================================
--- PropertyMatch — Supabase Schema
--- Pegar completo en el SQL Editor de Supabase y ejecutar.
--- (Refleja el estado del proyecto `property-matcher-mach`.)
+-- PropertyMatch — Schema (Postgres + pgvector)
+-- Producción: Postgres propio en el VPS (Easypanel, servicio `pm-db`).
+-- En un Postgres nuevo ejecuta antes `supabase/vps-bootstrap.sql`; en
+-- Supabase basta con pegar este archivo en el SQL Editor.
 -- ============================================================
 
 -- Extensiones (en el schema `extensions`, como recomienda Supabase)
@@ -50,7 +51,7 @@ CREATE TABLE IF NOT EXISTS properties (
 );
 
 CREATE INDEX IF NOT EXISTS properties_embedding_idx
-  ON properties USING ivfflat (embedding extensions.vector_cosine_ops) WITH (lists = 100);
+  ON properties USING hnsw (embedding extensions.vector_cosine_ops);
 
 CREATE INDEX IF NOT EXISTS properties_type_active_idx ON properties (type, is_active);
 

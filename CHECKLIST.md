@@ -14,7 +14,17 @@ Leyenda: ✅ verificado · ⬜ pendiente / por confirmar · ⚠ riesgo conocido.
 - ✅ Dedupe por `messageId` en el pipeline.
 - ⬜ Clasificación contra OpenAI con mensajes reales (no se pudo probar sin clave en el entorno de desarrollo).
 
-## 2. Base de datos (Supabase `property-matcher-mach`)
+## 1b. Migración a VPS (2026-11-01)
+- ✅ Base movida de Supabase Cloud a Easypanel (`pm-db`, `pm-rest`, `pm-gateway`; ver `DEPLOY.md`).
+- ✅ Probado vía API: service role lee/escribe, anon recibe 401 en tablas y funciones, `match_properties` y `zones_compatible` responden.
+- ✅ Variables de Vercel cambiadas (Production y Preview) y producción redesplegada.
+- ✅ Datos copiados en una sola transacción: 1116 propiedades y 674 matches (con embeddings). Cloud sin escrituras tras el corte.
+- ✅ Índice vectorial ahora HNSW (antes IVFFlat).
+- ⬜ Configurar destino de backup en Easypanel y programar backup diario de `pm-db`.
+- ⬜ Pausar y luego eliminar el proyecto Cloud `property-matcher-mach` (su contraseña de BD se expuso en un chat).
+- ⬜ Eliminar en `pm-db` (pgWeb) la función vieja: `DROP FUNCTION match_properties(extensions.vector, text, double precision, integer);`.
+
+## 2. Base de datos (histórico: Supabase `property-matcher-mach`)
 - ✅ Tablas `properties` y `matches` creadas, RLS activa, sin políticas para anon.
 - ✅ `match_properties(uuid, …)` y `zones_compatible` ejecutables por `service_role`, no por `anon`.
 - ✅ Matching por tipo (casa/apartamento/lote/finca), operación, zona, precio (+10 %), habitaciones y remitente:
